@@ -40,7 +40,9 @@ The levels in Mewgeneics are 10x10 which means that each level contains 100 tile
 ![tiles example](./example_images/tiles.png)
 
 Starting at 0x47 and ending at 0x10E (100 words) we have the tiles listed in big endian.
-I marked every corner of the level with a water tile (01). Though admittedly the level does have other water tiles.
+
+I marked every corner of the level with a water tile (01).
+
 When looking at this section you can build the level in your head (kind of)
 01: water
 02: grass
