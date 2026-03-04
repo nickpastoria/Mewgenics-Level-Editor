@@ -115,7 +115,7 @@ That's exactly what we see.
 ### What I don't know
 
 When you look in the previous image you'll notice that the random items spawn on two tiles rather than just the one specified.
-I need to do more testing to figure out what is causing this, but it seems to be tied to being on position x position 4, or 5.
+I need to do more testing to figure out what is causing this, but it seems to be tied to being on x position 4 or 5.
 
 ### End
 
