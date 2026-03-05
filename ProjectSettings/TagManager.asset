@@ -53,5 +53,11 @@ TagManager:
   - name: Spawns
     uniqueID: 3288476455
     locked: 0
+  - name: UI1
+    uniqueID: 2824585153
+    locked: 0
+  - name: UI2
+    uniqueID: 1872277169
+    locked: 0
   m_RenderingLayers:
   - Default
