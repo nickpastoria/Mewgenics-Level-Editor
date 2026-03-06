@@ -10,6 +10,7 @@ public class LevelManager : MonoBehaviour
 {
     public Grid grid;
     public GameObject grass;
+    public GameObject cat;
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
@@ -63,6 +64,14 @@ public class LevelManager : MonoBehaviour
                 if (tileId == 0) continue;
                 GameObject tile = Instantiate(grass, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
                 UnityObjects.Add(tile);
+            }
+        }
+        foreach (Spawn spawn in level.entityList)
+        {
+            if (spawn.uid < 11)
+            {
+                GameObject s = Instantiate(cat, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
+                UnityObjects.Add(s);
             }
         }
     }
