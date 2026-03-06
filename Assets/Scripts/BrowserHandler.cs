@@ -3,12 +3,21 @@ using System.Collections;
 using System.IO;
 using SimpleFileBrowser;
 
-public class FileBrowserTest : MonoBehaviour
+public class BrowserHandler : MonoBehaviour
 {
 	// Warning: paths returned by FileBrowser dialogs do not contain a trailing '\' character
 	// Warning: FileBrowser can only show 1 dialog at a time
 
-	void LoadLevel()
+    private string fileDest;
+
+    public string LoadLevel()
+    {
+        Init();
+        StartCoroutine(ShowLoadDialogCoroutine());
+        return fileDest;
+    }
+
+	private void Init()
 	{
 		// Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
@@ -53,7 +62,7 @@ public class FileBrowserTest : MonoBehaviour
 		//						   FileBrowser.PickMode.Folders, false, null, null, "Select Folder", "Select" );
 
 		// Example 3: Show a select file dialog using coroutine approach
-		StartCoroutine( ShowLoadDialogCoroutine() );
+		//StartCoroutine( ShowLoadDialogCoroutine() );
 	}
 
 	IEnumerator ShowLoadDialogCoroutine()
@@ -80,6 +89,7 @@ public class FileBrowserTest : MonoBehaviour
 
 		// Get the file path of the first selected file
 		string filePath = filePaths[0];
+        fileDest = filePath;
 
 		// Read the bytes of the first file via FileBrowserHelpers
 		// Contrary to File.ReadAllBytes, this function works on Android 10+, as well
