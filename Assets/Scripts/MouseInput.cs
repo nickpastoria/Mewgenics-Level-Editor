@@ -27,7 +27,7 @@ public class MouseInput : MonoBehaviour
                 gridCursor.transform.position = (grid.GetCellCenterWorld(cellPosition));
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
-                    level.setTile(2, cellPosition);
+                    //level.setTile(2, cellPosition);
                 }
             }
         }

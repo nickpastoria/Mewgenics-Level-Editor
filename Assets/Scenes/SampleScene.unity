@@ -2031,7 +2031,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelManager
   grid: {fileID: 584484032}
   grass: {fileID: 105402868}
-  groundLayerParent: {fileID: 0}
 --- !u!1 &584484031
 GameObject:
   m_ObjectHideFlags: 0
