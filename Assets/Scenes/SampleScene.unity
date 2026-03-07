@@ -2612,6 +2612,10 @@ MonoBehaviour:
   spawnLibrary:
   - {fileID: -690166429521921672, guid: 51ad3789c008b5548ae22d72a167f0e6, type: 3}
   - {fileID: -4223063771749371736, guid: 91154177305e78d46a3e32ebde7ab329, type: 3}
+  - {fileID: -548610265268713376, guid: f5716621e84742e47acbbc2d8206658e, type: 3}
+  - {fileID: 5688079361673893291, guid: 7d692873bd4488a4d86776202593b0ca, type: 3}
+  - {fileID: 236671582831953361, guid: 6dc041c82f4c07f44951b335df92722f, type: 3}
+  - {fileID: -2966200626249415253, guid: aba1e9723c271dc47bacc0ba5d23e594, type: 3}
 --- !u!1 &1426683029
 GameObject:
   m_ObjectHideFlags: 0
