@@ -9,8 +9,7 @@ using SimpleFileBrowser;
 public class LevelManager : MonoBehaviour
 {
     public Grid grid;
-    public GameObject grass;
-    public GameObject cat;
+    public GameObject LevelEntity;
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
@@ -20,6 +19,7 @@ public class LevelManager : MonoBehaviour
         public int y;
         public int uid;
         public int wave;
+        //implement random elements in here
     }
 
     struct Level {
@@ -62,7 +62,9 @@ public class LevelManager : MonoBehaviour
             {
                 int tileId = level.groundLayer[y][x];
                 if (tileId == 0) continue;
-                GameObject tile = Instantiate(grass, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
+                GameObject tile = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
+                tile.GetComponent<LevelEntity>().Create(0, tileId);
+                Debug.Log($"Created tile at ({x}, {y}) with ID {tileId}");
                 UnityObjects.Add(tile);
             }
         }
@@ -70,7 +72,8 @@ public class LevelManager : MonoBehaviour
         {
             if (spawn.uid < 11)
             {
-                GameObject s = Instantiate(cat, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
+                GameObject s = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
+                s.GetComponent<LevelEntity>().Create(1, spawn.uid);
                 UnityObjects.Add(s);
             }
         }
