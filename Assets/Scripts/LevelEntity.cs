@@ -26,7 +26,7 @@ public class LevelEntity : MonoBehaviour
             newSprite = spriteLibrary.tileLibrary[0]; // Replace 0 with the actual tile ID
         }
         else{
-            newSprite = spriteLibrary.spawnLibrary[0]; // Replace 0 with the actual tile ID
+            newSprite = spriteLibrary.findSpawnByID(imageID);
         }
 
         spriteRenderer = new SpriteRenderer();

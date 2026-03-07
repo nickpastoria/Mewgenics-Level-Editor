@@ -13,6 +13,12 @@ public class LevelManager : MonoBehaviour
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
+
+    struct randomSpawn
+    {
+        public int uid;
+        public int weight;
+    }
     
     struct Spawn {
         public int x;
@@ -20,6 +26,9 @@ public class LevelManager : MonoBehaviour
         public int uid;
         public int wave;
         //implement random elements in here
+        public int randomCount;
+        public int rollIndex;
+        public randomSpawn[] spawns;
     }
 
     struct Level {
@@ -70,12 +79,10 @@ public class LevelManager : MonoBehaviour
         }
         foreach (Spawn spawn in level.entityList)
         {
-            if (spawn.uid < 11)
-            {
-                GameObject s = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
-                s.GetComponent<LevelEntity>().Create(1, spawn.uid);
-                UnityObjects.Add(s);
-            }
+            GameObject s = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
+            s.GetComponent<LevelEntity>().Create(1, spawn.uid);
+            Debug.Log($"Created entity at ({spawn.x}, {spawn.y}) with ID {spawn.uid}");
+            UnityObjects.Add(s);
         }
     }
 
@@ -183,14 +190,19 @@ public class LevelManager : MonoBehaviour
 
                 if (spawn.uid == 0xFFFF)
                 {
-                    int numPossibilities = reader.ReadUInt16();
-                    int rollIndex = reader.ReadUInt16();
+                    spawn.randomCount = reader.ReadUInt16();
+                    //spawn.rollIndex = reader.ReadUInt16();
+
+                    randomSpawn[] rSpawn = new randomSpawn[spawn.randomCount];
                     
-                    for (int n = 0; n < numPossibilities; n++)
+                    for (int n = 0; n < spawn.randomCount; n++)
                     {
-                        int rId = reader.ReadUInt16();
-                        int rWeight = reader.ReadUInt16();
+                        randomSpawn newitem = new randomSpawn();
+                        newitem.uid = reader.ReadUInt16();
+                        newitem.weight = reader.ReadUInt16();
+                        rSpawn[n] = newitem;
                     }
+                    spawn.spawns = rSpawn;
                 }
                 level.entityList.Add(spawn);
             }

@@ -2607,9 +2607,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SpriteLibrary
   tileLibrary:
+  - {fileID: 8509550459451208454, guid: 6033194713f10be448c6a18358dc9409, type: 3}
   - {fileID: 21300000, guid: c00d02a0ec070d44989a450e7a9ae79d, type: 3}
   spawnLibrary:
   - {fileID: -690166429521921672, guid: 51ad3789c008b5548ae22d72a167f0e6, type: 3}
+  - {fileID: -4223063771749371736, guid: 91154177305e78d46a3e32ebde7ab329, type: 3}
 --- !u!1 &1426683029
 GameObject:
   m_ObjectHideFlags: 0
@@ -2911,9 +2913,9 @@ RectTransform:
   - {fileID: 353734919}
   m_Father: {fileID: 874406513}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -783, y: 426}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 179.76001, y: -43.4}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1788063032
