@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour
         foreach (Spawn spawn in level.entityList)
         {
             GameObject s = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
-            s.GetComponent<LevelEntity>().Create(1, spawn.uid);
+            s.GetComponent<LevelEntity>().Create(20 - (spawn.x + spawn.y), spawn.uid);
             Debug.Log($"Created entity at ({spawn.x}, {spawn.y}) with ID {spawn.uid}");
             UnityObjects.Add(s);
         }
