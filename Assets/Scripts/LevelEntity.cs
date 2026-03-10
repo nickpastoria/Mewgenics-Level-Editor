@@ -1,37 +1,41 @@
+using TMPro;
 using UnityEngine;
 using System.Collections.Generic;
 
 public class LevelEntity : MonoBehaviour
 {
-    private SpriteRenderer spriteRenderer;
     public SpriteLibrary spriteLibrary;
+    public TMP_Text label;
+    private SpriteRenderer spriteRenderer;
     private Sprite newSprite;
+    public EntityDictionary ED;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void Create(int layer, int imageID)
     {
+        string name = "null";
         if (layer == 0)
         {
-            newSprite = spriteLibrary.tileLibrary[0]; // Replace 0 with the actual tile ID
+            if (spriteLibrary.tileImgExists(imageID)) label.enabled = false;
+            if (imageID == 3) layer ++;
+            newSprite = spriteLibrary.findTileByID(imageID); // Replace 0 with the actual tile ID
+            name = ED.tiles[imageID];
         }
         else{
+            if (spriteLibrary.spawnImgExists(imageID)) label.enabled = false;
             newSprite = spriteLibrary.findSpawnByID(imageID);
+            if (imageID > 0)
+            {
+                name = ED.spawns[imageID];
+            }else
+            {
+                name = "Random";
+            }
         }
 
         spriteRenderer = new SpriteRenderer();
         spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = layer;
         spriteRenderer.sprite = newSprite;
+        label.text = $"{imageID}\n{name}";
     }
 }

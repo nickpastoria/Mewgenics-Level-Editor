@@ -1,9 +1,9 @@
 using UnityEngine;
-using System.Collections.Generic;
 using System.Text;
-using UnityEngine.Tilemaps;
-using System.Collections;
 using System.IO;
+using UnityEngine.Tilemaps;
+using System.Collections.Generic;
+using System.Collections;
 using SimpleFileBrowser;
 
 public class LevelManager : MonoBehaviour
@@ -188,8 +188,14 @@ public class LevelManager : MonoBehaviour
 
                 Debug.Log($"Parsed Spawn {i}: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {reader.BaseStream.Position}");
 
+                if (spawn.uid < 12) 
+                {
+                    spawn.uid = 1;
+                }
+
                 if (spawn.uid == 0xFFFF)
                 {
+                    spawn.uid = -1;
                     spawn.randomCount = reader.ReadUInt16();
                     //spawn.rollIndex = reader.ReadUInt16();
 

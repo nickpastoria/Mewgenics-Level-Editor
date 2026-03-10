@@ -4,25 +4,63 @@ using System.IO;
 
 public class SpriteLibrary : MonoBehaviour
 {
-    public struct spriteImage
-    {
-        int ID;
-        Sprite sprite;
-    }
-    
     public Sprite[] tileLibrary;
     public Sprite[] spawnLibrary;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public Sprite[] misc;
+
+    void Start()
+    {
+        spawnLibrary = Resources.LoadAll<Sprite>("spawns");
+        tileLibrary = Resources.LoadAll<Sprite>("tiles");
+        misc = Resources.LoadAll<Sprite>("unkown");
+    }
+    
 
     public Sprite findSpawnByID(int ID)
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ID}_0")
+            if (spawn.name == $"{ID}")
             {
                 return spawn;
             }
         }
-        return spawnLibrary[0];
+        return misc[0];
+    }
+
+    public Sprite findTileByID(int ID)
+    {
+        foreach (Sprite tile in tileLibrary)
+        {
+            if (tile.name == $"{ID}")
+            {
+                return tile;
+            }
+        }
+        return misc[0];
+    }
+
+    public bool tileImgExists(int ID)
+    {
+        foreach (Sprite tile in tileLibrary)
+        {
+            if (tile.name == $"{ID}")
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool spawnImgExists(int ID)
+    {
+        foreach (Sprite spawn in spawnLibrary)
+        {
+            if (spawn.name == $"{ID}")
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
