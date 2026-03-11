@@ -25,6 +25,10 @@ public class MouseInput : MonoBehaviour
             if (cellPosition.x >= 0 && cellPosition.x < 10 && cellPosition.y >= 0 && cellPosition.y < 10)
             {
                 gridCursor.transform.position = (grid.GetCellCenterWorld(cellPosition));
+                if(Mouse.current.leftButton.isPressed)
+                {
+                    
+                }
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
                     //level.setTile(2, cellPosition);
