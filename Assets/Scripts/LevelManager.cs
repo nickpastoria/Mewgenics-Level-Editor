@@ -14,13 +14,14 @@ public class LevelManager : MonoBehaviour
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
 
-    struct randomSpawn
+    public struct randomSpawn
     {
         public int uid;
         public int weight;
     }
-    
-    struct Spawn {
+
+    [System.Serializable]
+    public struct Spawn {
         public int x;
         public int y;
         public int uid;
@@ -62,9 +63,8 @@ public class LevelManager : MonoBehaviour
         UnityObjects.Clear();
     }
 
-    public void updateLevel()
+    public void updateTiles()
     {
-        clearLevel();
         for (int y = 0; y < level.height; y++)
         {
             for (int x = 0; x < level.width; x++)
@@ -77,13 +77,34 @@ public class LevelManager : MonoBehaviour
                 UnityObjects.Add(tile);
             }
         }
+    }
+
+    public void updateSpawns()
+    {
         foreach (Spawn spawn in level.entityList)
         {
             GameObject s = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
-            s.GetComponent<LevelEntity>().Create(20 - (spawn.x + spawn.y), spawn.uid);
+            s.GetComponent<LevelEntity>().Create(20 - (spawn.x + spawn.y), spawn.uid, spawn);
             Debug.Log($"Created entity at ({spawn.x}, {spawn.y}) with ID {spawn.uid}");
             UnityObjects.Add(s);
         }
+    }
+
+    public void setTile(int ID, Vector3Int position)
+    {
+        level.groundLayer[position.y][position.x] = ID;
+        clearLevel();
+        updateTiles();
+        updateSpawns();
+    }
+    
+
+    public void updateLevel()
+    {
+        clearLevel();
+        updateTiles();
+        updateSpawns();
+        
     }
 
     private void LoadLevel()

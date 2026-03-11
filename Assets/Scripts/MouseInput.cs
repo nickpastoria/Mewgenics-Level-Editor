@@ -29,6 +29,10 @@ public class MouseInput : MonoBehaviour
                 {
                     //level.setTile(2, cellPosition);
                 }
+                if(Mouse.current.rightButton.wasReleasedThisFrame)
+                {
+                    level.setTile(0, cellPosition);
+                }
             }
         }
     }

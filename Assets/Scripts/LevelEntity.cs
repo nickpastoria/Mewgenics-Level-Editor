@@ -9,10 +9,13 @@ public class LevelEntity : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Sprite newSprite;
     public EntityDictionary ED;
+
+    public LevelManager.Spawn entity;
     
-    public void Create(int layer, int imageID)
+    public void Create(int layer, int imageID, LevelManager.Spawn spawn = new LevelManager.Spawn())
     {
         string name = "null";
+        entity = spawn;
         if (layer == 0)
         {
             if (spriteLibrary.tileImgExists(imageID)) label.enabled = false;
