@@ -9,12 +9,18 @@ public class EditorManager : MonoBehaviour
     public static EditorManager Instance;
     public int EditorState;
     public int CurrentUID;
-    
+
     [SerializeField]
     private GameObject itemBrowser;
 
-    public void showItems()
+    private void Awake()
     {
-        
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
+        Instance = this;
+        DontDestroyOnLoad(this.gameObject); // Optional: if needed across scenes
     }
 }

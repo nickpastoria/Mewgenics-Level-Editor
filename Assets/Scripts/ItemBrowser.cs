@@ -22,5 +22,6 @@ public class ItemBrowser : MonoBehaviour
     private void SelectItem(int UID)
     {
         Debug.Log("Selected Item: " + UID);
+        EditorManager.Instance.CurrentUID = UID;
     }
 }
