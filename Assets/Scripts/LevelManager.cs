@@ -51,7 +51,9 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        level = new Level();
+        level.groundLayer = new List<List<int>>();
+        level.entityList = new List<Spawn>();
     }
 
     private void clearLevel()
@@ -93,6 +95,18 @@ public class LevelManager : MonoBehaviour
     public void setTile(int ID, Vector3Int position)
     {
         level.groundLayer[position.y][position.x] = ID;
+        clearLevel();
+        updateTiles();
+        updateSpawns();
+    }
+
+    public void setSpawn(int ID, Vector3Int position)
+    {
+        Spawn newEntity = new Spawn();
+        newEntity.x = position.x;
+        newEntity.y = position.y;
+        newEntity.uid = ID;
+        level.entityList.Add(newEntity);
         clearLevel();
         updateTiles();
         updateSpawns();

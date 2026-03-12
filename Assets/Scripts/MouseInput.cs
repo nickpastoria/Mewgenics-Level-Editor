@@ -31,7 +31,7 @@ public class MouseInput : MonoBehaviour
                 }
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
-                    //level.setTile(2, cellPosition);
+                    level.setSpawn(EditorManager.Instance.CurrentUID, cellPosition);
                 }
                 if(Mouse.current.rightButton.wasReleasedThisFrame)
                 {
