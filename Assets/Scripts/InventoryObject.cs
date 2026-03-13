@@ -12,19 +12,29 @@ public class InventoryObject : MonoBehaviour
 
     private Image buttonImage;
 
-    public void Make(int u, string n, SpriteLibrary spl)
+    public void Make(ItemBrowser.Type type, int u, string n, SpriteLibrary spl)
     {
         name = n;
         UID = u;
         SPL = spl;
         textLabel = GetComponentInChildren<TMP_Text>();
         textLabel.text = name;
-        if(SPL.spawnImgExists(UID))
+        if (type == ItemBrowser.Type.Spawn)
         {
-            buttonImage = GetComponentInChildren<Image>();
-            buttonImage.sprite = SPL.findSpawnByID(UID);
+            if(SPL.spawnImgExists(UID))
+            {
+                buttonImage = GetComponentInChildren<Image>();
+                buttonImage.sprite = SPL.findSpawnByID(UID);
+            }
         }
-        
+        if(type == ItemBrowser.Type.Tile)
+        {
+            if(SPL.tileImgExists(UID))
+            {
+                buttonImage = GetComponentInChildren<Image>();
+                buttonImage.sprite = SPL.findTileByID(UID);
+            }
+        }
     }
 
 }

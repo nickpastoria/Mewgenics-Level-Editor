@@ -9,6 +9,7 @@ public class EditorManager : MonoBehaviour
     public static EditorManager Instance;
     public int EditorState;
     public int CurrentUID;
+    public ItemBrowser.Type type;
 
     [SerializeField]
     private GameObject itemBrowser;

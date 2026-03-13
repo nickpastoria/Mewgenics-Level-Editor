@@ -31,7 +31,9 @@ public class MouseInput : MonoBehaviour
                 }
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
-                    level.setSpawn(EditorManager.Instance.CurrentUID, cellPosition);
+                    if(EditorManager.Instance.type == ItemBrowser.Type.Spawn) level.setSpawn(EditorManager.Instance.CurrentUID, cellPosition);
+                    if(EditorManager.Instance.type == ItemBrowser.Type.Tile) level.setTile(EditorManager.Instance.CurrentUID, cellPosition);
+                    
                 }
                 if(Mouse.current.rightButton.wasReleasedThisFrame)
                 {

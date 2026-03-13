@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.Collections;
 using SimpleFileBrowser;
+using System.ComponentModel;
 
 public class LevelManager : MonoBehaviour
 {
@@ -51,9 +52,41 @@ public class LevelManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        CreateEmptyLevel();
+        updateLevel();
+    }
+
+    private void CreateEmptyLevel()
+    {
         level = new Level();
-        level.groundLayer = new List<List<int>>();
+        level.version = 2;
+        level.width = 10;
+        level.height = 10;
+        level.layers = 1;
+        level.nSpawns = 0;
+        level.camx = 0;
+        level.camy = 0;
+        level.camw = 10;
+        level.camh = 10;
+        level.spawns = "spawns.gon";
+        level.tiles = "tiles.gon";
+        fillGround(0);
         level.entityList = new List<Spawn>();
+
+    }
+
+    private void fillGround(int value)
+    {
+        level.groundLayer = new List<List<int>>();
+        for (int x = 0; x < 10; x++)
+        {       
+            List<int> currentRow = new List<int>(level.width);
+            for (int i = 0; i < level.width; i++)
+            {
+                currentRow.Add(0);
+            }
+            level.groundLayer.Add(currentRow);
+        } 
     }
 
     private void clearLevel()
@@ -128,6 +161,7 @@ public class LevelManager : MonoBehaviour
 
     private void DecodeLevel(byte[] file)
     {
+        //AI did this.
         level = new Level();
 
         using (MemoryStream ms = new MemoryStream(file))
@@ -145,7 +179,7 @@ public class LevelManager : MonoBehaviour
             level.camw = reader.ReadInt32();
             level.camh = reader.ReadInt32();
 
-            Debug.Log($"Header Parsed @ {reader.BaseStream.Position}: v{level.version}, Size:{level.width}x{level.height}, Layers:{level.layers}, Spawns:{level.nSpawns}");
+            Debug.Log($"Header Parsed @ {reader.BaseStream.Position}: v{level.version}, Size:{level.width}x{level.height}, Layers:{level.layers}, Spawns:{level.nSpawns}, CamPos:({level.camx},{level.camy}), CamSize:{level.camw}x{level.camh}");
 
             // Read Spawns string
             int lenStr = reader.ReadInt32();

@@ -9,19 +9,32 @@ public class ItemBrowser : MonoBehaviour
     public EntityDictionary ED;
     public SpriteLibrary SPL;
 
-    private void OnEnable()
+    public ItemBrowser.Type LoaderType;
+
+    public enum Type
     {
-        foreach(KeyValuePair<int, string> entry in ED.spawns)
+        Tile,
+        Spawn
+    }
+
+    void Start()
+    {
+        Dictionary<int, string> loadtype;
+        loadtype = null;
+        if (LoaderType == ItemBrowser.Type.Tile) loadtype = ED.tiles;
+        if (LoaderType == ItemBrowser.Type.Spawn) loadtype = ED.spawns;
+        foreach(KeyValuePair<int, string> entry in loadtype)
         {
             GameObject newButton = Instantiate(buttonPrefab, buttonParent.transform);
-            newButton.GetComponent<InventoryObject>().Make(entry.Key, entry.Value, SPL);
-            newButton.GetComponent<Button>().onClick.AddListener(() => SelectItem(entry.Key));
+            newButton.GetComponent<InventoryObject>().Make(LoaderType, entry.Key, entry.Value, SPL);
+            newButton.GetComponent<Button>().onClick.AddListener(() => SelectItem(LoaderType, entry.Key));
         }
     }
 
-    private void SelectItem(int UID)
+    private void SelectItem(ItemBrowser.Type type, int UID)
     {
         Debug.Log("Selected Item: " + UID);
         EditorManager.Instance.CurrentUID = UID;
+        EditorManager.Instance.type = type;
     }
 }
