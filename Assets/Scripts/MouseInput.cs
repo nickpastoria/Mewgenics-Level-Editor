@@ -22,7 +22,7 @@ public class MouseInput : MonoBehaviour
             mouseScreenPosition = Mouse.current.position.ReadValue();
             Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(mouseScreenPosition);
             Vector3Int cellPosition = grid.WorldToCell(mouseWorldPos);
-            if (cellPosition.x >= 0 && cellPosition.x < 10 && cellPosition.y >= 0 && cellPosition.y < 10)
+            if (cellPosition.x >= 0 && cellPosition.x < 10 && cellPosition.y >= 0 && cellPosition.y < 10 && EditorManager.Instance.mouseEnabled)
             {
                 gridCursor.transform.position = (grid.GetCellCenterWorld(cellPosition));
                 if(Mouse.current.leftButton.isPressed)

@@ -11,6 +11,8 @@ public class EditorManager : MonoBehaviour
     public int CurrentUID;
     public ItemBrowser.Type type;
 
+    public bool mouseEnabled = true;
+
     [SerializeField]
     private GameObject itemBrowser;
 

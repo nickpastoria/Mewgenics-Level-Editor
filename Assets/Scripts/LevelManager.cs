@@ -125,6 +125,18 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public bool spawnLocFree(int x, int y)
+    {
+        foreach(Spawn spawn in level.entityList)
+        {
+            if (spawn.x == x && spawn.y == y)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public void setTile(int ID, Vector3Int position)
     {
         level.groundLayer[position.y][position.x] = ID;
@@ -135,6 +147,8 @@ public class LevelManager : MonoBehaviour
 
     public void setSpawn(int ID, Vector3Int position)
     {
+        if(spawnLocFree(position.x, position.y))
+        {
         Spawn newEntity = new Spawn();
         newEntity.x = position.x;
         newEntity.y = position.y;
@@ -143,6 +157,7 @@ public class LevelManager : MonoBehaviour
         clearLevel();
         updateTiles();
         updateSpawns();
+        }
     }
     
 
@@ -288,10 +303,12 @@ public class LevelManager : MonoBehaviour
         // currentLevel = level;
         Debug.Log("Level loaded successfully!");
         updateLevel();
+        EditorManager.Instance.mouseEnabled = true;
     }
 
     IEnumerator LevelWindow()
     {
+        EditorManager.Instance.mouseEnabled = false;
         // Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
 		// if all the dialogs will be using the same filters
@@ -325,6 +342,7 @@ public class LevelManager : MonoBehaviour
 
     public void SaveWindow()
     {
+        EditorManager.Instance.mouseEnabled = false;
         // Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
 		// if all the dialogs will be using the same filters
@@ -350,7 +368,10 @@ public class LevelManager : MonoBehaviour
         // Save file/folder: file, Allow multiple selection: false
 		// Initial path: "C:\", Initial filename: "Screenshot.png"
 		// Title: "Save As", Submit button text: "Save"
-		FileBrowser.ShowSaveDialog( ( paths ) => { Debug.Log( "Selected: " + paths[0] ); }, () => { Debug.Log( "Canceled" ); }, FileBrowser.PickMode.Files, false, "C:\\", "MyLevel.lvl", "Save As", "Save" );
+		FileBrowser.ShowSaveDialog( ( paths ) => {
+            Debug.Log( "Selected: " + paths[0] );
+            SaveLevel(paths[0]);
+            }, () => { Debug.Log( "Canceled" ); }, FileBrowser.PickMode.Files, false, "C:\\", "MyLevel.lvl", "Save As", "Save" );
     }
     
     private void SaveLevel(string filePath)
@@ -366,7 +387,7 @@ public class LevelManager : MonoBehaviour
             writer.Write(level.width);
             writer.Write(level.height);
             writer.Write(level.layers);
-            writer.Write(level.nSpawns);
+            writer.Write(level.entityList.Count);
             writer.Write(level.camx);
             writer.Write(level.camy);
             writer.Write(level.camw);
@@ -375,9 +396,9 @@ public class LevelManager : MonoBehaviour
             Debug.Log($"Header written @ {ms.Position}");
 
             // Spawns string
-            if (string.IsNullOrEmpty(level.spawns) || level.spawns == "spawns.gon")
+            if (string.IsNullOrEmpty(level.spawns))
             {
-                writer.Write(0);
+                writer.Write("spawns.gon");
             }
             else
             {
@@ -387,9 +408,9 @@ public class LevelManager : MonoBehaviour
             }
 
             // Tiles string
-            if (string.IsNullOrEmpty(level.tiles) || level.tiles == "tiles.gon")
+            if (string.IsNullOrEmpty(level.tiles))
             {
-                writer.Write(0);
+                writer.Write("tiles.gon");
             }
             else
             {
@@ -447,12 +468,14 @@ public class LevelManager : MonoBehaviour
 
                 Debug.Log($"Spawn written: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {ms.Position}");
             }
+            writer.Write(new byte[3]);
 
             Debug.Log($"--- ENCODE COMPLETE @ {ms.Position} ---");
 
             System.IO.File.WriteAllBytes(filePath, ms.ToArray());
             Debug.Log($"Level saved to: {filePath}");
         }
+        EditorManager.Instance.mouseEnabled = true;
     }
 }
 
