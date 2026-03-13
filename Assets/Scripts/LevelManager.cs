@@ -161,7 +161,7 @@ public class LevelManager : MonoBehaviour
 
     private void DecodeLevel(byte[] file)
     {
-        //AI did this.
+        //Written by Gemini
         level = new Level();
 
         using (MemoryStream ms = new MemoryStream(file))
@@ -322,4 +322,137 @@ public class LevelManager : MonoBehaviour
             DecodeLevel(file);
             Debug.Log("File destination: " + fileDest);
     }
+
+    public void SaveWindow()
+    {
+        // Set filters (optional)
+		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
+		// if all the dialogs will be using the same filters
+		FileBrowser.SetFilters( true, new FileBrowser.Filter( "Levels", ".lvl", ".lvl" ), new FileBrowser.Filter( "Text Files", ".txt", ".pdf" ) );
+
+		// Set default filter that is selected when the dialog is shown (optional)
+		// Returns true if the default filter is set successfully
+		// In this case, set Images filter as the default filter
+		FileBrowser.SetDefaultFilter( ".lvl" );
+
+		// Set excluded file extensions (optional) (by default, .lnk and .tmp extensions are excluded)
+		// Note that when you use this function, .lnk and .tmp extensions will no longer be
+		// excluded unless you explicitly add them as parameters to the function
+		FileBrowser.SetExcludedExtensions( ".lnk", ".tmp", ".zip", ".rar", ".exe" );
+
+		// Add a new quick link to the browser (optional) (returns true if quick link is added successfully)
+		// It is sufficient to add a quick link just once
+		// Name: Users
+		// Path: C:\Users
+		// Icon: default (folder icon)
+		FileBrowser.AddQuickLink( "Users", "C:\\Users", null );
+
+        // Save file/folder: file, Allow multiple selection: false
+		// Initial path: "C:\", Initial filename: "Screenshot.png"
+		// Title: "Save As", Submit button text: "Save"
+		FileBrowser.ShowSaveDialog( ( paths ) => { Debug.Log( "Selected: " + paths[0] ); }, () => { Debug.Log( "Canceled" ); }, FileBrowser.PickMode.Files, false, "C:\\", "MyLevel.lvl", "Save As", "Save" );
+    }
+    
+    private void SaveLevel(string filePath)
+    {
+        //Writen by Claude
+        using (MemoryStream ms = new MemoryStream())
+        using (BinaryWriter writer = new BinaryWriter(ms))
+        {
+            Debug.Log($"--- START ENCODE ---");
+
+            // Header
+            writer.Write(level.version);
+            writer.Write(level.width);
+            writer.Write(level.height);
+            writer.Write(level.layers);
+            writer.Write(level.nSpawns);
+            writer.Write(level.camx);
+            writer.Write(level.camy);
+            writer.Write(level.camw);
+            writer.Write(level.camh);
+
+            Debug.Log($"Header written @ {ms.Position}");
+
+            // Spawns string
+            if (string.IsNullOrEmpty(level.spawns) || level.spawns == "spawns.gon")
+            {
+                writer.Write(0);
+            }
+            else
+            {
+                byte[] spawnsBytes = Encoding.UTF8.GetBytes(level.spawns);
+                writer.Write(spawnsBytes.Length);
+                writer.Write(spawnsBytes);
+            }
+
+            // Tiles string
+            if (string.IsNullOrEmpty(level.tiles) || level.tiles == "tiles.gon")
+            {
+                writer.Write(0);
+            }
+            else
+            {
+                byte[] tilesBytes = Encoding.UTF8.GetBytes(level.tiles);
+                writer.Write(tilesBytes.Length);
+                writer.Write(tilesBytes);
+            }
+
+            Debug.Log($"Strings written @ {ms.Position}");
+
+            // 8 reserved bytes (skipped on decode)
+            writer.Write(new byte[8]);
+
+            Debug.Log($"Reserved bytes written @ {ms.Position}");
+
+            // Tile layers
+            // NOTE: Only layer 0 (groundLayer) is stored. If you have multiple
+            // layers, you'll need to store them separately on the Level struct.
+            for (int l = 0; l < level.layers; l++)
+            {
+                bool isGroundLayer = (l == 0);
+
+                for (int y = 0; y < level.height; y++)
+                {
+                    for (int x = 0; x < level.width; x++)
+                    {
+                        // Write a plain tile ID for now.
+                        // Randomized tiles (0xFFFF) would need their own data structure.
+                        int tileId = isGroundLayer ? level.groundLayer[y][x] : 0;
+                        writer.Write((ushort)tileId);
+                    }
+                }
+
+                Debug.Log($"Layer {l} written @ {ms.Position}");
+            }
+
+            // Spawns
+            foreach (Spawn spawn in level.entityList)
+            {
+                writer.Write((ushort)spawn.x);
+                writer.Write((ushort)spawn.y);
+                writer.Write((ushort)(spawn.uid == -1 ? 0xFFFF : spawn.uid));
+                writer.Write((ushort)spawn.wave);
+
+                if (spawn.uid == -1)
+                {
+                    writer.Write((ushort)spawn.randomCount);
+
+                    foreach (randomSpawn rs in spawn.spawns)
+                    {
+                        writer.Write((ushort)rs.uid);
+                        writer.Write((ushort)rs.weight);
+                    }
+                }
+
+                Debug.Log($"Spawn written: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {ms.Position}");
+            }
+
+            Debug.Log($"--- ENCODE COMPLETE @ {ms.Position} ---");
+
+            System.IO.File.WriteAllBytes(filePath, ms.ToArray());
+            Debug.Log($"Level saved to: {filePath}");
+        }
+    }
 }
+
