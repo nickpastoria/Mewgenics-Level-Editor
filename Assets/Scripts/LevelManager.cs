@@ -347,10 +347,16 @@ public class LevelManager : MonoBehaviour
         yield return FileBrowser.WaitForLoadDialog( FileBrowser.PickMode.Files, true, null, null, "Select Files", "Load" );
 
         if( FileBrowser.Success )
+        {
             fileDest = FileBrowser.Result[0];
             byte[] file = System.IO.File.ReadAllBytes(fileDest);
             DecodeLevel(file);
             Debug.Log("File destination: " + fileDest);
+        }
+        else
+        {
+            EditorManager.Instance.mouseEnabled = true;
+        }
     }
 
     public void SaveWindow()
@@ -384,7 +390,7 @@ public class LevelManager : MonoBehaviour
 		FileBrowser.ShowSaveDialog( ( paths ) => {
             Debug.Log( "Selected: " + paths[0] );
             SaveLevel(paths[0]);
-            }, () => { Debug.Log( "Canceled" ); }, FileBrowser.PickMode.Files, false, "C:\\", "MyLevel.lvl", "Save As", "Save" );
+            }, () => { Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, "C:\\", "MyLevel.lvl", "Save As", "Save" );
     }
     
     private void SaveLevel(string filePath)
