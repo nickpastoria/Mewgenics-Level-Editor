@@ -8,6 +8,7 @@ public class ItemBrowser : MonoBehaviour
     public GameObject buttonParent;
     public EntityDictionary ED;
     public SpriteLibrary SPL;
+    public SpriteRenderer PreviewImage;
 
     public ItemBrowser.Type LoaderType;
 
@@ -43,6 +44,9 @@ public class ItemBrowser : MonoBehaviour
         Debug.Log("Selected Item: " + UID);
         EditorManager.Instance.CurrentUID = UID;
         EditorManager.Instance.type = type;
+        if(type == ItemBrowser.Type.Spawn) PreviewImage.sprite = SPL.findSpawnByID(UID);
+        if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);
+        
     }
 
     public void FilterStatics()
