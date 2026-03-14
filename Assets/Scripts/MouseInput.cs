@@ -27,7 +27,7 @@ public class MouseInput : MonoBehaviour
                 gridCursor.transform.position = (grid.GetCellCenterWorld(cellPosition));
                 if(Mouse.current.leftButton.isPressed)
                 {
-                    
+                    // Where stuff would happen while the mouse is held down. Like click and drag or multiple selection
                 }
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
@@ -37,7 +37,8 @@ public class MouseInput : MonoBehaviour
                 }
                 if(Mouse.current.rightButton.wasReleasedThisFrame)
                 {
-                    level.setTile(0, cellPosition);
+                    if(EditorManager.Instance.type == ItemBrowser.Type.Tile) level.setTile(0, cellPosition);
+                    if(EditorManager.Instance.type == ItemBrowser.Type.Spawn) level.DeleteSpawnAtLocation(cellPosition.x, cellPosition.y);
                 }
             }
         }

@@ -53,10 +53,9 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         CreateEmptyLevel();
-        updateLevel();
     }
 
-    private void CreateEmptyLevel()
+    public void CreateEmptyLevel()
     {
         level = new Level();
         level.version = 2;
@@ -72,7 +71,7 @@ public class LevelManager : MonoBehaviour
         level.tiles = "tiles.gon";
         fillGround(0);
         level.entityList = new List<Spawn>();
-
+        updateLevel();
     }
 
     private void fillGround(int value)
@@ -123,6 +122,20 @@ public class LevelManager : MonoBehaviour
             Debug.Log($"Created entity at ({spawn.x}, {spawn.y}) with ID {spawn.uid}");
             UnityObjects.Add(s);
         }
+    }
+
+    public bool DeleteSpawnAtLocation(int x, int y)
+    {
+        foreach(Spawn spawn in level.entityList)
+        {
+            if (spawn.x == x && spawn.y == y)
+            {
+                level.entityList.Remove(spawn);
+                updateLevel();
+                return true;
+            }
+        }
+        return false;
     }
 
     public bool spawnLocFree(int x, int y)
