@@ -11,6 +11,8 @@ public class ItemBrowser : MonoBehaviour
 
     public ItemBrowser.Type LoaderType;
 
+    private List<GameObject> SpawnItemList;
+
     public enum Type
     {
         Tile,
@@ -19,6 +21,7 @@ public class ItemBrowser : MonoBehaviour
 
     void Start()
     {
+        SpawnItemList = new List<GameObject>();
         Dictionary<int, string> loadtype;
         loadtype = null;
         if (LoaderType == ItemBrowser.Type.Tile) loadtype = ED.tiles;
@@ -28,6 +31,10 @@ public class ItemBrowser : MonoBehaviour
             GameObject newButton = Instantiate(buttonPrefab, buttonParent.transform);
             newButton.GetComponent<InventoryObject>().Make(LoaderType, entry.Key, entry.Value, SPL);
             newButton.GetComponent<Button>().onClick.AddListener(() => SelectItem(LoaderType, entry.Key));
+            if(loadtype == ED.spawns)
+            {
+                SpawnItemList.Add(newButton);
+            }
         }
     }
 
@@ -37,4 +44,38 @@ public class ItemBrowser : MonoBehaviour
         EditorManager.Instance.CurrentUID = UID;
         EditorManager.Instance.type = type;
     }
+
+    public void FilterStatics()
+    {
+        Filter(5000,6000);
+    }
+    public void FilterEnemies()
+    {
+        Filter(0,1000);
+    }
+    public void FilterElites()
+    {
+        Filter(1001,2000);
+    }
+    public void FilterBosses()
+    {
+        Filter(2000,3000);
+    }
+
+    private void Filter(int min, int max)
+    {
+        foreach(GameObject button in SpawnItemList)
+        {
+            if (button.GetComponent<InventoryObject>().UID >= min && button.GetComponent<InventoryObject>().UID <= max)
+            {
+                button.SetActive(true);
+            }
+            else
+            {
+                button.SetActive(false);
+            }
+        }
+    }
+
+    
 }
