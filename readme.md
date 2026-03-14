@@ -80,7 +80,7 @@ at position 9, 8. There's out rat!
 ### Multi-tile Entities
 
 When spawning entities that take up more than one tile the game uses the position with the smallest x,y
-In my head I think it's the top right, but I rotate the map around in my head now.
+In my head I think it's the top left, but I rotate the map around in my head now.
 
 
 ![big entity example](./example_images/multitile.png)
