@@ -20,7 +20,7 @@ public class ItemBrowser : MonoBehaviour
         Spawn
     }
 
-    void Start()
+    public void Create()
     {
         SpawnItemList = new List<GameObject>();
         Dictionary<int, string> loadtype;

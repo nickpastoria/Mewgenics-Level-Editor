@@ -50,7 +50,7 @@ public class InventoryObject : MonoBehaviour
             }
         }
 
-    return child;
+        return child;
     }
 
 }

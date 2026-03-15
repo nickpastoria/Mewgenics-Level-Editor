@@ -15,8 +15,12 @@ public class EditorManager : MonoBehaviour
 
     public bool mouseEnabled = true;
 
-    [SerializeField]
-    private GameObject itemBrowser;
+    public GameObject TilesBrowser;
+
+    public GameObject SpawnsBrowser;
+    public bool EntitiesLoaded = false;
+
+    public bool ImagesLoaded = false;
 
     private void Awake()
     {
@@ -27,5 +31,14 @@ public class EditorManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject); // Optional: if needed across scenes
+    }
+
+    public void LoadToolbox()
+    {
+        if (EntitiesLoaded && ImagesLoaded)
+        {
+            SpawnsBrowser.GetComponent<ItemBrowser>().Create();
+            TilesBrowser.GetComponent<ItemBrowser>().Create();
+        }
     }
 }

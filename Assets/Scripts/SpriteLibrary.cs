@@ -13,6 +13,8 @@ public class SpriteLibrary : MonoBehaviour
         spawnLibrary = Resources.LoadAll<Sprite>("spawns");
         tileLibrary = Resources.LoadAll<Sprite>("tiles");
         misc = Resources.LoadAll<Sprite>("unkown");
+        EditorManager.Instance.ImagesLoaded = true;
+        EditorManager.Instance.LoadToolbox();
     }
     
 

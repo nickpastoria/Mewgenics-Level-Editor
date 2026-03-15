@@ -10,6 +10,8 @@ public class EntityDictionary : MonoBehaviour
     {
         spawns = LoadFromFile("references/spawns");
         tiles = LoadFromFile("references/tiles");
+        EditorManager.Instance.EntitiesLoaded = true;
+        EditorManager.Instance.LoadToolbox();
     }
 
     Dictionary<int, string> LoadFromFile(string loc)
