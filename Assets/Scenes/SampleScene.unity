@@ -2845,6 +2845,7 @@ GameObject:
   m_Component:
   - component: {fileID: 668035292}
   - component: {fileID: 668035291}
+  - component: {fileID: 668035293}
   m_Layer: 0
   m_Name: EditorManager
   m_TagString: Untagged
@@ -2888,6 +2889,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &668035293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 668035290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 706b2306e37780e47b76c41bf1cea8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PersistentVariables
+  defaultFileLocation: 
 --- !u!1 &673901885
 GameObject:
   m_ObjectHideFlags: 0
@@ -5465,7 +5479,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1283278319}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7369,7 +7383,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1820610849}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

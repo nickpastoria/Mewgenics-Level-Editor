@@ -342,16 +342,19 @@ public class LevelManager : MonoBehaviour
 		// Name: Users
 		// Path: C:\Users
 		// Icon: default (folder icon)
-		FileBrowser.AddQuickLink( "Users", "C:\\Users", null );
+        PersistentVariables defaultSettings = SaveSystem.LoadSettings();
+		FileBrowser.AddQuickLink("Users", defaultSettings.defaultFileLocation, null );
 
-        yield return FileBrowser.WaitForLoadDialog( FileBrowser.PickMode.Files, true, null, null, "Select Files", "Load" );
+        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Files, false, defaultSettings.defaultFileLocation, null, "Select Files", "Load" );
 
         if( FileBrowser.Success )
         {
             fileDest = FileBrowser.Result[0];
             byte[] file = System.IO.File.ReadAllBytes(fileDest);
-            DecodeLevel(file);
+            SaveSystem.SaveFileLocation(Path.GetDirectoryName(fileDest));
             Debug.Log("File destination: " + fileDest);
+            DecodeLevel(file);
+            
         }
         else
         {
@@ -382,15 +385,17 @@ public class LevelManager : MonoBehaviour
 		// Name: Users
 		// Path: C:\Users
 		// Icon: default (folder icon)
-		FileBrowser.AddQuickLink( "Users", "C:\\Users", null );
+		FileBrowser.AddQuickLink( "Users", SaveSystem.LoadSettings().defaultFileLocation, null );
 
         // Save file/folder: file, Allow multiple selection: false
 		// Initial path: "C:\", Initial filename: "Screenshot.png"
 		// Title: "Save As", Submit button text: "Save"
+        PersistentVariables defaultSettings = SaveSystem.LoadSettings();
 		FileBrowser.ShowSaveDialog( ( paths ) => {
             Debug.Log( "Selected: " + paths[0] );
+            SaveSystem.SaveFileLocation(Path.GetDirectoryName(paths[0]));
             SaveLevel(paths[0]);
-            }, () => { Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, "C:\\", "MyLevel.lvl", "Save As", "Save" );
+            }, () => { Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultSettings.defaultFileLocation, "MyLevel.lvl", "Save As", "Save" );
     }
     
     private void SaveLevel(string filePath)
