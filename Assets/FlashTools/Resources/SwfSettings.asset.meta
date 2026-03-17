@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 057fc10688bd84012a3d67ffd1106c94
+timeCreated: 1472384529
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/SwfSettings.asset
+  uploadId: 741369

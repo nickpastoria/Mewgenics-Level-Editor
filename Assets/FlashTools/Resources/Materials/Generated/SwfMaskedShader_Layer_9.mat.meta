@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ffe594274726b40b5b064696310a6def
+timeCreated: 1476535664
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedShader_Layer_9.mat
+  uploadId: 741369

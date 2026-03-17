@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 1fe2c789c6a584e829f4c364674513b9
+timeCreated: 1474963000
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/SwfMaskedGrabShader.shader
+  uploadId: 741369

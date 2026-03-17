@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7646daba632cc4e63997be01363bc478
+timeCreated: 1495135907
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/FlashExport/FlashExport.jsfl
+  uploadId: 741369

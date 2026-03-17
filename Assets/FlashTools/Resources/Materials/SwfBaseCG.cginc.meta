@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 22b5ede0e40fe4227abf1d8ba84d05b2
+timeCreated: 1474967647
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/SwfBaseCG.cginc
+  uploadId: 741369

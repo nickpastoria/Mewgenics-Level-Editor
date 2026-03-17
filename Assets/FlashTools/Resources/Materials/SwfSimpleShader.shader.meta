@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 71f5f783ce2ab4fc4bf826e4acb105dd
+timeCreated: 1469113422
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/SwfSimpleShader.shader
+  uploadId: 741369

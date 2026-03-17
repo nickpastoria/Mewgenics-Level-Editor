@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 4be1d358fa77045e2899bb812f85c66c
+timeCreated: 1476535663
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedShader_Normal_0.mat
+  uploadId: 741369

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 8344a58599edb42cc92b9e64ea6e5082
+timeCreated: 1480698334
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Scripts/Editor/FTEditor/Postprocessors/SwfAssetPostprocessor.cs
+  uploadId: 741369

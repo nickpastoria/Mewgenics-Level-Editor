@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0ab1aa4b663a2431090b57fa510ae1bc
+timeCreated: 1476535671
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedGrabShader_Overlay_1.mat
+  uploadId: 741369

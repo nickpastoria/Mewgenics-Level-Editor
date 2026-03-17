@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 3bbab79356f6f4b539fb5f8237918960
+timeCreated: 1476535671
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfSimpleGrabShader_Overlay.mat
+  uploadId: 741369

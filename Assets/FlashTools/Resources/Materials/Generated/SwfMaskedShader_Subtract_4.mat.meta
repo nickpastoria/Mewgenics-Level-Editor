@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 7109dad905f84422c9f962efe6a7c8df
+timeCreated: 1476535670
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedShader_Subtract_4.mat
+  uploadId: 741369

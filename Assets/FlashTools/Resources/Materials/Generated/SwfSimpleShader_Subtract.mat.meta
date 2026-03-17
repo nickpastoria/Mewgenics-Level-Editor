@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 82bc42d8936d3402188e6f8ac0b9636f
+timeCreated: 1476535669
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfSimpleShader_Subtract.mat
+  uploadId: 741369

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c7ffb0d585af2424aa9f5dc34dd1dead
+timeCreated: 1476535671
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedGrabShader_Invert_7.mat
+  uploadId: 741369

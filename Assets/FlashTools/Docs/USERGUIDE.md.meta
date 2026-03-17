@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 49615ebb9ccc140269e4d8421ee97c67
+TextScriptImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Docs/USERGUIDE.md
+  uploadId: 741369

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: e28b81a2595104648a19d7e0b42f56e8
+timeCreated: 1476535666
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfSimpleShader_Lighten.mat
+  uploadId: 741369

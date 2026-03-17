@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: de69785115f1e48268174d59e9840d11
+timeCreated: 1476535673
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedGrabShader_Hardlight_8.mat
+  uploadId: 741369

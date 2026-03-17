@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: d58d9a5e482e8429f8d7d18a9538d94a
+timeCreated: 1476531186
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfSimpleShader_Normal.mat
+  uploadId: 741369

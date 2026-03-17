@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 16eebfdadc8124595b74302203bcd64e
+timeCreated: 1476535668
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedGrabShader_Darken_9.mat
+  uploadId: 741369

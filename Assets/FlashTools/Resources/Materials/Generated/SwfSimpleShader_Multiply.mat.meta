@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: b3e1622ecb21f40859140d0343b68b48
+timeCreated: 1476535664
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfSimpleShader_Multiply.mat
+  uploadId: 741369

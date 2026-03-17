@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 91fc9b6bb83c645678686dbc06141d03
+timeCreated: 1480707426
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Example/Animations/npc_smuggler.fla_export/npc_smuggler.fla.asset
+  uploadId: 741369

@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f1e8cd2344e824b6a9b12efcacde262c
+timeCreated: 1456948894
+licenseType: Store
+ShaderImporter:
+  defaultTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/SwfDecrMaskShader.shader
+  uploadId: 741369

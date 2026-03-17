@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: c901556683b4e4f8caf179dc64e0636e
+timeCreated: 1476535665
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedShader_Multiply_9.mat
+  uploadId: 741369

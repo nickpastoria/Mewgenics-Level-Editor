@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 37fcfbecc0c444ba0a04467c120f0cc6
+timeCreated: 1476535666
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Resources/Materials/Generated/SwfMaskedShader_Lighten_0.mat
+  uploadId: 741369

@@ -1,0 +1,19 @@
+fileFormatVersion: 2
+guid: 59eb8a1569d5d49c2a71ee09aabc647e
+timeCreated: 1476531620
+licenseType: Store
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Example/Scripts/PurpleFlowerLogic.cs
+  uploadId: 741369

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: f04e34de22e1645a9a0cc1c8b6d1046c
+timeCreated: 1480707415
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/Example/Animations/npc_bureaucrat.fla_export/npc_bureaucrat.fla.bureaucrat.asset
+  uploadId: 741369

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 1332fd3507afd4431af5d795f220d01e
+timeCreated: 1495302866
+licenseType: Store
+DefaultImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 73323
+  packageName: Flash Animation Toolset
+  packageVersion: 1.4.1
+  assetPath: Assets/FlashTools/FlashExport/Internal/FTBase.jsfl
+  uploadId: 741369
