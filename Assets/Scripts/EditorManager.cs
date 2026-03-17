@@ -23,7 +23,8 @@ public class EditorManager : MonoBehaviour
     public bool EntitiesLoaded = false;
 
     public bool ImagesLoaded = false;
-    public  TMP_Text ProjectLabel;
+    public TMP_Text ProjectLabel;
+    public TMP_Text LevelLabel;
 
     private void Awake()
     {
@@ -54,5 +55,10 @@ public class EditorManager : MonoBehaviour
             ProjectLabel.text = folders[^1];
         }
 
+    }
+
+    public void UpdateLevelLabel(string label)
+    {
+        LevelLabel.text = label;
     }
 }

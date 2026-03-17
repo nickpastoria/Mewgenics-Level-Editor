@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
 
     private PersistentVariables sysVars;
     private string levelsLocation;
+    private string CurrentLevel = "New Level";
 
     public struct randomSpawn
     {
@@ -83,6 +84,8 @@ public class LevelManager : MonoBehaviour
         fillGround(0);
         level.entityList = new List<Spawn>();
         updateLevel();
+        CurrentLevel = "New Level";
+        EditorManager.Instance.UpdateLevelLabel(CurrentLevel);
     }
 
     private void fillGround(int value)
@@ -369,6 +372,8 @@ public class LevelManager : MonoBehaviour
             byte[] file = System.IO.File.ReadAllBytes(fileDest);
             UnityEngine.Debug.Log("File destination: " + fileDest);
             DecodeLevel(file);
+            CurrentLevel = fileDest.Split("\\")[^1];
+            EditorManager.Instance.UpdateLevelLabel(CurrentLevel);
             
         }
         else
@@ -409,7 +414,9 @@ public class LevelManager : MonoBehaviour
 		FileBrowser.ShowSaveDialog( ( paths ) => {
             UnityEngine.Debug.Log( "Selected: " + paths[0] );
             SaveLevel(paths[0]);
-            }, () => { UnityEngine.Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultFileLocation, "MyLevel.lvl", "Save As", "Save" );
+            CurrentLevel = paths[0].Split("\\")[^1];
+            EditorManager.Instance.UpdateLevelLabel(CurrentLevel);
+            }, () => { UnityEngine.Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultFileLocation, CurrentLevel, "Save As", "Save" );
     }
     
     private void SaveLevel(string filePath)
@@ -617,6 +624,5 @@ public class LevelManager : MonoBehaviour
             Console.WriteLine($"An error occurred: {ex.Message}");
         }
     }
-
 }
 
