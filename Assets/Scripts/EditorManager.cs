@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 
 // Code Referenced From https://www.youtube.com/watch?v=8bMzz-nSIwg
 public class EditorManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class EditorManager : MonoBehaviour
     public bool EntitiesLoaded = false;
 
     public bool ImagesLoaded = false;
+    public  TMP_Text ProjectLabel;
 
     private void Awake()
     {
@@ -33,6 +35,7 @@ public class EditorManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(this.gameObject); // Optional: if needed across scenes
         SysVars = SaveSystem.LoadSettings();
+        UpdateProjectLabel();
     }
 
     public void LoadToolbox()
@@ -42,5 +45,14 @@ public class EditorManager : MonoBehaviour
             SpawnsBrowser.GetComponent<ItemBrowser>().Create();
             TilesBrowser.GetComponent<ItemBrowser>().Create();
         }
+    }
+    public void UpdateProjectLabel()
+    {
+        if(SysVars.defaultFileLocation != "C:\\" && SysVars.defaultFileLocation != null)
+        {
+            string[] folders =  SysVars.defaultFileLocation.Split("\\");
+            ProjectLabel.text = folders[^1];
+        }
+
     }
 }

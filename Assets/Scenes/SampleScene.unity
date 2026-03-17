@@ -3046,9 +3046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Test Project
-
-'
+  m_text: Test Levels
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff7acd2c853f3144686104c68362acb1, type: 2}
   m_sharedMaterial: {fileID: -329388338287199681, guid: ff7acd2c853f3144686104c68362acb1, type: 2}
@@ -6131,7 +6129,7 @@ GameObject:
   - component: {fileID: 1471025069}
   - component: {fileID: 1471025068}
   m_Layer: 5
-  m_Name: TestProject
+  m_Name: TestLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6154,7 +6152,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 160, y: -183.4}
+  m_AnchoredPosition: {x: 164, y: -182}
   m_SizeDelta: {x: 191.3999, y: 42.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1471025068
@@ -7066,7 +7064,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.9000587, y: 26.757011}
+  m_AnchoredPosition: {x: 14, y: 31.371}
   m_SizeDelta: {x: 321.1923, y: 168.2368}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1641755596

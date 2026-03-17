@@ -8,9 +8,13 @@ using System.Collections;
 using SimpleFileBrowser;
 using System.ComponentModel;
 using System.Diagnostics;
+using TMPro;
+
 
 public class LevelManager : MonoBehaviour
 {
+    public  TMP_Text ProjectLabel;
+    public TMP_Text LevelLabel;
     public Grid grid;
     public GameObject LevelEntity;
     private string fileDest;
@@ -524,10 +528,11 @@ public class LevelManager : MonoBehaviour
         if( FileBrowser.Success )
         {
             fileDest = $"{FileBrowser.Result[0]}";
-            Directory.CreateDirectory(fileDest);
+            Directory.CreateDirectory($"{fileDest}\\levels");
             sysVars.defaultFileLocation = fileDest;
             SaveSystem.SaveSettings(sysVars);
             UnityEngine.Debug.Log("File destination: " + fileDest);
+            EditorManager.Instance.UpdateProjectLabel();
         }
         else
         {
