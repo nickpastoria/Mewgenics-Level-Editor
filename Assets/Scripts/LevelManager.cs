@@ -187,6 +187,11 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(LevelWindow());
     }
 
+    public void SetProject()
+    {
+        StartCoroutine(SetProjectWindow());
+    }
+
     private void DecodeLevel(byte[] file)
     {
         //Written by Gemini
@@ -351,7 +356,6 @@ public class LevelManager : MonoBehaviour
         {
             fileDest = FileBrowser.Result[0];
             byte[] file = System.IO.File.ReadAllBytes(fileDest);
-            SaveSystem.SaveFileLocation(Path.GetDirectoryName(fileDest));
             Debug.Log("File destination: " + fileDest);
             DecodeLevel(file);
             
@@ -393,7 +397,6 @@ public class LevelManager : MonoBehaviour
         PersistentVariables defaultSettings = SaveSystem.LoadSettings();
 		FileBrowser.ShowSaveDialog( ( paths ) => {
             Debug.Log( "Selected: " + paths[0] );
-            SaveSystem.SaveFileLocation(Path.GetDirectoryName(paths[0]));
             SaveLevel(paths[0]);
             }, () => { Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultSettings.defaultFileLocation, "MyLevel.lvl", "Save As", "Save" );
     }
@@ -500,6 +503,26 @@ public class LevelManager : MonoBehaviour
             Debug.Log($"Level saved to: {filePath}");
         }
         EditorManager.Instance.mouseEnabled = true;
+    }
+    IEnumerator SetProjectWindow()
+    {
+        EditorManager.Instance.mouseEnabled = false;
+
+		FileBrowser.AddQuickLink("Users", SaveSystem.LoadSettings().defaultFileLocation, null );
+
+        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Folders, false, SaveSystem.LoadSettings().defaultFileLocation, null, "Select Folder", "Open" );
+
+        if( FileBrowser.Success )
+        {
+            fileDest = $"{FileBrowser.Result[0]}\\levels\\";
+            Directory.CreateDirectory(fileDest);
+            SaveSystem.SaveFileLocation($"{fileDest}");
+            Debug.Log("File destination: " + fileDest);
+        }
+        else
+        {
+            EditorManager.Instance.mouseEnabled = true;
+        }
     }
 }
 
