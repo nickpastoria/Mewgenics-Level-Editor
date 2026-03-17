@@ -17,7 +17,8 @@ public class ItemBrowser : MonoBehaviour
     public enum Type
     {
         Tile,
-        Spawn
+        Spawn,
+        None
     }
 
     public void Create()
@@ -81,5 +82,11 @@ public class ItemBrowser : MonoBehaviour
         }
     }
 
-    
+    public void Deselect()
+    {
+        Debug.Log("Deselected Item");
+        EditorManager.Instance.CurrentUID = 0;
+        EditorManager.Instance.type = Type.None;
+        PreviewImage.sprite = null;
+    }
 }
