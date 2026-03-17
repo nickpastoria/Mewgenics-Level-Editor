@@ -4,18 +4,16 @@ using UnityEngine;
 public class PersistentVariables
 {
     public string defaultFileLocation;
-
-    public PersistentVariables(string fileLoc)
-    {
-        defaultFileLocation = fileLoc;
-    }
-    public PersistentVariables(PersistentVariables vars)
-    {
-        defaultFileLocation = vars.defaultFileLocation;
-    }
+    public string MewgenicsDirectory;
     public PersistentVariables()
     {
         defaultFileLocation = "C:\\Users";
+        MewgenicsDirectory = "";
+    }
+    public void Copy(PersistentVariables copy)
+    {
+        defaultFileLocation = copy.defaultFileLocation;
+        MewgenicsDirectory = copy.MewgenicsDirectory;
     }
 
 }

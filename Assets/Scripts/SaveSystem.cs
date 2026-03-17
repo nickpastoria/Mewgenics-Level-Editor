@@ -4,10 +4,8 @@ using System.IO;
 [System.Serializable]
 public static class SaveSystem
 {
-    public static void SaveFileLocation (string location)
+    public static void SaveSettings (PersistentVariables data)
     {
-        PersistentVariables data = new PersistentVariables();
-        data.defaultFileLocation = location;
         string json = JsonUtility.ToJson(data);
         File.WriteAllText(Application.persistentDataPath + "/settings.json", json);
         Debug.Log("Settings Saved");

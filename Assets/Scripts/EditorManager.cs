@@ -7,6 +7,7 @@ public class EditorManager : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public static EditorManager Instance;
+    public PersistentVariables SysVars;
     public int EditorState;
     public int CurrentUID;
     public ItemBrowser.Type type;
@@ -31,6 +32,7 @@ public class EditorManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(this.gameObject); // Optional: if needed across scenes
+        SysVars = SaveSystem.LoadSettings();
     }
 
     public void LoadToolbox()

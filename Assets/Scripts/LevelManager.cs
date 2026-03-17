@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Text;
 using System.IO;
+using System;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using System.Collections;
 using SimpleFileBrowser;
 using System.ComponentModel;
+using System.Diagnostics;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,6 +16,9 @@ public class LevelManager : MonoBehaviour
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
+
+    private PersistentVariables sysVars;
+    private string levelsLocation;
 
     public struct randomSpawn
     {
@@ -53,6 +58,8 @@ public class LevelManager : MonoBehaviour
     void Start()
     {
         CreateEmptyLevel();
+        sysVars = EditorManager.Instance.SysVars;
+        levelsLocation = $"{sysVars.defaultFileLocation}\\levels\\";
     }
 
     public void CreateEmptyLevel()
@@ -107,7 +114,7 @@ public class LevelManager : MonoBehaviour
                 if (tileId == 0) continue;
                 GameObject tile = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
                 tile.GetComponent<LevelEntity>().Create(0, tileId);
-                Debug.Log($"Created tile at ({x}, {y}) with ID {tileId}");
+                UnityEngine.Debug.Log($"Created tile at ({x}, {y}) with ID {tileId}");
                 UnityObjects.Add(tile);
             }
         }
@@ -119,7 +126,7 @@ public class LevelManager : MonoBehaviour
         {
             GameObject s = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(spawn.x, spawn.y, 0)), Quaternion.identity);
             s.GetComponent<LevelEntity>().Create(20 - (spawn.x + spawn.y), spawn.uid, spawn);
-            Debug.Log($"Created entity at ({spawn.x}, {spawn.y}) with ID {spawn.uid}");
+            UnityEngine.Debug.Log($"Created entity at ({spawn.x}, {spawn.y}) with ID {spawn.uid}");
             UnityObjects.Add(s);
         }
     }
@@ -200,7 +207,7 @@ public class LevelManager : MonoBehaviour
         using (MemoryStream ms = new MemoryStream(file))
         using (BinaryReader reader = new BinaryReader(ms))
         {
-            Debug.Log($"--- START DECODE: File Size {file.Length} bytes ---");
+            UnityEngine.Debug.Log($"--- START DECODE: File Size {file.Length} bytes ---");
 
             level.version = reader.ReadInt32();
             level.width = reader.ReadInt32();
@@ -212,17 +219,17 @@ public class LevelManager : MonoBehaviour
             level.camw = reader.ReadInt32();
             level.camh = reader.ReadInt32();
 
-            Debug.Log($"Header Parsed @ {reader.BaseStream.Position}: v{level.version}, Size:{level.width}x{level.height}, Layers:{level.layers}, Spawns:{level.nSpawns}, CamPos:({level.camx},{level.camy}), CamSize:{level.camw}x{level.camh}");
+            UnityEngine.Debug.Log($"Header Parsed @ {reader.BaseStream.Position}: v{level.version}, Size:{level.width}x{level.height}, Layers:{level.layers}, Spawns:{level.nSpawns}, CamPos:({level.camx},{level.camy}), CamSize:{level.camw}x{level.camh}");
 
             // Read Spawns string
             int lenStr = reader.ReadInt32();
-            Debug.Log($"Spawns String Length: {lenStr} Parsed @ {reader.BaseStream.Position}");
+            UnityEngine.Debug.Log($"Spawns String Length: {lenStr} Parsed @ {reader.BaseStream.Position}");
             if (lenStr == 0) {
                 level.spawns = "spawns.gon";
             } else {
                 level.spawns = Encoding.UTF8.GetString(reader.ReadBytes(lenStr));
             }
-            Debug.Log($"Spawns String '{level.spawns}' Parsed @ {reader.BaseStream.Position}");
+            UnityEngine.Debug.Log($"Spawns String '{level.spawns}' Parsed @ {reader.BaseStream.Position}");
 
             // Read Tiles string
             lenStr = reader.ReadInt32();
@@ -231,18 +238,18 @@ public class LevelManager : MonoBehaviour
             } else {
                 level.tiles = Encoding.UTF8.GetString(reader.ReadBytes(lenStr));
             }
-            Debug.Log($"Tiles String '{level.tiles}' Parsed @ {reader.BaseStream.Position}");
+            UnityEngine.Debug.Log($"Tiles String '{level.tiles}' Parsed @ {reader.BaseStream.Position}");
 
             // Skip 8 bytes
             reader.BaseStream.Position += 8;
-            Debug.Log($"Skipped 8 bytes. Now @ {reader.BaseStream.Position}");
+            UnityEngine.Debug.Log($"Skipped 8 bytes. Now @ {reader.BaseStream.Position}");
 
             level.groundLayer = new List<List<int>>();
 
             // Decode tile layers (We must read all layers to keep stream aligned)
             for (int l = 0; l < level.layers; l++)
             {
-                Debug.Log($"Reading Layer {l} starting @ {reader.BaseStream.Position}...");
+                UnityEngine.Debug.Log($"Reading Layer {l} starting @ {reader.BaseStream.Position}...");
                 bool isGroundLayer = (l == 0);
 
                 for (int y = 0; y < level.height; y++)
@@ -273,7 +280,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
 
-            Debug.Log($"Finished Layers. Starting Spawns @ {reader.BaseStream.Position}...");
+            UnityEngine.Debug.Log($"Finished Layers. Starting Spawns @ {reader.BaseStream.Position}...");
 
             // Decode spawns
             level.entityList = new List<Spawn>(level.nSpawns);
@@ -288,7 +295,7 @@ public class LevelManager : MonoBehaviour
                 spawn.wave = reader.ReadUInt16(); 
                 //reader.BaseStream.Position += 1; // skip(1) reserved byte
 
-                Debug.Log($"Parsed Spawn {i}: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {reader.BaseStream.Position}");
+                UnityEngine.Debug.Log($"Parsed Spawn {i}: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {reader.BaseStream.Position}");
 
                 if (spawn.uid < 12) 
                 {
@@ -315,11 +322,11 @@ public class LevelManager : MonoBehaviour
                 level.entityList.Add(spawn);
             }
 
-            Debug.Log($"--- DECODE COMPLETE @ {reader.BaseStream.Position} ---");
+            UnityEngine.Debug.Log($"--- DECODE COMPLETE @ {reader.BaseStream.Position} ---");
         }
 
         // currentLevel = level;
-        Debug.Log("Level loaded successfully!");
+        UnityEngine.Debug.Log("Level loaded successfully!");
         updateLevel();
         EditorManager.Instance.mouseEnabled = true;
     }
@@ -347,16 +354,16 @@ public class LevelManager : MonoBehaviour
 		// Name: Users
 		// Path: C:\Users
 		// Icon: default (folder icon)
-        PersistentVariables defaultSettings = SaveSystem.LoadSettings();
-		FileBrowser.AddQuickLink("Users", defaultSettings.defaultFileLocation, null );
+        string defaultFileLocation = levelsLocation;
+		FileBrowser.AddQuickLink("Users", defaultFileLocation, null );
 
-        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Files, false, defaultSettings.defaultFileLocation, null, "Select Files", "Load" );
+        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Files, false, defaultFileLocation, null, "Select Files", "Load" );
 
         if( FileBrowser.Success )
         {
             fileDest = FileBrowser.Result[0];
             byte[] file = System.IO.File.ReadAllBytes(fileDest);
-            Debug.Log("File destination: " + fileDest);
+            UnityEngine.Debug.Log("File destination: " + fileDest);
             DecodeLevel(file);
             
         }
@@ -394,11 +401,11 @@ public class LevelManager : MonoBehaviour
         // Save file/folder: file, Allow multiple selection: false
 		// Initial path: "C:\", Initial filename: "Screenshot.png"
 		// Title: "Save As", Submit button text: "Save"
-        PersistentVariables defaultSettings = SaveSystem.LoadSettings();
+        string defaultFileLocation = levelsLocation;
 		FileBrowser.ShowSaveDialog( ( paths ) => {
-            Debug.Log( "Selected: " + paths[0] );
+            UnityEngine.Debug.Log( "Selected: " + paths[0] );
             SaveLevel(paths[0]);
-            }, () => { Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultSettings.defaultFileLocation, "MyLevel.lvl", "Save As", "Save" );
+            }, () => { UnityEngine.Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultFileLocation, "MyLevel.lvl", "Save As", "Save" );
     }
     
     private void SaveLevel(string filePath)
@@ -407,7 +414,7 @@ public class LevelManager : MonoBehaviour
         using (MemoryStream ms = new MemoryStream())
         using (BinaryWriter writer = new BinaryWriter(ms))
         {
-            Debug.Log($"--- START ENCODE ---");
+            UnityEngine.Debug.Log($"--- START ENCODE ---");
 
             // Header
             writer.Write(level.version);
@@ -420,7 +427,7 @@ public class LevelManager : MonoBehaviour
             writer.Write(level.camw);
             writer.Write(level.camh);
 
-            Debug.Log($"Header written @ {ms.Position}");
+            UnityEngine.Debug.Log($"Header written @ {ms.Position}");
 
             // Spawns string
             if (string.IsNullOrEmpty(level.spawns))
@@ -446,12 +453,12 @@ public class LevelManager : MonoBehaviour
                 writer.Write(tilesBytes);
             }
 
-            Debug.Log($"Strings written @ {ms.Position}");
+            UnityEngine.Debug.Log($"Strings written @ {ms.Position}");
 
             // 8 reserved bytes (skipped on decode)
             writer.Write(new byte[8]);
 
-            Debug.Log($"Reserved bytes written @ {ms.Position}");
+            UnityEngine.Debug.Log($"Reserved bytes written @ {ms.Position}");
 
             // Tile layers
             // NOTE: Only layer 0 (groundLayer) is stored. If you have multiple
@@ -471,7 +478,7 @@ public class LevelManager : MonoBehaviour
                     }
                 }
 
-                Debug.Log($"Layer {l} written @ {ms.Position}");
+                UnityEngine.Debug.Log($"Layer {l} written @ {ms.Position}");
             }
 
             // Spawns
@@ -493,14 +500,14 @@ public class LevelManager : MonoBehaviour
                     }
                 }
 
-                Debug.Log($"Spawn written: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {ms.Position}");
+                UnityEngine.Debug.Log($"Spawn written: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {ms.Position}");
             }
             writer.Write(new byte[3]);
 
-            Debug.Log($"--- ENCODE COMPLETE @ {ms.Position} ---");
+            UnityEngine.Debug.Log($"--- ENCODE COMPLETE @ {ms.Position} ---");
 
             System.IO.File.WriteAllBytes(filePath, ms.ToArray());
-            Debug.Log($"Level saved to: {filePath}");
+            UnityEngine.Debug.Log($"Level saved to: {filePath}");
         }
         EditorManager.Instance.mouseEnabled = true;
     }
@@ -509,20 +516,102 @@ public class LevelManager : MonoBehaviour
         EditorManager.Instance.mouseEnabled = false;
 
 		FileBrowser.AddQuickLink("Users", SaveSystem.LoadSettings().defaultFileLocation, null );
+        
+        string defaultFileLocation = sysVars.defaultFileLocation;
 
-        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Folders, false, SaveSystem.LoadSettings().defaultFileLocation, null, "Select Folder", "Open" );
+        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Folders, false, defaultFileLocation, null, "Select Folder", "Open" );
 
         if( FileBrowser.Success )
         {
-            fileDest = $"{FileBrowser.Result[0]}\\levels\\";
+            fileDest = $"{FileBrowser.Result[0]}";
             Directory.CreateDirectory(fileDest);
-            SaveSystem.SaveFileLocation($"{fileDest}");
-            Debug.Log("File destination: " + fileDest);
+            sysVars.defaultFileLocation = fileDest;
+            SaveSystem.SaveSettings(sysVars);
+            UnityEngine.Debug.Log("File destination: " + fileDest);
         }
         else
         {
             EditorManager.Instance.mouseEnabled = true;
         }
     }
+
+    public void RunGame()
+    {
+        Launch();
+    }
+
+    public void Launch()
+    {
+        string app = sysVars.MewgenicsDirectory;
+        if (app == "" || app == null)
+        {
+            StartCoroutine(SetGameDir());
+            UnityEngine.Debug.Log("File Location Not Found");
+        }
+        else
+        {
+            AttemptLaunch(sysVars.MewgenicsDirectory, sysVars.defaultFileLocation);
+        }
+    }
+
+    IEnumerator SetGameDir()
+    {
+        EditorManager.Instance.mouseEnabled = false;
+        // Set filters (optional)
+		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
+		// if all the dialogs will be using the same filters
+		FileBrowser.SetFilters( true, new FileBrowser.Filter( "Executable", ".exe"));
+
+        FileBrowser.SetDefaultFilter( ".exe" );
+
+		// Set excluded file extensions (optional) (by default, .lnk and .tmp extensions are excluded)
+		// Note that when you use this function, .lnk and .tmp extensions will no longer be
+		// excluded unless you explicitly add them as parameters to the function
+		FileBrowser.SetExcludedExtensions( ".lnk", ".tmp", ".zip", ".rar");
+
+        yield return FileBrowser.WaitForLoadDialog(FileBrowser.PickMode.Files, false, null , null, "Select Game Executable", "Select" );
+
+        if( FileBrowser.Success )
+        {
+            string fileDest = FileBrowser.Result[0];
+            UnityEngine.Debug.Log("File destination: " + fileDest);
+            sysVars.MewgenicsDirectory = fileDest;
+            SaveSystem.SaveSettings(sysVars);
+            AttemptLaunch(sysVars.MewgenicsDirectory, sysVars.defaultFileLocation);
+        }
+        else
+        {
+            EditorManager.Instance.mouseEnabled = true;
+        }
+    }
+
+    public void AttemptLaunch(string app, string project)
+    {
+        string arguments = $"-dev_mode true -enable_debugconsole true -modpaths \"{project}\"";
+        // 2. Configure the ProcessStartInfo
+        ProcessStartInfo startInfo = new ProcessStartInfo();
+        startInfo.FileName = app;
+        // Arguments containing spaces should be wrapped in quotes if required by the target app
+        startInfo.Arguments = arguments;
+        
+        // Optional: Other useful properties
+        startInfo.UseShellExecute = true; // Use the OS shell to start (default is true)
+        // startInfo.WorkingDirectory = @"C:\path\to\working\directory"; // Set the working directory
+
+        // 3. Start the process
+        try
+        {
+            Process myProcess = Process.Start(startInfo);
+            
+            // Optional: Wait for the process to exit
+            // myProcess.WaitForExit(); 
+            // Console.WriteLine("External process exited with code: " + myProcess.ExitCode);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+
 }
 
