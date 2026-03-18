@@ -196,7 +196,7 @@ GameObject:
   - component: {fileID: 125611786}
   - component: {fileID: 125611785}
   m_Layer: 5
-  m_Name: Load Project
+  m_Name: Load Folder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5497,7 +5497,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: No Project Selected
+  m_text: No Folder Selected
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff7acd2c853f3144686104c68362acb1, type: 2}
   m_sharedMaterial: {fileID: -329388338287199681, guid: ff7acd2c853f3144686104c68362acb1, type: 2}
@@ -6077,7 +6077,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1283278319}
   m_Direction: 0
   m_Value: 1
-  m_Size: 1
+  m_Size: 0.99999994
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7084,14 +7084,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GridLayoutGroup
   m_Padding:
-    m_Left: 0
-    m_Right: 0
+    m_Left: -109
+    m_Right: -9
     m_Top: 0
-    m_Bottom: 0
+    m_Bottom: -14
   m_ChildAlignment: 7
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 471.4, y: 78.64}
+  m_CellSize: {x: 324.4, y: 78.64}
   m_Spacing: {x: 0, y: -31.9}
   m_Constraint: 1
   m_ConstraintCount: 1
@@ -8224,7 +8224,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Load Project
+  m_text: Load Folder
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ff7acd2c853f3144686104c68362acb1, type: 2}
   m_sharedMaterial: {fileID: -329388338287199681, guid: ff7acd2c853f3144686104c68362acb1, type: 2}

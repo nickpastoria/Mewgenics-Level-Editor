@@ -23,8 +23,9 @@ public static class SaveSystem
         }
         else
         {
+            PersistentVariables data = new PersistentVariables();
             Debug.LogError("Save file not found!");
-            return null;
+            return data;
         }
     }
 }

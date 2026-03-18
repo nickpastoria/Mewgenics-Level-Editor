@@ -198,11 +198,13 @@ public class LevelManager : MonoBehaviour
 
     private void LoadLevel()
     {
+        levelsLocation = $"{sysVars.defaultFileLocation}\\levels\\";
         StartCoroutine(LevelWindow());
     }
 
     public void SetProject()
     {
+        levelsLocation = $"{sysVars.defaultFileLocation}\\levels\\";
         StartCoroutine(SetProjectWindow());
     }
 
@@ -384,6 +386,7 @@ public class LevelManager : MonoBehaviour
 
     public void SaveWindow()
     {
+        levelsLocation = $"{sysVars.defaultFileLocation}\\levels\\";
         EditorManager.Instance.mouseEnabled = false;
         // Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
