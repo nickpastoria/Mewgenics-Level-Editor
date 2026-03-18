@@ -306,7 +306,7 @@ public class LevelManager : MonoBehaviour
 
                 UnityEngine.Debug.Log($"Parsed Spawn {i}: ({spawn.x}, {spawn.y}), UID: {spawn.uid}, Wave: {spawn.wave} @ {reader.BaseStream.Position}");
 
-                if (spawn.uid < 12) 
+                if (spawn.uid < 11) 
                 {
                     spawn.uid = 1;
                 }
