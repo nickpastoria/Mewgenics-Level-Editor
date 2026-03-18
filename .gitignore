@@ -76,8 +76,8 @@ crashlytics-build.properties
 
 # Resources Created By Mewgenics Devs
 /[Aa]ssets/[Rr]esources/[Rr]eferences/*
-/[Aa]ssets/[Rr]esources/[Rr]eferences/spawns/*
-/[Aa]ssets/[Rr]esources/[Rr]eferences/tiles/*
+/[Aa]ssets/[Rr]esources/[Ss]pawns/*
+/[Aa]ssets/[Rr]esources/[Tt]iles/*
 
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
