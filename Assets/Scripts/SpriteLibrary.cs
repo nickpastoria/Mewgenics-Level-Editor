@@ -7,6 +7,7 @@ public class SpriteLibrary : MonoBehaviour
     public Sprite[] tileLibrary;
     public Sprite[] spawnLibrary;
     public Sprite[] misc;
+    public EntityDictionary ED;
 
     void Start()
     {
@@ -22,7 +23,7 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ID}")
+            if (spawn.name == $"{ED.spawns[ID]}")
             {
                 return spawn;
             }
@@ -58,7 +59,7 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ID}")
+            if (spawn.name == $"{ED.spawns[ID]}")
             {
                 return true;
             }
