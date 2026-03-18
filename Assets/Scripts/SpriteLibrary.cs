@@ -23,7 +23,7 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ED.spawns[ID]}")
+            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})"))
             {
                 return spawn;
             }
@@ -59,7 +59,7 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ED.spawns[ID]}")
+            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})"))
             {
                 return true;
             }

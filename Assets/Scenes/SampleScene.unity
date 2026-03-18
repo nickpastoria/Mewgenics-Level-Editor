@@ -5995,6 +5995,7 @@ MonoBehaviour:
   tileLibrary: []
   spawnLibrary: []
   misc: []
+  ED: {fileID: 128469469}
 --- !u!1 &1432744726
 GameObject:
   m_ObjectHideFlags: 0
