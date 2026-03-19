@@ -17,11 +17,11 @@ public class InventoryObject : MonoBehaviour
     public void Make(ItemBrowser.Type type, int u, string n, SpriteLibrary spl)
     {
         Image SpriteImage;
-        name = n;
+        ItemName = n;
         UID = u;
         SPL = spl;
         textLabel = GetComponentInChildren<TMP_Text>();
-        textLabel.text = name;
+        textLabel.text = ItemName;
         ImageButton = FindChildWithTag(this.gameObject, "Toolbox Image");
         SpriteImage = ImageButton.GetComponent<Image>();
 

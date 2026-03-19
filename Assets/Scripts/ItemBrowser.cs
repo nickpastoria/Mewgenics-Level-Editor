@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 public class ItemBrowser : MonoBehaviour
@@ -21,6 +22,11 @@ public class ItemBrowser : MonoBehaviour
         None
     }
 
+    void Awake()
+    {
+        EditorManager.Instance.type = LoaderType;
+    }
+
     public void Create()
     {
         SpawnItemList = new List<GameObject>();
@@ -33,10 +39,7 @@ public class ItemBrowser : MonoBehaviour
             GameObject newButton = Instantiate(buttonPrefab, buttonParent.transform);
             newButton.GetComponent<InventoryObject>().Make(LoaderType, entry.Key, entry.Value, SPL);
             newButton.GetComponent<Button>().onClick.AddListener(() => SelectItem(LoaderType, entry.Key));
-            if(loadtype == ED.spawns)
-            {
-                SpawnItemList.Add(newButton);
-            }
+            SpawnItemList.Add(newButton);
         }
     }
 
@@ -66,12 +69,31 @@ public class ItemBrowser : MonoBehaviour
     {
         Filter(2000,3000);
     }
+    public void FilterSearch(string name)
+    {
+        Filter(name);
+    }
 
-    private void Filter(int min, int max)
+    public void Filter(int min, int max)
     {
         foreach(GameObject button in SpawnItemList)
         {
             if (button.GetComponent<InventoryObject>().UID >= min && button.GetComponent<InventoryObject>().UID <= max)
+            {
+                button.SetActive(true);
+            }
+            else
+            {
+                button.SetActive(false);
+            }
+        }
+    }
+    public void Filter(string name)
+    {
+        foreach(GameObject button in SpawnItemList)
+        {
+            // if (!button.activeInHierarchy) continue;
+            if (button.GetComponent<InventoryObject>().ItemName.IndexOf(name, StringComparison.OrdinalIgnoreCase) >= 0)
             {
                 button.SetActive(true);
             }
