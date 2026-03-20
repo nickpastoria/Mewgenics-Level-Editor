@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     private string levelsLocation;
     private string CurrentLevel = "New Level";
 
+    [System.Serializable]
     public struct randomSpawn
     {
         public int uid;
