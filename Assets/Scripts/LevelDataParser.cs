@@ -14,7 +14,7 @@ public class LevelDataParser
         // \s*\{\s*editor\s*\{ : Matches the opening braces for the main block and the 'editor' block
         // [^}]*?            : Lazily matches anything EXCEPT a closing brace (keeps us inside the editor block)
         // name\s+""([^""]+)"" : Group 2 - Matches 'name', whitespace, and captures the text inside the quotes
-        string pattern = @"^(\d+)\s*\{\s*editor\s*\{[^}]*?name\s+""([^""]+)""";
+        string pattern = @"^(-?\d+)\s*\{\s*editor\s*\{[^}]*?name\s+""([^""]+)""";
 
         // RegexOptions.Multiline lets '^' match the beginning of each line, not just the whole string.
         MatchCollection matches = Regex.Matches(fileContent, pattern, RegexOptions.Multiline);
