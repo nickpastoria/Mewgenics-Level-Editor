@@ -43,11 +43,11 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 3
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 16, y: 35}
   spritePixelsToUnits: 100
   spriteBorder: {x: 13, y: 3, z: 12, w: 6}
   spriteGenerateFallbackPhysicsShape: 1

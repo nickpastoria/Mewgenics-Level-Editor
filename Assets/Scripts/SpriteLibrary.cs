@@ -17,7 +17,6 @@ public class SpriteLibrary : MonoBehaviour
         EditorManager.Instance.ImagesLoaded = true;
         EditorManager.Instance.LoadToolbox();
     }
-    
 
     public Sprite findSpawnByID(int ID)
     {
