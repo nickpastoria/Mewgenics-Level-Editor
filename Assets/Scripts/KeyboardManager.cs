@@ -5,6 +5,7 @@ public class KeyboardManager : MonoBehaviour
 {
     InputAction cancelAction;
     public ItemBrowser itemBrowser;
+    public GameObject Inspector;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -17,6 +18,7 @@ public class KeyboardManager : MonoBehaviour
         if (cancelAction.IsPressed())
         {
             itemBrowser.Deselect();
+            Inspector.SetActive(false);
         }
     }
 }

@@ -33,6 +33,8 @@ public class MouseInput : MonoBehaviour
                 {
                     if(EditorManager.Instance.type == ItemBrowser.Type.Spawn) level.setSpawn(EditorManager.Instance.CurrentUID, cellPosition);
                     if(EditorManager.Instance.type == ItemBrowser.Type.Tile) level.setTile(EditorManager.Instance.CurrentUID, cellPosition);
+                    // Enable Inspector
+                    if(EditorManager.Instance.type == ItemBrowser.Type.None) level.EnableInspector(cellPosition);
                     
                 }
                 if(Mouse.current.rightButton.wasReleasedThisFrame)

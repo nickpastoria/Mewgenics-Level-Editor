@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
     public TMP_Text LevelLabel;
     public Grid grid;
     public GameObject LevelEntity;
+    public GameObject Inspector;
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
@@ -164,6 +165,18 @@ public class LevelManager : MonoBehaviour
         }
         return true;
     }
+    public Spawn GetSpawnAtLoc(int x, int y)
+    {
+        for(int i = 0; i < level.entityList.Count; i++)
+        {
+            Spawn spawn = level.entityList[i];
+            if (spawn.x == x && spawn.y == y)
+            {
+                return spawn;
+            }
+        }
+        return new Spawn();
+    }
 
     public void setTile(int ID, Vector3Int position)
     {
@@ -177,14 +190,14 @@ public class LevelManager : MonoBehaviour
     {
         if(spawnLocFree(position.x, position.y))
         {
-        Spawn newEntity = new Spawn();
-        newEntity.x = position.x;
-        newEntity.y = position.y;
-        newEntity.uid = ID;
-        level.entityList.Add(newEntity);
-        clearLevel();
-        updateTiles();
-        updateSpawns();
+            Spawn newEntity = new Spawn();
+            newEntity.x = position.x;
+            newEntity.y = position.y;
+            newEntity.uid = ID;
+            level.entityList.Add(newEntity);
+            clearLevel();
+            updateTiles();
+            updateSpawns();
         }
     }
     
@@ -626,6 +639,15 @@ public class LevelManager : MonoBehaviour
         catch (Exception ex)
         {
             Console.WriteLine($"An error occurred: {ex.Message}");
+        }
+    }
+    
+    public void EnableInspector(Vector3Int position)
+    {
+        if (!spawnLocFree(position.x, position.y))
+        {
+            Spawn currentSpawn = GetSpawnAtLoc(position.x, position.y);
+            Inspector.SetActive(true);
         }
     }
 }
