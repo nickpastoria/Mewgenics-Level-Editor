@@ -15,6 +15,12 @@ public class InspectorScript : MonoBehaviour
     public EntityDictionary ED;
     public GameObject RandomList;
     public GameObject RandomItemPrefab;
+    public Button AddItemButton;
+
+    void Start()
+    {
+        AddItemButton.onClick.AddListener(() => AddItem(new LevelManager.randomSpawn()));
+    }
 
     void OnEnable()
     {
@@ -68,6 +74,19 @@ public class InspectorScript : MonoBehaviour
             }
         }
         Spawn.randomCount--;
+        Spawn.spawns = newList;
+        levelManager.updateLevel();
+        UpdateDisplay();
+    }
+    public void AddItem(LevelManager.randomSpawn newSpawn)
+    {
+        LevelManager.randomSpawn[] newList = new LevelManager.randomSpawn[Spawn.randomCount+1];
+        newList[0] = newSpawn;
+        for (int i = 1; i < Spawn.randomCount; i++)
+        {
+            newList[i] = Spawn.spawns[i];
+        }
+        Spawn.randomCount++;
         Spawn.spawns = newList;
         levelManager.updateLevel();
         UpdateDisplay();

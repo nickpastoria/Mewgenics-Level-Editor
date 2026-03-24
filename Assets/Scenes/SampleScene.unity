@@ -2873,6 +2873,7 @@ MonoBehaviour:
   ED: {fileID: 128469469}
   RandomList: {fileID: 107584269}
   RandomItemPrefab: {fileID: 7403856937174606286, guid: 51575f4523008c04294ac9a273896ae2, type: 3}
+  AddItemButton: {fileID: 1865224563}
 --- !u!114 &269227253
 MonoBehaviour:
   m_ObjectHideFlags: 0

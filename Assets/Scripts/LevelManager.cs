@@ -647,8 +647,11 @@ public class LevelManager : MonoBehaviour
         if (!spawnLocFree(position.x, position.y))
         {
             Spawn currentSpawn = GetSpawnAtLoc(position.x, position.y);
-            Inspector.SetActive(true);
-            Inspector.GetComponent<InspectorScript>().UpdateInfo(currentSpawn);
+            if (currentSpawn.uid == -1)
+            {
+                Inspector.SetActive(true);
+                Inspector.GetComponent<InspectorScript>().UpdateInfo(currentSpawn);
+            }
         }
     }
 }
