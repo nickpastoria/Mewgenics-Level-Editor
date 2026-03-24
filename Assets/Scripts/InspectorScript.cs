@@ -57,8 +57,7 @@ public class InspectorScript : MonoBehaviour
     }
     public void DeleteItem(LevelManager.randomSpawn excludedSpawn)
     {
-        Spawn.randomCount--;
-        LevelManager.randomSpawn[] newList = new LevelManager.randomSpawn[Spawn.randomCount];
+        LevelManager.randomSpawn[] newList = new LevelManager.randomSpawn[Spawn.randomCount-1];
         int j = 0;
         for (int i = 0; i < Spawn.randomCount; i++)
         {
@@ -68,6 +67,7 @@ public class InspectorScript : MonoBehaviour
                 j++;
             }
         }
+        Spawn.randomCount--;
         Spawn.spawns = newList;
         levelManager.updateLevel();
         UpdateDisplay();

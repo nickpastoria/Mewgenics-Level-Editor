@@ -27,21 +27,21 @@ public class LevelManager : MonoBehaviour
     private string CurrentLevel = "New Level";
 
     [System.Serializable]
-    public struct randomSpawn
+    public class randomSpawn
     {
         public int uid;
         public int weight;
     }
 
     [System.Serializable]
-    public struct Spawn {
+    public class Spawn {
         public int x;
         public int y;
         public int uid;
         public int wave;
         //implement random elements in here
         public int randomCount;
-        public int rollIndex;
+        public int rollIndex;   
         public randomSpawn[] spawns;
     }
 
@@ -122,7 +122,7 @@ public class LevelManager : MonoBehaviour
                 int tileId = level.groundLayer[y][x];
                 if (tileId == 0) continue;
                 GameObject tile = Instantiate(LevelEntity, grid.GetCellCenterWorld(new Vector3Int(x, y, 0)), Quaternion.identity);
-                tile.GetComponent<LevelEntity>().Create(0, tileId);
+                tile.GetComponent<LevelEntity>().Create(0, tileId, new Spawn());
                 UnityEngine.Debug.Log($"Created tile at ({x}, {y}) with ID {tileId}");
                 UnityObjects.Add(tile);
             }

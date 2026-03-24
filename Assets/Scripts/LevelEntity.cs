@@ -12,7 +12,7 @@ public class LevelEntity : MonoBehaviour
 
     public LevelManager.Spawn entity;
     
-    public void Create(int layer, int imageID, LevelManager.Spawn spawn = new LevelManager.Spawn())
+    public void Create(int layer, int imageID, LevelManager.Spawn spawn)
     {
         string name = "null";
         entity = spawn;
