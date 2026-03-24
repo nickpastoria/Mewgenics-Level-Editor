@@ -2802,6 +2802,12 @@ MonoBehaviour:
     randomCount: 0
     rollIndex: 0
     spawns: []
+  Name: {fileID: 1734712408}
+  image: {fileID: 700362469}
+  Position: {fileID: 302233219}
+  UID: {fileID: 2027473190}
+  spritelibrary: {fileID: 1410449164}
+  ED: {fileID: 128469469}
 --- !u!114 &269227253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2999,7 +3005,7 @@ GameObject:
   - component: {fileID: 302233220}
   - component: {fileID: 302233219}
   m_Layer: 5
-  m_Name: X Text
+  m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3432,7 +3438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardManager
   itemBrowser: {fileID: 803218155}
-  Inspector: {fileID: 0}
+  Inspector: {fileID: 269227248}
 --- !u!1 &353734918
 GameObject:
   m_ObjectHideFlags: 0
@@ -12133,7 +12139,7 @@ GameObject:
   - component: {fileID: 2027473191}
   - component: {fileID: 2027473190}
   m_Layer: 5
-  m_Name: X Text (1)
+  m_Name: UID
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
