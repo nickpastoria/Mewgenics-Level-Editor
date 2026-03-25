@@ -12,6 +12,7 @@ public class EditorManager : MonoBehaviour
     public int EditorState;
     public int CurrentUID;
     public ItemBrowser.Type type;
+    public LevelManager.randomSpawn selectedSpawn;
 
     public Sprite PreviewSprite;
 
@@ -37,6 +38,7 @@ public class EditorManager : MonoBehaviour
         DontDestroyOnLoad(this.gameObject); // Optional: if needed across scenes
         SysVars = SaveSystem.LoadSettings();
         UpdateProjectLabel();
+        type = ItemBrowser.Type.None;
     }
 
     public void LoadToolbox()

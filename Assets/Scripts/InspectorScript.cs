@@ -32,7 +32,7 @@ public class InspectorScript : MonoBehaviour
         EditorManager.Instance.mouseEnabled = true;
     }
 
-    void UpdateDisplay()
+    public void UpdateDisplay()
     {
         GameObject[] childrenList = GameObject.FindGameObjectsWithTag("RandomItem");
         foreach(GameObject child in childrenList)
@@ -50,8 +50,12 @@ public class InspectorScript : MonoBehaviour
             {
                 GameObject newItem = GameObject.Instantiate(RandomItemPrefab, RandomList.transform);
                 newItem.GetComponent<RandomItem>().SetImage(spritelibrary.findSpawnByID(randomspawn.uid));
-                Button newbutton = newItem.GetComponent<RandomItem>().GetDeleteButton();
-                newbutton.onClick.AddListener(() => DeleteItem(randomspawn));
+
+                Button deleteButton = newItem.GetComponent<RandomItem>().GetDeleteButton();
+                deleteButton.onClick.AddListener(() => DeleteItem(randomspawn));
+                Button selectButton = newItem.GetComponent<RandomItem>().GetSelectButton();
+                selectButton.onClick.AddListener(() => SelectItem(randomspawn));
+
             }
         }
     }
@@ -67,7 +71,7 @@ public class InspectorScript : MonoBehaviour
         int j = 0;
         for (int i = 0; i < Spawn.randomCount; i++)
         {
-            if (Spawn.spawns[i].uid != excludedSpawn.uid)
+            if (!Spawn.spawns[i].Equals(excludedSpawn))
             {
                 newList[j] = Spawn.spawns[i];
                 j++;
@@ -82,13 +86,18 @@ public class InspectorScript : MonoBehaviour
     {
         LevelManager.randomSpawn[] newList = new LevelManager.randomSpawn[Spawn.randomCount+1];
         newList[0] = newSpawn;
-        for (int i = 1; i < Spawn.randomCount; i++)
+        for (int i = 0; i < Spawn.randomCount; i++)
         {
-            newList[i] = Spawn.spawns[i];
+            newList[i+1] = Spawn.spawns[i];
         }
         Spawn.randomCount++;
         Spawn.spawns = newList;
         levelManager.updateLevel();
         UpdateDisplay();
+    }
+    public void SelectItem(LevelManager.randomSpawn newSelection)
+    {
+        EditorManager.Instance.type = ItemBrowser.Type.Select;
+        EditorManager.Instance.selectedSpawn = newSelection;
     }
 }

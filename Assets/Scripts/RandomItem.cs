@@ -4,7 +4,8 @@ using UnityEngine.UI;
 public class RandomItem : MonoBehaviour
 {
     public Image randomImage;
-    public Button button;
+    public Button DeleteButton;
+    public Button selectButton;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -21,9 +22,13 @@ public class RandomItem : MonoBehaviour
     {
         randomImage.sprite = image;
     }
+    public Button GetSelectButton()
+    {
+        return selectButton;
+    }
     public Button GetDeleteButton()
     {
-        return button;
+        return DeleteButton;
     }
 
 }

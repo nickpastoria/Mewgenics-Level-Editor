@@ -12,6 +12,7 @@ public class EntityDictionary : MonoBehaviour
         tiles = LoadFromFile("references/tiles");
         EditorManager.Instance.EntitiesLoaded = true;
         EditorManager.Instance.LoadToolbox();
+        spawns.Add(-2, "Unset");
     }
 
     Dictionary<int, string> LoadFromFile(string loc)

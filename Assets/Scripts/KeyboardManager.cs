@@ -19,6 +19,7 @@ public class KeyboardManager : MonoBehaviour
         {
             itemBrowser.Deselect();
             Inspector.SetActive(false);
+            EditorManager.Instance.type = ItemBrowser.Type.None;
         }
     }
 }

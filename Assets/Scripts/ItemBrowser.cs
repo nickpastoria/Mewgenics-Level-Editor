@@ -12,6 +12,7 @@ public class ItemBrowser : MonoBehaviour
     public SpriteRenderer PreviewImage;
 
     public ItemBrowser.Type LoaderType;
+    public InspectorScript inspectorScript;
 
     private List<GameObject> SpawnItemList;
 
@@ -19,7 +20,8 @@ public class ItemBrowser : MonoBehaviour
     {
         Tile,
         Spawn,
-        None
+        None,
+        Select
     }
 
     void Awake()
@@ -47,10 +49,16 @@ public class ItemBrowser : MonoBehaviour
     {
         Debug.Log("Selected Item: " + UID);
         EditorManager.Instance.CurrentUID = UID;
-        EditorManager.Instance.type = type;
-        if(type == ItemBrowser.Type.Spawn) PreviewImage.sprite = SPL.findSpawnByID(UID);
-        if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);
-        
+        if (EditorManager.Instance.type == Type.Select)
+        {
+            EditorManager.Instance.selectedSpawn.uid = UID;
+            inspectorScript.UpdateDisplay();
+        } else
+        {
+            EditorManager.Instance.type = type;
+            if(type == ItemBrowser.Type.Spawn) PreviewImage.sprite = SPL.findSpawnByID(UID);
+            if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);   
+        }
     }
 
     public void FilterStatics()

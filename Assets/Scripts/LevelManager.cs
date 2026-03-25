@@ -29,8 +29,8 @@ public class LevelManager : MonoBehaviour
     [System.Serializable]
     public class randomSpawn
     {
-        public int uid;
-        public int weight;
+        public int uid = -2;
+        public int weight = 1;
     }
 
     [System.Serializable]
@@ -195,9 +195,7 @@ public class LevelManager : MonoBehaviour
             newEntity.y = position.y;
             newEntity.uid = ID;
             level.entityList.Add(newEntity);
-            clearLevel();
-            updateTiles();
-            updateSpawns();
+            updateLevel();
         }
     }
     
