@@ -22,7 +22,7 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})"))
+            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
             {
                 return spawn;
             }
@@ -58,7 +58,7 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})"))
+            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
             {
                 return true;
             }
