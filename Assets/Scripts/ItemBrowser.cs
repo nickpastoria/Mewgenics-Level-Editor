@@ -67,7 +67,7 @@ public class ItemBrowser : MonoBehaviour
     }
     public void FilterEnemies()
     {
-        Filter(0,1000);
+        Filter(-1,1000);
     }
     public void FilterElites()
     {
