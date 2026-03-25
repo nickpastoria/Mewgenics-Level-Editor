@@ -78,8 +78,8 @@ crashlytics-build.properties
 /[Aa]ssets/[Rr]esources/[Rr]eferences/*
 /[Aa]ssets/[Rr]esources/[Ss]pawns/*
 /[Aa]ssets/[Rr]esources/[Tt]iles/*
-/StreamingAssets/[Ss]pawns/*
-/StreamingAssets/[Tt]iles/*
+/[Aa]ssets/StreamingAssets/[Ss]pawns/*
+/[Aa]ssets/StreamingAssets/[Tt]iles/*
 
 
 # End of https://www.toptal.com/developers/gitignore/api/unity
