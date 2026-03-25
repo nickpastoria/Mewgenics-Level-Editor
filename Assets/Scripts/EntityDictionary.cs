@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class EntityDictionary : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class EntityDictionary : MonoBehaviour
     public Dictionary<int, string> tiles;
     void Start()
     {
-        spawns = LoadFromFile("references/spawns");
-        tiles = LoadFromFile("references/tiles");
+        spawns = LoadFromStream("spawns.gon");
+        tiles = LoadFromStream("tiles.gon");
         EditorManager.Instance.EntitiesLoaded = true;
         EditorManager.Instance.LoadToolbox();
         spawns.Add(-2, "Unset");
@@ -17,7 +18,6 @@ public class EntityDictionary : MonoBehaviour
 
     Dictionary<int, string> LoadFromFile(string loc)
     {
-        // Load the text file named "dialogue" from the Resources folder
         TextAsset textAsset = Resources.Load<TextAsset>(loc);
 
         if (textAsset != null)
@@ -27,6 +27,24 @@ public class EntityDictionary : MonoBehaviour
         else
         {
             Debug.LogError("Text file not found in Resources folder!");
+            return null;
+        }
+    }
+
+    public Dictionary<int, string> LoadFromStream(string name)
+    {
+        string filePath = Path.Combine(Application.streamingAssetsPath, name);
+        filePath = filePath.Replace('\\', '/');
+
+        // Use File.ReadAllText for text files, or File.ReadAllBytes for raw data
+        if (File.Exists(filePath))
+        {
+            string jsonText = File.ReadAllText(filePath);
+            return LevelDataParser.ExtractNames(jsonText);
+        }
+        else
+        {
+            Debug.LogError("File not found at: " + filePath);
             return null;
         }
     }

@@ -40,7 +40,7 @@ public class MouseInput : MonoBehaviour
                 if(Mouse.current.rightButton.wasReleasedThisFrame)
                 {
                     if(EditorManager.Instance.type == ItemBrowser.Type.Tile) level.setTile(0, cellPosition);
-                    if(EditorManager.Instance.type == ItemBrowser.Type.Spawn || EditorManager.Instance.type == ItemBrowser.Type.None) level.DeleteSpawnAtLocation(cellPosition.x, cellPosition.y);
+                    if(EditorManager.Instance.type == ItemBrowser.Type.Spawn || EditorManager.Instance.type == ItemBrowser.Type.None ) level.DeleteSpawnAtLocation(cellPosition.x, cellPosition.y);
                 }
             }
         }
