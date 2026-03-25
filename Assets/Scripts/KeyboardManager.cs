@@ -26,7 +26,9 @@ public class KeyboardManager : MonoBehaviour
         }
         if (saveAction.IsPressed())
         {
-            levelManager.SaveLevel(levelManager.CurrentLevelPath);
+            if (levelManager.CurrentLevelPath != "") levelManager.SaveLevel(levelManager.CurrentLevelPath);
+            else levelManager.SaveWindow();
+            
         }
     }
 }

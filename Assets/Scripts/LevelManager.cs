@@ -84,6 +84,7 @@ public class LevelManager : MonoBehaviour
         level.camh = 10;
         level.spawns = "spawns.gon";
         level.tiles = "tiles.gon";
+        CurrentLevelPath = "";
         fillGround(0);
         level.entityList = new List<Spawn>();
         updateLevel();
