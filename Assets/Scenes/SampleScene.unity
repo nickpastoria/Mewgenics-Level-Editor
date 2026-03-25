@@ -3506,6 +3506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KeyboardManager
   itemBrowser: {fileID: 803218155}
   Inspector: {fileID: 269227248}
+  levelManager: {fileID: 541686900}
 --- !u!1 &353734918
 GameObject:
   m_ObjectHideFlags: 0
@@ -4555,6 +4556,7 @@ MonoBehaviour:
   grid: {fileID: 584484032}
   LevelEntity: {fileID: 448554762}
   Inspector: {fileID: 269227248}
+  CurrentLevelPath: 
 --- !u!1 &559260672
 GameObject:
   m_ObjectHideFlags: 0

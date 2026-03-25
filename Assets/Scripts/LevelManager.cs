@@ -25,6 +25,7 @@ public class LevelManager : MonoBehaviour
     private PersistentVariables sysVars;
     private string levelsLocation;
     private string CurrentLevel = "New Level";
+    public string CurrentLevelPath = "";
 
     [System.Serializable]
     public class randomSpawn
@@ -388,6 +389,7 @@ public class LevelManager : MonoBehaviour
             DecodeLevel(file);
             CurrentLevel = fileDest.Split("\\")[^1];
             EditorManager.Instance.UpdateLevelLabel(CurrentLevel);
+            CurrentLevelPath = fileDest;
             
         }
         else
@@ -430,11 +432,12 @@ public class LevelManager : MonoBehaviour
             UnityEngine.Debug.Log( "Selected: " + paths[0] );
             SaveLevel(paths[0]);
             CurrentLevel = paths[0].Split("\\")[^1];
+            CurrentLevelPath = paths[0];
             EditorManager.Instance.UpdateLevelLabel(CurrentLevel);
             }, () => { UnityEngine.Debug.Log( "Canceled" ); EditorManager.Instance.mouseEnabled = true;}, FileBrowser.PickMode.Files, false, defaultFileLocation, CurrentLevel, "Save As", "Save" );
     }
     
-    private void SaveLevel(string filePath)
+    public void SaveLevel(string filePath)
     {
         //Writen by Claude
         using (MemoryStream ms = new MemoryStream())
