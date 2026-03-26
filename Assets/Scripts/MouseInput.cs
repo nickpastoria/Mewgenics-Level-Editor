@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
 
 public class MouseInput : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class MouseInput : MonoBehaviour
     private Vector2 mouseScreenPosition;
     public LevelManager level;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public EventSystem eventSys;
     void Start()
     {
         
@@ -42,6 +44,12 @@ public class MouseInput : MonoBehaviour
                     if(EditorManager.Instance.type == ItemBrowser.Type.Tile) level.setTile(0, cellPosition);
                     if(EditorManager.Instance.type == ItemBrowser.Type.Spawn || EditorManager.Instance.type == ItemBrowser.Type.None ) level.DeleteSpawnAtLocation(cellPosition.x, cellPosition.y);
                 }
+            }
+            else if (!EventSystem.current.IsPointerOverGameObject() && Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                // *** Your non-UI click logic goes here ***
+                Debug.Log("Mouse clicked on empty space (not UI).");
+                level.DisableInspector();
             }
         }
     }

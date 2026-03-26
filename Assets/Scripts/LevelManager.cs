@@ -663,5 +663,11 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
+    
+    public void DisableInspector()
+    {
+        EditorManager.Instance.mouseEnabled = true;
+        Inspector.SetActive(false);
+    }
 }
 
