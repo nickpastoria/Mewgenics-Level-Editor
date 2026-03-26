@@ -72,6 +72,7 @@ public class LevelManager : MonoBehaviour
 
     public void CreateEmptyLevel()
     {
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         level = new Level();
         level.version = 2;
         level.width = 10;
@@ -213,12 +214,17 @@ public class LevelManager : MonoBehaviour
     private void LoadLevel()
     {
         levelsLocation = $"{sysVars.defaultFileLocation}";
+        EditorManager.Instance.mouseEnabled = false;
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         StartCoroutine(LevelWindow());
+        
     }
 
     public void SetProject()
     {
         levelsLocation = $"{sysVars.defaultFileLocation}";
+        EditorManager.Instance.mouseEnabled = false;
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         StartCoroutine(SetProjectWindow());
     }
 
@@ -356,7 +362,6 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LevelWindow()
     {
-        EditorManager.Instance.mouseEnabled = false;
         // Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
 		// if all the dialogs will be using the same filters

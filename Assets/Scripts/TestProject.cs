@@ -12,6 +12,7 @@ public static class TestProject
 {
     public static void Launch(PersistentVariables vars)
     {
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         string app = vars.MewgenicsDirectory;
         if (app == "" || app == null)
         {
