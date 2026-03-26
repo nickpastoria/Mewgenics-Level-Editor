@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     public Grid grid;
     public GameObject LevelEntity;
     public GameObject Inspector;
+    public Animator saveAnimator;
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
@@ -543,6 +544,7 @@ public class LevelManager : MonoBehaviour
 
             System.IO.File.WriteAllBytes(filePath, ms.ToArray());
             UnityEngine.Debug.Log($"Level saved to: {filePath}");
+            saveAnimator.SetTrigger("PlayAnim");
         }
         EditorManager.Instance.mouseEnabled = true;
     }

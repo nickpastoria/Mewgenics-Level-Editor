@@ -8,6 +8,7 @@ public class KeyboardManager : MonoBehaviour
     public ItemBrowser itemBrowser;
     public GameObject Inspector;
     public LevelManager levelManager;
+    public Animator saveAnimator;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,10 +24,15 @@ public class KeyboardManager : MonoBehaviour
             itemBrowser.Deselect();
             Inspector.SetActive(false);
             EditorManager.Instance.type = ItemBrowser.Type.None;
+            
         }
         if (saveAction.IsPressed())
         {
-            if (levelManager.CurrentLevelPath != "") levelManager.SaveLevel(levelManager.CurrentLevelPath);
+            if (levelManager.CurrentLevelPath != "")
+            {
+                saveAnimator.SetTrigger("PlayAnim");
+                levelManager.SaveLevel(levelManager.CurrentLevelPath);
+            } 
             else levelManager.SaveWindow();
             
         }
