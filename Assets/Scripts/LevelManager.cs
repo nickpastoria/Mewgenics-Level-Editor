@@ -527,6 +527,11 @@ public class LevelManager : MonoBehaviour
 
                 if (spawn.uid == -1)
                 {
+                    if (spawn.randomCount <= 0)
+                    {
+                        EditorManager.Instance.errorHandler.DisplayError("Random entity has an empty spawn list");
+                    }
+
                     writer.Write((ushort)spawn.randomCount);
 
                     foreach (randomSpawn rs in spawn.spawns)

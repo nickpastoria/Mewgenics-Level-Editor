@@ -26,6 +26,7 @@ public class EditorManager : MonoBehaviour
     public bool ImagesLoaded = false;
     public TMP_Text ProjectLabel;
     public TMP_Text LevelLabel;
+    public ErrorHandler errorHandler;
 
     private void Awake()
     {
