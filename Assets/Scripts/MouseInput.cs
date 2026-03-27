@@ -5,14 +5,18 @@ using UnityEngine.EventSystems;
 
 public class MouseInput : MonoBehaviour
 {
+    public SpriteLibrary spriteLibrary;
     public Grid grid; 
     public GameObject gridCursor;
     private Vector2 mouseScreenPosition;
     public LevelManager level;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public EventSystem eventSys;
+    public GameObject mouseDragImage;
     private bool isClickDragging = false;
     private LevelManager.Spawn draggedSpawn;
+    private SpriteRenderer spriteRenderer;
+    private Sprite newSprite;
     void Start()
     {
         
@@ -36,15 +40,21 @@ public class MouseInput : MonoBehaviour
                     {
                         isClickDragging = true;
                         draggedSpawn = level.GetSpawnAtLoc(cellPosition.x, cellPosition.y);
+                        newSprite = spriteLibrary.findSpawnByID(draggedSpawn.uid);
+                        spriteRenderer = new SpriteRenderer();
+                        spriteRenderer = mouseDragImage.gameObject.GetComponent<SpriteRenderer>();
+                        spriteRenderer.sortingOrder = 10;
+                        spriteRenderer.sprite = newSprite;
+                        mouseDragImage.SetActive(true);
                     }
                 }
                 if(Mouse.current.leftButton.isPressed)
                 {
                     // Click and Drag Logic
                     // Check to make sure we're not placing anything
-                    if(EditorManager.Instance.type == ItemBrowser.Type.None)
+                    if(EditorManager.Instance.type == ItemBrowser.Type.None && isClickDragging)
                     {
-                        
+                        mouseDragImage.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 10);
                     }
                 }
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
@@ -61,6 +71,7 @@ public class MouseInput : MonoBehaviour
                         draggedSpawn.y = cellPosition.y;
                         level.updateLevel();
                         isClickDragging = false;
+                        mouseDragImage.SetActive(false);
                     }
                     
                 }
