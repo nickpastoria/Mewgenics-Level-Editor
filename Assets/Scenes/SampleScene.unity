@@ -9048,7 +9048,7 @@ SpriteRenderer:
   m_Size: {x: 1.41, y: 0.72}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_SpriteSortPoint: 0
 --- !u!4 &1402091093
 Transform:
@@ -9113,6 +9113,8 @@ MonoBehaviour:
   spawnLibrary: []
   misc: []
   ED: {fileID: 128469469}
+  SpawnsFileLocation: spawns/
+  TilesFileLocation: tiles/
 --- !u!1 &1415622704
 GameObject:
   m_ObjectHideFlags: 0

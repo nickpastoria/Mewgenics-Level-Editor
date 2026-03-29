@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine.UI;
 using System;
+using UnityEngine.UIElements;
 
 public class SpriteLibrary : MonoBehaviour
 {
@@ -96,28 +97,16 @@ public class SpriteLibrary : MonoBehaviour
         if (File.Exists(fullPath))
         {
             byte[] fileBytes = File.ReadAllBytes(fullPath);
+            List<float> pivotList = ReadPivotPoints(fullPath);
+
             Texture2D tex = new Texture2D(2, 2); // Dimensions are automatically adjusted by LoadImage
             tex.LoadImage(fileBytes); // LoadImage handles the byte-array conversion
+
             tex.filterMode = FilterMode.Point;
             tex.wrapMode = TextureWrapMode.Clamp;
 
             Rect rect = new Rect(0.0f, 0.0f, tex.width, tex.height);
-            Vector2 pivot;
-            
-            if (relativePath.Contains("tiles"))
-            {
-                if (tex.height <= 75.0f) pivot = new Vector2(0.5f, 0.5f);
-                else if (tex.height <= 100.0) pivot = new Vector2(0.5f, 0.4f);
-                else pivot = new Vector2(0.5f, 36.0f/tex.height);
-            }
-            else if (tex.height < 30.0f) pivot = new Vector2(0.5f, 0.5f);
-            else if (tex.height < 36.0f) pivot = new Vector2(0.5f, 2.0f/tex.height);
-            else if (tex.height < 72.0f) pivot = new Vector2(0.5f, 36.0f/tex.height);
-            else if (tex.height < 110.0f) pivot = new Vector2(0.5f, 0.2f);
-            else
-            {
-                pivot = new Vector2(0.5f, 36.0f/tex.height);
-            }
+            Vector2 pivot = new Vector2(pivotList[0], pivotList[1]);
             
             float pixelsPerUnit = 100.0f;
             Sprite newSprite = Sprite.Create(tex, rect, pivot, pixelsPerUnit);
@@ -128,5 +117,29 @@ public class SpriteLibrary : MonoBehaviour
         {
             return null;
         }
+    }
+    public static List<float> ReadPivotPoints(string imagePath)
+    {
+        string txtPath = Path.ChangeExtension(imagePath, ".txt");
+        List<float> pivots = new List<float>();
+
+        if (!File.Exists(txtPath))
+        {
+            Debug.LogWarning($"Pivot file not found: {txtPath}");
+            return new List<float> {0.5f, 0.5f};
+        }
+
+        string[] tokens = File.ReadAllText(txtPath).Trim().Split(' ');
+
+        foreach (string token in tokens)
+        {
+            if (float.TryParse(token, System.Globalization.NumberStyles.Float,
+                            System.Globalization.CultureInfo.InvariantCulture, out float value))
+            {
+                pivots.Add(value / 100f);  // convert % to 0-1 range
+            }
+        }
+
+        return pivots;
     }
 }
