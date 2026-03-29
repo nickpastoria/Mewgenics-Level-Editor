@@ -18,6 +18,7 @@ public class LevelManager : MonoBehaviour
     public Grid grid;
     public GameObject LevelEntity;
     public GameObject Inspector;
+    public Animator saveAnimator;
     private string fileDest;
     private Level level;
     private List<GameObject> UnityObjects = new List<GameObject>();
@@ -72,6 +73,7 @@ public class LevelManager : MonoBehaviour
 
     public void CreateEmptyLevel()
     {
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         level = new Level();
         level.version = 2;
         level.width = 10;
@@ -213,12 +215,17 @@ public class LevelManager : MonoBehaviour
     private void LoadLevel()
     {
         levelsLocation = $"{sysVars.defaultFileLocation}";
+        EditorManager.Instance.mouseEnabled = false;
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         StartCoroutine(LevelWindow());
+        
     }
 
     public void SetProject()
     {
         levelsLocation = $"{sysVars.defaultFileLocation}";
+        EditorManager.Instance.mouseEnabled = false;
+        EditorManager.Instance.type = ItemBrowser.Type.None;
         StartCoroutine(SetProjectWindow());
     }
 
@@ -356,7 +363,6 @@ public class LevelManager : MonoBehaviour
 
     IEnumerator LevelWindow()
     {
-        EditorManager.Instance.mouseEnabled = false;
         // Set filters (optional)
 		// It is sufficient to set the filters just once (instead of each time before showing the file browser dialog), 
 		// if all the dialogs will be using the same filters
@@ -521,6 +527,11 @@ public class LevelManager : MonoBehaviour
 
                 if (spawn.uid == -1)
                 {
+                    if (spawn.randomCount <= 0)
+                    {
+                        EditorManager.Instance.errorHandler.DisplayError("Random entity has an empty spawn list");
+                    }
+
                     writer.Write((ushort)spawn.randomCount);
 
                     foreach (randomSpawn rs in spawn.spawns)
@@ -538,6 +549,7 @@ public class LevelManager : MonoBehaviour
 
             System.IO.File.WriteAllBytes(filePath, ms.ToArray());
             UnityEngine.Debug.Log($"Level saved to: {filePath}");
+            saveAnimator.SetTrigger("PlayAnim");
         }
         EditorManager.Instance.mouseEnabled = true;
     }
@@ -655,6 +667,12 @@ public class LevelManager : MonoBehaviour
                 Inspector.GetComponent<InspectorScript>().UpdateInfo(currentSpawn);
             }
         }
+    }
+    
+    public void DisableInspector()
+    {
+        EditorManager.Instance.mouseEnabled = true;
+        Inspector.SetActive(false);
     }
 }
 

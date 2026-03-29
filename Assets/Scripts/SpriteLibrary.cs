@@ -41,7 +41,9 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
+            // Check for ID'd images first so we can separate items like harpoons that all have the same name
+            if (spawn.name == $"{ID}") return spawn;
+            else if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
             {
                 return spawn;
             }
@@ -77,7 +79,9 @@ public class SpriteLibrary : MonoBehaviour
     {
         foreach (Sprite spawn in spawnLibrary)
         {
-            if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
+            // Check for ID'd images first so we can separate items like harpoons that all have the same name
+            if (spawn.name == $"{ID}") return spawn;
+            else if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
             {
                 return true;
             }
