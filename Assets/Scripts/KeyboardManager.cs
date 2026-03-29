@@ -34,7 +34,6 @@ public class KeyboardManager : MonoBehaviour
                 levelManager.SaveLevel(levelManager.CurrentLevelPath);
             } 
             else levelManager.SaveWindow();
-            
         }
     }
 }

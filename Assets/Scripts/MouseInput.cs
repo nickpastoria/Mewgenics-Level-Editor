@@ -13,13 +13,14 @@ public class MouseInput : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public EventSystem eventSys;
     public GameObject mouseDragImage;
+    InputAction modifyAction;
     private bool isClickDragging = false;
     private LevelManager.Spawn draggedSpawn;
     private SpriteRenderer spriteRenderer;
     private Sprite newSprite;
     void Start()
     {
-        
+        modifyAction = InputSystem.actions.FindAction("Modify");
     }
 
     // Update is called once per frame
@@ -67,8 +68,20 @@ public class MouseInput : MonoBehaviour
                     if(EditorManager.Instance.type == ItemBrowser.Type.None) level.EnableInspector(cellPosition);
                     if(EditorManager.Instance.type == ItemBrowser.Type.None && isClickDragging)
                     {
-                        draggedSpawn.x = cellPosition.x;
-                        draggedSpawn.y = cellPosition.y;
+                        if (level.spawnLocFree(cellPosition.x, cellPosition.y))
+                        {
+                            // If we are holding ctrl then we need to copy the item instead of moving it
+                            if (modifyAction.IsPressed())
+                            {
+                                Debug.Log("Copying drag");
+                                level.setSpawn(new LevelManager.Spawn(draggedSpawn), cellPosition);
+                            }
+                            else
+                            {
+                                draggedSpawn.x = cellPosition.x;
+                                draggedSpawn.y = cellPosition.y; 
+                            }
+                        }
                         level.updateLevel();
                         isClickDragging = false;
                         mouseDragImage.SetActive(false);
