@@ -9040,12 +9040,12 @@ SpriteRenderer:
   m_SortingLayer: -1
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: ef25b6182855121499c2e703f5e742f9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c4021b7885457c7458250193e7719b72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1.41, y: 0.72}
+  m_Size: {x: 1.41, y: 0.71}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -9113,6 +9113,8 @@ MonoBehaviour:
   spawnLibrary: []
   misc: []
   ED: {fileID: 128469469}
+  SpawnsFileLocation: spawns/
+  TilesFileLocation: tiles/
 --- !u!1 &1415622704
 GameObject:
   m_ObjectHideFlags: 0
@@ -10239,7 +10241,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 4b6dc1bb7d77fb948bee14fda5953587, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a5caaeade7a6f44191f474468747810, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1

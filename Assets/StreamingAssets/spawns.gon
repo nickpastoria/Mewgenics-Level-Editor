@@ -23,13 +23,6 @@
     }
 }
 
--1 {
-    editor {
-        category 1
-        name "Random"
-    }
-}
-
 //cat spawns (ids 1 to 10)
 
 1 {

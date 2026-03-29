@@ -33,6 +33,12 @@ public class LevelManager : MonoBehaviour
     {
         public int uid = -2;
         public int weight = 1;
+        public randomSpawn(){}
+        public randomSpawn(int _uid, int _weight)
+        {
+            uid = _uid;
+            weight = _weight;
+        }
     }
 
     [System.Serializable]
@@ -45,6 +51,21 @@ public class LevelManager : MonoBehaviour
         public int randomCount;
         public int rollIndex;   
         public randomSpawn[] spawns;
+        public Spawn(){}
+        public Spawn(Spawn oldSpawn)
+        {
+            x = oldSpawn.x;
+            y = oldSpawn.y;
+            uid = oldSpawn.uid;
+            wave = oldSpawn.wave;
+            randomCount = oldSpawn.randomCount;
+            rollIndex = oldSpawn.rollIndex;
+            if (randomCount > 0)
+                {
+                    spawns = new randomSpawn[randomCount];
+                    Array.Copy(oldSpawn.spawns, spawns, oldSpawn.randomCount);
+                }
+        }
     }
 
     struct Level {
@@ -189,6 +210,16 @@ public class LevelManager : MonoBehaviour
         updateTiles();
         updateSpawns();
     }
+    public void setSpawn(Spawn newSpawn, Vector3Int newPosition)
+    {
+        if(spawnLocFree(newPosition.x, newPosition.y))
+        {
+            newSpawn.x = newPosition.x;
+            newSpawn.y = newPosition.y;
+            level.entityList.Add(newSpawn);
+            updateLevel();
+        }
+    }
 
     public void setSpawn(int ID, Vector3Int position)
     {
@@ -198,6 +229,19 @@ public class LevelManager : MonoBehaviour
             newEntity.x = position.x;
             newEntity.y = position.y;
             newEntity.uid = ID;
+            level.entityList.Add(newEntity);
+            updateLevel();
+        }
+    }
+
+    public void copySpawn(Vector3Int newPosition, Spawn oldSpawn)
+    {
+        if(spawnLocFree(newPosition.x, newPosition.y))
+        {
+            Spawn newEntity = new Spawn();
+            newEntity.x = newPosition.x;
+            newEntity.y = newPosition.y;
+            newEntity.uid = oldSpawn.uid;
             level.entityList.Add(newEntity);
             updateLevel();
         }
