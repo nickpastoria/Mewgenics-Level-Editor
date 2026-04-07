@@ -32,8 +32,7 @@ public class ItemBrowser : MonoBehaviour
     public void Create()
     {
         SpawnItemList = new List<GameObject>();
-        Dictionary<int, string> loadtype;
-        loadtype = null;
+        Dictionary<int, string> loadtype = null;
         if (LoaderType == ItemBrowser.Type.Tile) loadtype = ED.tiles;
         if (LoaderType == ItemBrowser.Type.Spawn) loadtype = ED.spawns;
         foreach(KeyValuePair<int, string> entry in loadtype)
@@ -43,6 +42,18 @@ public class ItemBrowser : MonoBehaviour
             newButton.GetComponent<Button>().onClick.AddListener(() => SelectItem(LoaderType, entry.Key));
             SpawnItemList.Add(newButton);
         }
+    }
+
+    // Written by Claude
+    // Destroys all existing toolbox buttons and recreates them.
+    // Call this when the tileset changes so static item sprites update.
+    public void Rebuild()
+    {
+        // Destroy existing buttons before recreating
+        foreach (GameObject button in SpawnItemList)
+            Destroy(button);
+
+        Create();
     }
 
     private void SelectItem(ItemBrowser.Type type, int UID)
@@ -58,8 +69,21 @@ public class ItemBrowser : MonoBehaviour
         } else
         {
             EditorManager.Instance.type = type;
-            if(type == ItemBrowser.Type.Spawn) PreviewImage.sprite = SPL.findSpawnByID(UID);
-            if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);   
+            if (type == ItemBrowser.Type.Spawn)
+            {
+                // Written by Claude
+                // Use the tileset-appropriate sprite for static objects if available,
+                // otherwise fall back to the standard ID-based lookup.
+                Sprite preview = null;
+                if (TilesetLibrary.Instance != null && TilesetLibrary.Instance.IsStaticObject(UID))
+                {
+                    string assetName = TilesetLibrary.Instance.GetStaticAssetName(UID);
+                    if (!string.IsNullOrEmpty(assetName))
+                        preview = SPL.FindSpawnByName(assetName);
+                }
+                PreviewImage.sprite = preview ?? SPL.findSpawnByID(UID);
+            }
+            if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);
         }
     }
 

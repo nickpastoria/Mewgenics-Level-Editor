@@ -5892,17 +5892,6 @@
     object Death
 }
 
-2100 {
-    editor {
-        category 8
-        image ["bepis.png"]
-        image_tint ["red"]
-        paint false
-        name "Bepis"
-    }
-    object Bepis
-}
-
 //objects (starting at id 5000)
 
 5000 {

@@ -27,10 +27,20 @@ public class InventoryObject : MonoBehaviour
 
         if (type == ItemBrowser.Type.Spawn)
         {
-            if(SPL.spawnImgExists(UID))
+            // Written by Claude
+            // For static objects, try the tileset-specific sprite first.
+            // Falls back to the normal ID-based lookup if none is found.
+            Sprite sprite = null;
+            if (TilesetLibrary.Instance != null && TilesetLibrary.Instance.IsStaticObject(UID))
             {
-                SpriteImage.sprite = SPL.findSpawnByID(UID);
+                string assetName = TilesetLibrary.Instance.GetStaticAssetName(UID);
+                if (!string.IsNullOrEmpty(assetName))
+                    sprite = SPL.FindSpawnByName(assetName);
             }
+            if (sprite == null && SPL.spawnImgExists(UID))
+                sprite = SPL.findSpawnByID(UID);
+            if (sprite != null)
+                SpriteImage.sprite = sprite;
         }
         if(type == ItemBrowser.Type.Tile)
         {

@@ -19,20 +19,24 @@ public class LevelEntity : MonoBehaviour
         if (layer == 0)
         {
             if (spriteLibrary.tileImgExists(imageID)) label.enabled = false;
-            if (imageID == 3) layer ++;
-            newSprite = spriteLibrary.findTileByID(imageID); // Replace 0 with the actual tile ID
+            if (imageID == 3) layer++;
+            newSprite = spriteLibrary.findTileByID(imageID);
             name = ED.tiles[imageID];
         }
-        else{
+        else
+        {
             if (spriteLibrary.spawnImgExists(imageID)) label.enabled = false;
-            newSprite = spriteLibrary.findSpawnByID(imageID);
+
+            // Written by Claude
+            // For static objects, try to find the biome-specific sprite first.
+            // If no tileset is selected or the sprite doesn't exist in StreamingAssets,
+            // fall back to the normal ID-based lookup.
+            newSprite = TryGetTilesetSprite(imageID) ?? spriteLibrary.findSpawnByID(imageID);
+
             if (imageID > 0)
-            {
                 name = ED.spawns[imageID];
-            }else
-            {
+            else
                 name = "Random";
-            }
         }
 
         spriteRenderer = new SpriteRenderer();
@@ -40,5 +44,20 @@ public class LevelEntity : MonoBehaviour
         spriteRenderer.sortingOrder = layer;
         spriteRenderer.sprite = newSprite;
         label.text = $"{imageID}\n{name}";
+    }
+
+    // Written by Claude
+    // Attempts to find the tileset-appropriate sprite for a static entity.
+    // Returns null if: TilesetLibrary isn't loaded, the uid isn't a static object,
+    // no tileset is selected, or the tileset's asset sprite doesn't exist in StreamingAssets.
+    private Sprite TryGetTilesetSprite(int uid)
+    {
+        if (TilesetLibrary.Instance == null) return null;
+        if (!TilesetLibrary.Instance.IsStaticObject(uid)) return null;
+
+        string assetName = TilesetLibrary.Instance.GetStaticAssetName(uid);
+        if (string.IsNullOrEmpty(assetName)) return null;
+
+        return spriteLibrary.FindSpawnByName(assetName);
     }
 }

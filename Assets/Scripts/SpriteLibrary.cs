@@ -38,6 +38,22 @@ public class SpriteLibrary : MonoBehaviour
         return sprites.ToArray();
     }
 
+    // Written by Claude
+    // Finds a spawn sprite by its asset name (e.g. "TallGraveRocks1").
+    // Normalizes both sides by stripping spaces and lowercasing so that
+    // "TallCaveRock2" matches a file named "Tall Cave Rock 2.png".
+    // Returns null if not found so the caller can fall back to a default.
+    public Sprite FindSpawnByName(string assetName)
+    {
+        string normalizedTarget = assetName.Replace(" ", "").ToLower();
+        foreach (Sprite spawn in spawnLibrary)
+        {
+            if (spawn.name.Replace(" ", "").ToLower() == normalizedTarget)
+                return spawn;
+        }
+        return null;
+    }
+
     public Sprite findSpawnByID(int ID)
     {
         foreach (Sprite spawn in spawnLibrary)

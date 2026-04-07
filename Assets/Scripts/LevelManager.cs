@@ -90,6 +90,25 @@ public class LevelManager : MonoBehaviour
         CreateEmptyLevel();
         sysVars = EditorManager.Instance.SysVars;
         levelsLocation = $"{sysVars.defaultFileLocation}";
+
+        // Written by Claude
+        // When the tileset changes, redraw all level entities and rebuild the toolbox
+        // so sprites reflect the newly selected biome.
+        if (TilesetLibrary.Instance != null)
+            TilesetLibrary.Instance.OnTilesetChanged += OnTilesetChanged;
+    }
+
+    private void OnDestroy()
+    {
+        if (TilesetLibrary.Instance != null)
+            TilesetLibrary.Instance.OnTilesetChanged -= OnTilesetChanged;
+    }
+
+    // Written by Claude
+    private void OnTilesetChanged(string newTileset)
+    {
+        updateLevel();
+        EditorManager.Instance.ReloadToolbox();
     }
 
     public void CreateEmptyLevel()

@@ -18,6 +18,11 @@ public class EditorManager : MonoBehaviour
 
     public bool mouseEnabled = true;
 
+    // Written by Claude
+    // The currently selected biome/tileset — set by the tileset dropdown UI.
+    // Other systems (e.g. SpriteLibrary) read this to pick biome-appropriate assets.
+    public string CurrentTileset = "";
+
     public GameObject TilesBrowser;
 
     public GameObject SpawnsBrowser;
@@ -49,6 +54,14 @@ public class EditorManager : MonoBehaviour
             SpawnsBrowser.GetComponent<ItemBrowser>().Create();
             TilesBrowser.GetComponent<ItemBrowser>().Create();
         }
+    }
+
+    // Written by Claude
+    // Rebuilds both toolbox browsers so sprites reflect the current tileset.
+    public void ReloadToolbox()
+    {
+        SpawnsBrowser.GetComponent<ItemBrowser>().Rebuild();
+        TilesBrowser.GetComponent<ItemBrowser>().Rebuild();
     }
     public void UpdateProjectLabel()
     {
