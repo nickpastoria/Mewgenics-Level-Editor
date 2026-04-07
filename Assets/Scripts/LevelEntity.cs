@@ -11,7 +11,12 @@ public class LevelEntity : MonoBehaviour
     public EntityDictionary ED;
 
     public LevelManager.Spawn entity;
-    
+
+    // Written by Claude
+    // Stored so RefreshSprite() can update the sprite without recreating the entity
+    private int storedLayer;
+    private int storedImageID;
+
     public void Create(int layer, int imageID, LevelManager.Spawn spawn)
     {
         string name = "null";
@@ -39,11 +44,25 @@ public class LevelEntity : MonoBehaviour
                 name = "Random";
         }
 
+        storedLayer = layer;
+        storedImageID = imageID;
+
         spriteRenderer = new SpriteRenderer();
         spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = layer;
         spriteRenderer.sprite = newSprite;
         label.text = $"{imageID}\n{name}";
+    }
+
+    // Written by Claude
+    // Updates only the sprite of a static entity in-place when the tileset changes.
+    // Tiles (layer 0) and non-static spawns are left untouched.
+    public void RefreshSprite()
+    {
+        if (spriteRenderer == null || storedLayer == 0) return;
+        Sprite tilesetSprite = TryGetTilesetSprite(storedImageID);
+        if (tilesetSprite != null)
+            spriteRenderer.sprite = tilesetSprite;
     }
 
     // Written by Claude

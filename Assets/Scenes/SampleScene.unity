@@ -7216,7 +7216,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 4.97
+  orthographic size: 5.53
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -7241,7 +7241,7 @@ Transform:
   m_GameObject: {fileID: 1042366273}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.19, y: 3.63, z: -13.8}
+  m_LocalPosition: {x: -1.98, y: 4.05, z: -13.8}
   m_LocalScale: {x: 1.0407854, y: 1.0407854, z: 1.0407854}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -7552,6 +7552,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1051491468}
   - component: {fileID: 1051491467}
+  - component: {fileID: 1051491469}
   m_Layer: 6
   m_Name: bg_0
   m_TagString: Untagged
@@ -7606,9 +7607,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 263932259
   m_SortingLayer: -2
-  m_SortingOrder: 0
+  m_SortingOrder: -100
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: c20a83e15499296489dc44270f682aa8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 272a02137866b564b91923438b3c5ef4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -7627,12 +7628,24 @@ Transform:
   m_GameObject: {fileID: 1051491466}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.04, y: -1.98, z: -1}
-  m_LocalScale: {x: 0.815798, y: 0.76456434, z: 0.7913241}
+  m_LocalPosition: {x: 0.018, y: 3.5, z: -1}
+  m_LocalScale: {x: 1.06, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 584484033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1051491469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1051491466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c36c86aa38b1caa4fa8a9844f585f204, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BackgroundManager
 --- !u!1 &1070496637
 GameObject:
   m_ObjectHideFlags: 0

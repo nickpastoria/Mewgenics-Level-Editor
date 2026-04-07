@@ -9,10 +9,11 @@ public class InventoryObject : MonoBehaviour
     public int UID;
     public SpriteLibrary SPL;
     private TMP_Text textLabel;
-
     private Image buttonImage;
-
     private GameObject ImageButton;
+
+    // Written by Claude — stored so RefreshSprite() can update without rebuilding
+    private ItemBrowser.Type storedType;
 
     public void Make(ItemBrowser.Type type, int u, string n, SpriteLibrary spl)
     {
@@ -20,6 +21,7 @@ public class InventoryObject : MonoBehaviour
         ItemName = n;
         UID = u;
         SPL = spl;
+        storedType = type;
         textLabel = GetComponentInChildren<TMP_Text>();
         textLabel.text = ItemName;
         ImageButton = FindChildWithTag(this.gameObject, "Toolbox Image");
@@ -50,6 +52,29 @@ public class InventoryObject : MonoBehaviour
             }
         }
     }
+    // Written by Claude
+    // Updates only the sprite of a static toolbox button in-place when the tileset changes.
+    // Non-static and tile buttons are left untouched.
+    public void RefreshSprite()
+    {
+        if (storedType != ItemBrowser.Type.Spawn) return;
+        if (TilesetLibrary.Instance == null || !TilesetLibrary.Instance.IsStaticObject(UID)) return;
+
+        string assetName = TilesetLibrary.Instance.GetStaticAssetName(UID);
+        Sprite sprite = null;
+        if (!string.IsNullOrEmpty(assetName))
+            sprite = SPL.FindSpawnByName(assetName);
+        if (sprite == null && SPL.spawnImgExists(UID))
+            sprite = SPL.findSpawnByID(UID);
+
+        if (sprite != null)
+        {
+            GameObject imageObj = FindChildWithTag(gameObject, "Toolbox Image");
+            if (imageObj != null)
+                imageObj.GetComponent<Image>().sprite = sprite;
+        }
+    }
+
     GameObject FindChildWithTag(GameObject parent, string tag) {
         GameObject child = null;
 

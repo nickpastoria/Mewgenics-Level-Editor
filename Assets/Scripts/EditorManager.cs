@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Linq;
 
 // Code Referenced From https://www.youtube.com/watch?v=8bMzz-nSIwg
 public class EditorManager : MonoBehaviour
@@ -57,11 +58,20 @@ public class EditorManager : MonoBehaviour
     }
 
     // Written by Claude
-    // Rebuilds both toolbox browsers so sprites reflect the current tileset.
+    // Starts coroutines to refresh static toolbox sprites across multiple frames,
+    // keeping the editor responsive during tileset switches.
     public void ReloadToolbox()
     {
-        SpawnsBrowser.GetComponent<ItemBrowser>().Rebuild();
-        TilesBrowser.GetComponent<ItemBrowser>().Rebuild();
+        StartCoroutine(ReloadToolboxCoroutine());
+    }
+
+    private IEnumerator ReloadToolboxCoroutine()
+    {
+        // Start both browser refreshes simultaneously so they interleave across frames
+        Coroutine spawnRefresh = StartCoroutine(SpawnsBrowser.GetComponent<ItemBrowser>().RefreshStaticSpritesCoroutine());
+        Coroutine tileRefresh  = StartCoroutine(TilesBrowser.GetComponent<ItemBrowser>().RefreshStaticSpritesCoroutine());
+        yield return spawnRefresh;
+        yield return tileRefresh;
     }
     public void UpdateProjectLabel()
     {

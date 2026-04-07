@@ -105,10 +105,37 @@ public class LevelManager : MonoBehaviour
     }
 
     // Written by Claude
+    // Kicks off a coroutine so level entities and toolbox buttons are refreshed
+    // across multiple frames — prevents a hard freeze on tileset switch.
     private void OnTilesetChanged(string newTileset)
     {
-        updateLevel();
+        StartCoroutine(RefreshTilesetCoroutine());
+    }
+
+    // Written by Claude
+    // Updates level entities in batches of batchSize per frame, then triggers
+    // the toolbox refresh (which is also a coroutine) once all entities are done.
+    private IEnumerator RefreshTilesetCoroutine(int batchSize = 20)
+    {
+        int count = 0;
+        foreach (GameObject obj in UnityObjects)
+        {
+            if (obj == null) continue;
+            obj.GetComponent<LevelEntity>()?.RefreshSprite();
+            if (++count % batchSize == 0) yield return null;
+        }
         EditorManager.Instance.ReloadToolbox();
+    }
+
+    // Written by Claude
+    // Synchronous version — kept for callers that don't need frame-spreading.
+    public void RefreshStaticSprites()
+    {
+        foreach (GameObject obj in UnityObjects)
+        {
+            if (obj == null) continue;
+            obj.GetComponent<LevelEntity>()?.RefreshSprite();
+        }
     }
 
     public void CreateEmptyLevel()

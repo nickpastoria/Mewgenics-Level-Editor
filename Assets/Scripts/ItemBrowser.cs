@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 public class ItemBrowser : MonoBehaviour
 {
     public GameObject buttonPrefab;
@@ -46,14 +47,37 @@ public class ItemBrowser : MonoBehaviour
 
     // Written by Claude
     // Destroys all existing toolbox buttons and recreates them.
-    // Call this when the tileset changes so static item sprites update.
     public void Rebuild()
     {
-        // Destroy existing buttons before recreating
         foreach (GameObject button in SpawnItemList)
             Destroy(button);
-
         Create();
+    }
+
+    // Written by Claude
+    // Updates only static item sprites in-place — no destroy/recreate.
+    // Much faster than Rebuild() when only the tileset has changed.
+    public void RefreshStaticSprites()
+    {
+        foreach (GameObject button in SpawnItemList)
+        {
+            if (button == null) continue;
+            button.GetComponent<InventoryObject>()?.RefreshSprite();
+        }
+    }
+
+    // Written by Claude
+    // Same as RefreshStaticSprites() but spread across frames (batchSize items per frame)
+    // so the UI stays responsive during large tileset switches.
+    public IEnumerator RefreshStaticSpritesCoroutine(int batchSize = 20)
+    {
+        int count = 0;
+        foreach (GameObject button in SpawnItemList)
+        {
+            if (button == null) continue;
+            button.GetComponent<InventoryObject>()?.RefreshSprite();
+            if (++count % batchSize == 0) yield return null;
+        }
     }
 
     private void SelectItem(ItemBrowser.Type type, int UID)
