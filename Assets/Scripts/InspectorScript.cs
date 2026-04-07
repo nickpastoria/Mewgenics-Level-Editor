@@ -17,6 +17,10 @@ public class InspectorScript : MonoBehaviour
     public GameObject RandomItemPrefab;
     public Button AddItemButton;
 
+    // The maximum number of entries allowed in a random spawn list.
+    // Adjust this value if the game engine cap is discovered to be different.
+    private const int MAX_RANDOM_SPAWNS = 3;
+
     void Start()
     {
         AddItemButton.onClick.AddListener(() => AddItem(new LevelManager.randomSpawn()));
@@ -44,6 +48,9 @@ public class InspectorScript : MonoBehaviour
         // image.sprite = spritelibrary.findSpawnByID(Spawn.uid);
         // Position.text = $"Position: ( {Spawn.x}, {Spawn.y} )";
         // UID.text = $"UID: {Spawn.uid}";
+        // Disable the add button when the cap is reached
+        AddItemButton.interactable = (Spawn.randomCount < MAX_RANDOM_SPAWNS);
+
         if (Spawn.randomCount > 0)
         {
             foreach (LevelManager.randomSpawn randomspawn in Spawn.spawns)
