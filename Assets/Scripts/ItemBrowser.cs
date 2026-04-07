@@ -52,7 +52,9 @@ public class ItemBrowser : MonoBehaviour
         if (EditorManager.Instance.type == Type.Select)
         {
             EditorManager.Instance.selectedSpawn.uid = UID;
-            inspectorScript.UpdateDisplay();
+            // Written by Claude
+            // Clear the row highlight in the inspector once the selection is confirmed
+            inspectorScript.ClearActiveSelection();
         } else
         {
             EditorManager.Instance.type = type;
