@@ -18,6 +18,13 @@ public class MouseInput : MonoBehaviour
     private LevelManager.Spawn draggedSpawn;
     private SpriteRenderer spriteRenderer;
     private Sprite newSprite;
+
+    // Written by Claude
+    // Minimum pixel distance the mouse must move before a click becomes a drag.
+    // Increase this value if accidental drags are still triggering too easily.
+    private const float DRAG_THRESHOLD_PX = 8f;
+    private Vector2 clickOrigin;        // screen position where the left button was pressed
+    private bool dragPending = false;   // true while we have a held click that hasn't crossed the threshold yet
     void Start()
     {
         modifyAction = InputSystem.actions.FindAction("Modify");
@@ -36,23 +43,35 @@ public class MouseInput : MonoBehaviour
                 gridCursor.transform.position = (grid.GetCellCenterWorld(cellPosition));
                 if(Mouse.current.leftButton.wasPressedThisFrame)
                 {
-                    //Start of click and drag
+                    // Written by Claude
+                    // Record where the click started; actual drag activation is deferred
+                    // until the mouse has moved past DRAG_THRESHOLD_PX (see isPressed block below)
                     if(EditorManager.Instance.type == ItemBrowser.Type.None && !level.spawnLocFree(cellPosition.x, cellPosition.y))
                     {
-                        isClickDragging = true;
+                        dragPending = true;
+                        clickOrigin = mouseScreenPosition;
                         draggedSpawn = level.GetSpawnAtLoc(cellPosition.x, cellPosition.y);
-                        newSprite = spriteLibrary.findSpawnByID(draggedSpawn.uid);
-                        spriteRenderer = new SpriteRenderer();
-                        spriteRenderer = mouseDragImage.gameObject.GetComponent<SpriteRenderer>();
-                        spriteRenderer.sortingOrder = 10;
-                        spriteRenderer.sprite = newSprite;
-                        mouseDragImage.SetActive(true);
                     }
                 }
                 if(Mouse.current.leftButton.isPressed)
                 {
-                    // Click and Drag Logic
-                    // Check to make sure we're not placing anything
+                    // Written by Claude
+                    // Activate the drag only once the mouse has moved far enough from the click origin.
+                    // This prevents a stationary click from accidentally entering drag mode.
+                    if(EditorManager.Instance.type == ItemBrowser.Type.None && dragPending && !isClickDragging)
+                    {
+                        if(Vector2.Distance(mouseScreenPosition, clickOrigin) >= DRAG_THRESHOLD_PX)
+                        {
+                            isClickDragging = true;
+                            newSprite = spriteLibrary.findSpawnByID(draggedSpawn.uid);
+                            spriteRenderer = mouseDragImage.gameObject.GetComponent<SpriteRenderer>();
+                            spriteRenderer.sortingOrder = 10;
+                            spriteRenderer.sprite = newSprite;
+                            mouseDragImage.SetActive(true);
+                        }
+                    }
+
+                    // Move the drag image with the cursor while dragging
                     if(EditorManager.Instance.type == ItemBrowser.Type.None && isClickDragging)
                     {
                         mouseDragImage.transform.position = new Vector3(mouseWorldPos.x, mouseWorldPos.y, 10);
@@ -60,6 +79,9 @@ public class MouseInput : MonoBehaviour
                 }
                 if(Mouse.current.leftButton.wasReleasedThisFrame)
                 {
+                    // Clear pending drag state on any release, whether or not a drag actually started
+                    dragPending = false;
+
                     // Set Spawns and tiles
                     if(EditorManager.Instance.type == ItemBrowser.Type.Spawn) level.setSpawn(EditorManager.Instance.CurrentUID, cellPosition);
                     if(EditorManager.Instance.type == ItemBrowser.Type.Tile) level.setTile(EditorManager.Instance.CurrentUID, cellPosition);
@@ -84,6 +106,7 @@ public class MouseInput : MonoBehaviour
                         }
                         level.updateLevel();
                         isClickDragging = false;
+                        dragPending = false;
                         mouseDragImage.SetActive(false);
                     }
                     
