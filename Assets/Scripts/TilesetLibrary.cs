@@ -163,4 +163,15 @@ public class TilesetLibrary : MonoBehaviour
     {
         return staticObjectTypes != null && staticObjectTypes.ContainsKey(uid);
     }
+
+    // Written by Claude
+    // Returns the combat_background asset name for the current tileset
+    // (e.g. "infiniteBG"), or null if none is set.
+    public string GetCombatBackground()
+    {
+        if (string.IsNullOrEmpty(CurrentTileset)) return null;
+        if (!Tilesets.TryGetValue(CurrentTileset, out TilesetData tileset)) return null;
+        tileset.Slots.TryGetValue("combat_background", out string bg);
+        return bg;
+    }
 }
