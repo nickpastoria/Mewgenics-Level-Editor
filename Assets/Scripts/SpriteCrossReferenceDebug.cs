@@ -149,13 +149,17 @@ public class SpriteCrossReferenceDebug : MonoBehaviour
     // Written by Claude
     // Returns the tileset-specific asset name (with .png) for a spawn in the given tileset,
     // or empty if this entity has no slot in that biome.
+    // Prefixes "MISSING: " if the asset name is defined but the PNG wasn't loaded from StreamingAssets.
     private string ResolveTilesetSpriteName(int id, string tilesetName)
     {
         if (TilesetLibrary.Instance == null) return string.Empty;
         try
         {
             string assetName = TilesetLibrary.Instance.GetStaticAssetName(id, tilesetName);
-            return string.IsNullOrEmpty(assetName) ? string.Empty : assetName + ".png";
+            if (string.IsNullOrEmpty(assetName)) return string.Empty;
+
+            Sprite sprite = spriteLibrary.FindSpawnByName(assetName);
+            return sprite != null ? assetName + ".png" : "MISSING: " + assetName + ".png";
         }
         catch (System.Exception ex)
         {
