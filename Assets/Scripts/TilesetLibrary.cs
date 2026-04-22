@@ -158,6 +158,23 @@ public class TilesetLibrary : MonoBehaviour
         return null;
     }
 
+    // Written by Claude
+    // Same as GetStaticAssetName(uid) but targets a specific tileset rather than CurrentTileset.
+    // Used by debug/export tools that need to check all tilesets without changing the active one.
+    public string GetStaticAssetName(int uid, string tilesetName)
+    {
+        if (!Tilesets.TryGetValue(tilesetName, out TilesetData tileset)) return null;
+        if (!staticObjectTypes.TryGetValue(uid, out string objectType)) return null;
+
+        string normalizedType = objectType.Replace("_", "").ToLower();
+        foreach (var slot in tileset.Slots)
+        {
+            if (slot.Key.Replace("_", "").ToLower() == normalizedType)
+                return slot.Value;
+        }
+        return null;
+    }
+
     // Returns true if the given uid is a static object (has an "object" type mapping)
     public bool IsStaticObject(int uid)
     {

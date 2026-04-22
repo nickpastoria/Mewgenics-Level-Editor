@@ -30,6 +30,11 @@ public class EditorManager : MonoBehaviour
     public bool EntitiesLoaded = false;
 
     public bool ImagesLoaded = false;
+
+    // Written by Claude
+    // Set to true once both EntitiesLoaded and ImagesLoaded are true.
+    // Use this as the single "everything is ready" signal rather than checking both flags separately.
+    public bool AssetsLoaded = false;
     public TMP_Text ProjectLabel;
     public TMP_Text LevelLabel;
     public ErrorHandler errorHandler;
@@ -52,6 +57,7 @@ public class EditorManager : MonoBehaviour
     {
         if (EntitiesLoaded && ImagesLoaded)
         {
+            AssetsLoaded = true;
             SpawnsBrowser.GetComponent<ItemBrowser>().Create();
             TilesBrowser.GetComponent<ItemBrowser>().Create();
         }
