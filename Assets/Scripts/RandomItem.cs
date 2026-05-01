@@ -76,9 +76,17 @@ public class RandomItem : MonoBehaviour
         randomImage.sprite = image;
     }
 
-    public Button GetSelectButton()
+    // Written by Claude
+    // Wires the select button to a single callback; double-click timing is
+    // tracked in InspectorScript so it survives row rebuilds.
+    public void SetClickActions(System.Action onClick)
     {
-        return selectButton;
+        selectButton.onClick.RemoveAllListeners();
+        selectButton.onClick.AddListener(() =>
+        {
+            Debug.Log($"[RandomItem] Select button clicked on instance {GetInstanceID()}");
+            onClick?.Invoke();
+        });
     }
 
     public Button GetDeleteButton()
