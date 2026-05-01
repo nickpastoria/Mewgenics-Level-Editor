@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Toolbox Image
   - RandomItem
+  - SelectHighlight
   layers:
   - Default
   - TransparentFX

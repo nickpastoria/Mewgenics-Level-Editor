@@ -1,0 +1,11 @@
+1200 {
+    editor {
+        category 5
+        image []
+        paint false
+        name "Bepis"
+    }
+    
+    object Bepis
+	value 2
+}

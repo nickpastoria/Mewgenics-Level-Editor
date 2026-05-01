@@ -1,0 +1,585 @@
+﻿SPAWNS
+ID,Name,Direct Sprite
+1,Player Cat Spawn,Player Cat Spawn.png
+11,Rat,Rat.png
+12,Fly,Fly.png
+13,Worm,Worm.png
+14,MadLad,
+15,Gasser,Gasser.png
+16,Kitten,Kitten Portrait.png
+17,Mangy,Mangy Portrait.png
+18,Tom Tom,Tom Tom Portrait.png
+19,Bomb Fly,Bomb Fly.png
+20,Leaper,Leaper.png
+21,Lumpy,Lumpy Portrait.png
+22,Cat Caller,Cat Caller Portrait.png
+23,Pinky,Pinky.png
+24,Maggot,Maggot.png
+25,Flea,Flea.png
+26,Pooter,Pooter.png
+27,Hive,Hive.png
+28,Floating Hive,Floating Hive.png
+29,Multi Head Cat,Multi Head Cat.png
+30,Glass Spitter,Glass Spitter Portrait.png
+31,Siren,Siren Portrait.png
+32,Jekyll & Hyde,Jekyll & Hyde Portrait.png
+33,Spiky Cat,
+34,Popeye Cat,Popeye Cat Portrait.png
+35,Gassy Cat,Gassy Cat Portrait.png
+36,Sharky,Sharky Portrait.png
+37,Boomer,
+38,Water Kitten,Water Kitten Portrait.png
+39,Cager Maggot,
+40,Chargey Maggot,Chargey Maggot.png
+41,Swapper Maggot,
+42,Tar Baby,Tar Baby.png
+43,Chum Bag,Chum Bag.png
+44,Chummy,Chummy.png
+45,Host,Host.png
+46,Pile,Pile.png
+47,Floater,Floater.png
+48,Water Leech,Water Leech.png
+49,Meat Minion,
+50,Dip,Dip.png
+51,Daddy Shark,Daddy Shark.png
+52,Baby Shark,Baby Shark.png
+53,Fetus,Fetus.png
+54,Fetus Gusher,Fetus Gusher.png
+55,Ten Tickles,Ten Tickles.png
+56,Korbee,
+57,Albino TomTom,
+58,Toadie,Toadie Portrait.png
+59,Toadie (hidden),
+60,Spider Cat,Spider Cat Portrait.png
+61,Tall Spider Cat,Tall Spider Cat Portrait.png
+62,Bat,Bat.png
+63,Brain Drain,
+64,Skull Ooze,Skull Ooze Portrait.png
+65,Mega Fetus,Mega Fetus.png
+66,Zombie Cat,Zombie Cat Portrait.png
+67,Skeleton Cat,Skeleton Cat Portrait.png
+68,Tall Skeleton Cat,Tall Skeleton Cat Portrait.png
+69,Wolf Cat,Wolf Cat Portrait.png
+70,Golem Cat,Golem Cat Portrait.png
+71,Tatters,Tatters.png
+72,Spookie,Spookie.png
+73,Scary,Scary.png
+74,Reaper,Reaper.png
+75,Tall Robes,Tall Robes Portrait.png
+76,Shambler,Shambler.png
+77,GraveWorm,
+78,Butt Zombie,Butt Zombie Portrait.png
+79,Tiny Spider,
+80,Wisp,Wisp.png
+81,Rattlesnek,
+82,Skeleton Shambler,Skeleton Shambler Portrait.png
+83,Thump,Thump.png
+84,Fly Swarm,Fly Swarm.png
+85,Bone Worm,
+86,Carcus,Carcus.png
+87,Peashy,Peashy.png
+88,BabyDeathWorm,
+89,Death Worm,Death Worm.png
+90,Scorpion Cat,Scorpion Cat Portrait.png
+91,Mangy 2,
+92,Gun Cat,Gun Cat Portrait.png
+93,Horny Cat,Horny Cat Portrait.png
+94,Atomic Kitten,Atomic Kitten Portrait.png
+95,Robo Tom,Robo Tom Portrait.png
+96,Cat Cultist,Cat Cultist Portrait.png
+97,Cultist,
+98,Zealot,
+99,Mutant,Mutant Portrait.png
+100,Bishop,
+101,Bishop Hat,Bishop Hat.png
+102,Love Bot,Love Bot.png
+103,Security Bot,Security Bot.png
+104,Killdozer,
+105,Carnibulb,Carnibulb.png
+106,Geo Lad,Geo Lad.png
+107,Bramble Baby,Bramble Baby.png
+108,Hemlock,Hemlock.png
+109,Nettle,Nettle.png
+110,Birthwort,Birthwort.png
+111,Amoeba,Amoeba.png
+112,Tremblo,Tremblo.png
+113,Infested,Infested Portrait.png
+114,RockHead,
+115,NoHead,
+116,CraterCreeper,
+117,Core Freak,Core Freak.png
+118,Poker Demon,Poker Demon.png
+119,Whisperer,Whisperer.png
+120,Cloaked Demon,Cloaked Demon.png
+121,Big Demon,Big Demon.png
+122,Mega Tumor,Mega Tumor.png
+123,Head Tumor,Head Tumor.png
+124,Tall Tumor,Tall Tumor Portrait.png
+125,Demon Hooker,Demon Hooker Portrait.png
+126,Belcher,Belcher Portrait.png
+127,Tumor Cat,Tumor Cat Portrait.png
+128,Big Asteroid,Big Asteroid.png
+129,Small Asteroid,Small Asteroid.png
+130,Small UFO,Small UFO.png
+131,Big UFO,Big UFO.png
+132,Yellow Blaster,Yellow Blaster Portrait.png
+133,Grey Alien,Grey Alien Portrait.png
+134,Green Prober,Green Prober Portrait.png
+135,Waggle,Waggle Portrait.png
+136,Moon Worm,Moon Worm Portrait.png
+137,Rover,Rover Portrait.png
+138,Astro,Astro Portrait.png
+139,Rat Cat,Rat Cat Portrait.png
+140,Gamete,Gamete Portrait.png
+141,Nubs Cat,Nubs Cat Portrait.png
+142,Cat Human,Cat Human Portrait.png
+143,Human Cat,Human Cat Portrait.png
+144,Cop Bot,Cop Bot Portrait.png
+145,Dr. Ditto,
+146,Mega Mutant,Mega Mutant Portrait.png
+147,Dr. Cat,
+148,Mangy 3,
+149,Needlecat,Needlecat Portrait.png
+150,Stacy 2.0,
+151,Yeti Cat,
+152,Sabertooth Cat,Sabertooth Cat Portrait.png
+153,Sabertooth Cub,Sabertooth Cub Portrait.png
+154,Mammoth Baby,Mammoth Baby Portrait.png
+155,Cave Baby,
+156,Cave Man,
+157,Cave Man (No Spear),
+158,Cave Woman,
+159,Were-Man,
+160,Cave Chief,Cave Chief Portrait.png
+161,Yeti,Yeti Portrait.png
+162,Fuzzer,Fuzzer Portrait.png
+163,Mammoth,Mammoth Portrait.png
+164,Prehistoric Pooter,Prehistoric Pooter Portrait.png
+165,Pterodactyl,Pterodactyl Portrait.png
+166,Raptor,Raptor Portrait.png
+167,Raptor Baby,Raptor Baby Portrait.png
+168,Ankylosaurus,Ankylosaurus Portrait.png
+169,Parasaurolophus,Parasaurolophus Portrait.png
+170,Maelestes,Maelestes Portrait.png
+171,T-Rex,
+172,Stegosaurus,Stegosaurus Portrait.png
+173,Triceratops,Triceratops Portrait.png
+174,Dino Nest,
+175,Uber Man,
+176,Uber Woman,
+177,Uber Cat,
+178,Katze Bot,
+179,Spider bot,
+180,Soldier bot,
+181,Hanger bot,
+182,Doctor bot,
+183,Tall bot,
+184,TV Bot,
+185,Jar Head,Jar Head Portrait.png
+186,Fetus (Jar),
+187,Fetus (No Jar),
+188,Shade (male),
+189,Shade (female),
+190,Gasper,Gasper Portrait.png
+191,Floast,Floast Portrait.png
+192,Tumor Barrier,Tumor Barrier Portrait.png
+193,Husk,Husk Portrait.png
+194,Conjoined Husk,Conjoined Husk Portrait.png
+195,Cancer Cat,Cancer Cat Portrait.png
+196,Collective Cat,Collective Cat Portrait.png
+197,Shade Cat,Shade Cat Portrait.png
+198,Slag,Slag Portrait.png
+199,Gorger,Gorger Portrait.png
+200,Cultist Washer,
+201,Clot,Clot Portrait.png
+202,Throbbing Turret,Throbbing Turret Portrait.png
+203,Flesh Lad,Flesh Lad Portrait.png
+204,Fleshy Mind,Fleshy Mind Portrait.png
+205,Parasiter,Parasiter Portrait.png
+206,Meat Slime,Meat Slime Portrait.png
+207,Skinned,Skinned Portrait.png
+208,Stem Cat,Stem Cat Portrait.png
+209,Jack Cat,Jack Cat Portrait.png
+210,Chaos Stacy,Chaos Stacy Portrait.png
+211,Frank Pinky,Frank Pinky Portrait.png
+212,Butch Tink,
+213,Tracy Fetus,Tracy Fetus Portrait.png
+214,Frank Fetus,Frank Fetus Portrait.png
+215,Beanies Rat,Beanies Rat Portrait.png
+216,Cherubim,Cherubim Portrait.png
+217,Seraphim,Seraphim Portrait.png
+218,Gatekeeper,Gatekeeper Portrait.png
+219,Angelic Kitten,Angelic Kitten Portrait.png
+220,Angelic Cat,Angelic Cat Portrait.png
+1011,Elite Rat,
+1012,Elite Fly,
+1016,Elite Kitten,
+1017,Elite Mangy,
+1018,Elite Tom Tom,
+1020,Leaper,Leaper.png
+1021,Elite Lumpy,
+1022,Elite Cat Caller,
+1023,Elite Pinky,
+1024,Elite Maggot,
+1025,Elite Flea,
+1026,Elite Pooter,
+1030,Elite Glass Spitter,
+1031,Elite Siren,
+1032,Elite Jekyll & Hyde,
+1033,Elite Spiky Cat,
+1034,Elite Popeye Cat,
+1043,Elite Chum Bag,
+1044,Elite Chummy,
+1045,Elite Host,
+1046,Elite Pile,
+1047,Elite Floater,
+1048,Elite Water Leech,
+1050,Elite Dip,
+1051,Elite Daddy Shark,
+1052,Elite Baby Shark,
+1053,Elite Fetus,
+1054,Elite Fetus Gusher,
+1035,Elite Gassy Cat,
+1036,Elite Sharky,
+1037,Elite Boomer,
+1038,Elite Water Kitten,
+1055,Elite Ten Tickles,
+1056,Elite Korbee,
+1057,Elite Albino TomTom,
+1058,Elite Toadie,
+1059,Elite Toadie (hidden),
+1060,Elite Spider Cat,
+1061,Elite Tall Spider Cat,
+1062,Elite Bat,
+1063,Elite Brain Drain,
+1064,Elite Skull Ooze,
+1065,Elite Mega Fetus,
+1066,Elite Zombie Cat,
+1067,Elite Skeleton Cat,
+1068,Elite Tall Skeleton Cat,
+1069,Elite Wolf Cat,
+1071,Elite Tatters,
+1072,Elite Spookie,
+1073,Elite Scary,
+1074,Elite Reaper,
+1075,Elite Tall Robes,
+1076,Elite Shambler,
+1077,Elite GraveWorm,
+1078,Elite Butt Zombie,
+1079,Elite Tiny Spider,
+1080,Elite Wisp,
+1081,Elite Rattlesnek,
+1082,Elite Skeleton Shambler,
+1083,Elite Thump,
+1084,Elite Fly Swarm,
+1085,Elite Bone Worm,
+1086,Elite Carcus,
+1087,Elite Peashy,
+1088,Elite BabyDeathWorm,
+1089,Elite Death Worm,
+1090,Elite Scorpion Cat,
+1091,Elite Mangy 2,
+1092,Elite Gun Cat,
+1093,Elite Horny Cat,
+1094,Elite Atomic Kitten,
+1095,Elite Robo Tom,
+1096,Elite Cat Cultist,
+1097,Elite Cultist,
+1098,Elite Zealot,
+1099,Elite Mutant,
+1100,Elite Bishop,
+1101,Elite Bishop Hat,
+1102,Elite Love Bot,
+1103,Elite Security Bot,
+1104,Elite Killdozer,
+1105,Elite Carnibulb,
+1106,Elite Geo Lad,
+1107,Elite Bramble Baby,
+1108,Elite Hemlock,
+1109,Elite Nettle,
+1110,Elite Birthwort,
+1111,Elite Amoeba,
+1112,Elite Tremblo,
+1113,Elite Infested,
+1114,Elite RockHead,
+1116,Elite CraterCreeper,
+1117,Elite Core Freak,
+1118,Elite Poker Demon,
+1119,Elite Whisperer,
+1120,Elite Cloaked Demon,
+1121,Elite Big Demon,
+1122,Elite Mega Tumor,
+1123,Elite Head Tumor,
+1124,Elite Tall Tumor,
+1125,Elite Demon Hooker,
+1126,Elite Belcher,
+1127,Elite Tumor Cat,
+1128,Elite Big Asteroid,
+1129,Elite Small Asteroid,
+1130,Elite Small UFO,
+1131,Elite Big UFO,
+1132,Elite Yellow Blaster,
+1133,Elite Grey Alien,
+1134,Elite Green Prober,
+1135,Elite Waggle,
+1136,Elite Moon Worm,
+1137,Elite Rover,
+1138,Elite Astro,
+1139,Elite Rat Cat,
+1140,Elite Gamete,
+1141,Elite Nubs Cat,
+1142,Elite Cat Human,
+1143,Elite Human Cat,
+1144,Elite Cop Bot,
+1145,Elite Dr. Ditto,
+1146,Elite Mega Mutant,
+1147,Elite Dr. Cat,
+1148,Elite Mangy 3,
+1149,Elite Needlecat,
+1150,Elite Stacy 2.0,
+1151,Elite Yeti Cat,
+1152,Elite Sabertooth Cat,
+1153,Elite Sabertooth Cub,
+1154,Elite Mammoth Baby,
+1155,Elite Cave Baby,
+1156,Elite Cave Man,
+1157,Elite Cave Man (No Spear),
+1158,Elite Cave Woman,
+1159,Elite Were-Man,
+1160,Elite Cave Chief,
+1161,Elite Yeti,
+1162,Elite Fuzzer,
+1163,Elite Mammoth,
+1164,Elite Prehistoric Pooter,
+1165,Elite Pterodactyl,
+1166,Elite Raptor,
+1167,Elite Raptor Baby,
+1168,Elite Ankylosaurus,
+1169,Elite Parasaurolophus,
+1170,Elite Maelestes,
+1171,Elite T-Rex,
+1172,Elite Stegosaurus,
+1173,Elite Triceratops,
+1174,Elite Dino Nest,
+1175,Elite Uber Man,
+1176,Elite Uber Woman,
+1177,Elite Uber Cat,
+1178,Elite Katze Bot,
+1179,Elite Spider bot,
+1180,Elite Soldier bot,
+1181,Elite Hanger bot,
+1182,Elite Doctor bot,
+1183,Elite Tall bot,
+1184,Elite TV Bot,
+1185,Elite Jar Head,
+1186,Elite Fetus (Jar),
+1187,Fetus (No Jar),
+1188,Elite Shade (male),
+1189,Elite Shade (female),
+1190,Elite Gasper,
+1191,Elite Floast,
+1192,Elite Tumor Barrier,
+1193,Elite Husk,
+1194,Elite Conjoined Husk,
+1195,Elite Cancer Cat,
+1196,Elite Collective Cat,
+1197,Elite Shade Cat,
+1198,Elite Slag,
+1199,Elite Gorger,
+2001,Bomber Rat,Bomber Rat Portrait.png
+2002,Fatso,Fatso Portrait.png
+2003,Rat Pile,
+2004,Maggot Lord,Maggot Lord Portrait.png
+2005,Guillotina Phase 2 Head,
+2006,Guillotina Phase 2 Body,
+2007,Tank Cat,Tank Cat Portrait.png
+2008,Medic Cat,Medic Cat Portrait.png
+2009,Mage Cat,Mage Cat Portrait.png
+2010,Thief Cat,Thief Cat Portrait.png
+2011,Hunter Cat,Hunter Cat Portrait.png
+2012,Fighter Cat,Fighter Cat Portrait.png
+2013,Can Creeper,Can Creeper Portrait.png
+2014,Big Slime,Big Slime Portrait.png
+2015,Med Slime,Med Slime Portrait.png
+2016,Small Slime,Small Slime Portrait.png
+2017,Gambit,Gambit.png
+2018,Shadow Cat,
+2019,Wall Of Cats (Wall),
+2020,Wall Of Cats (Eye),
+2021,Wall Of Cats (Mouth),
+2022,Bumblefoot,Bumblefoot Portrait.png
+2023,Throbbing King,Throbbing King Portrait.png
+2024,Rocky Bobo,Rocky Bobo Portrait.png
+2025,Chubs,Chubs Portrait.png
+2026,Nubs,Nubs Portrait.png
+2027,Zodiac,Zodiac.png
+2028,Flushmaster,Flushmaster Portrait.png
+2029,Spider Queen,Spider Queen Portrait.png
+2030,Guillotina Phase 1,
+2031,Guillotina Phase 3 Head,
+2032,Guillotina Phase 3 Body,
+2033,Dust Devil,Dust Devil Portrait.png
+2034,Lenny,Lenny Portrait.png
+2035,Johnny,Johnny Portrait.png
+2036,Alien Beast,Alien Beast Portrait.png
+2037,The Coven,The Coven Portrait.png
+2038,Cerberubs,Cerberubs.png
+2039,Astro Zombie,Astro Zombie.png
+2040,Stacy Mutant,
+2041,Zaratana VS,
+2042,Pyrophina VS,
+2043,Moon Head,Moon Head.png
+2044,Moon Hand,Moon Hand.png
+2045,Colorless Cat (Tutorial),
+2046,Lord Bunga,Lord Bunga Portrait.png
+2047,Bunga Warrior 1,
+2048,Spewer,Spewer Portrait.png
+2049,Ice Elemental,Ice Elemental Portrait.png
+2050,Queen Hippo,Queen Hippo Portrait.png
+2051,Dybbuk,Dybbuk Portrait.png
+2052,Hitler Fetus,
+2053,Hitler,Hitler Portrait.png
+2054,Druid Cat,Druid Cat Portrait.png
+2055,Druid Crow,
+2056,Rat King,Rat King Portrait.png
+2057,Trampy,Trampy Portrait.png
+2058,Necro Cat,Necro Cat Portrait.png
+2059,Tinkerer Cat,Tinkerer Cat Portrait.png
+2060,Butcher Cat,Butcher Cat Portrait.png
+2061,Psychic Cat,Psychic Cat Portrait.png
+2062,Monk Cat,Monk Cat Portrait.png
+2063,Jester Cat,Jester Cat Portrait.png
+2064,Terminator 1,
+2065,Terminator 2,
+2066,Pyrophina (Solo),
+2067,Zaratana (Solo),
+2068,Chupacabra,Chupacabra Portrait.png
+2069,Throbbing King,Throbbing King Portrait.png
+2070,Bunga Warrior 2,
+2071,Steven Slime,
+2072,Organ Zodiac,Organ Zodiac Portrait.png
+2073,Mega Dino (Head),
+2074,Mega Dino (Leg),
+2075,Girl Dino,Girl Dino Portrait.png
+2076,Boy Dino,Boy Dino Portrait.png
+2077,The Bloat,The Bloat Portrait.png
+2078,Lightning Elemental,Lightning Elemental Portrait.png
+2079,Infested Duo,Infested Duo Portrait.png
+2080,Cave Cat Mom,Cave Cat Mom Portrait.png
+2081,Cave Cat Dad,Cave Cat Dad Portrait.png
+2082,Cave Cat Kitten,
+2083,Dr. Mangler,
+2084,Mangler's Monster,
+2085,The Mother,The Mother Portrait.png
+2086,Mother Tumor (big),
+2087,Mother Tumor (small),
+2088,Hellspawn,Hellspawn Portrait.png
+2089,Chaos,Chaos Portrait.png
+2090,Chaos (mirrored position marker),
+2091,T3 Hitler,
+2092,T3 Hitler Mini Spawn Positions,
+2093,FinalBoss,
+2094,Final Boss Clone Spawn Positions,
+2095,The Child (spawn position),
+2096,Mega Guppy (DEBUG ONLY),
+2097,White Rabbit,White Rabbit Portrait.png
+2098,Glowing Bear,Glowing Bear Portrait.png
+2099,Death,
+5000,Rock,Rock.png
+5001,Ice Block,
+5002,Coin,Coin.png
+5005,Gas Cloud,Gas Cloud.png
+5006,Dust Cloud,Dust Cloud.png
+5007,Bomb,Bomb.png
+5008,Small Rock,Small Rock.png
+5009,Junk,Junk.png
+5010,Trash Bag,Trash Bag.png
+5011,Food,Food.png
+5012,Crate,Crate.png
+5013,Gas Can,Gas Can.png
+5014,Poop,Poop.png
+5015,Fire Hydrant,
+5018,Tire,Tire.png
+5020,Phylactery,
+5021,Random Chapter Enemy Corpse,
+5024,TNTCrate,TNTCrate.png
+5025,Harpoon Trap,5025.png
+5026,Harpoon Trap,5026.png
+5027,Harpoon Trap,5027.png
+5028,Harpoon Trap,5028.png
+5029,Water Kitten Trap,
+5030,Spiky Rock,Spiky Rock.png
+5031,Boulder,Boulder.png
+5032,Spider Web,
+5033,Ghost Tombstone,
+5034,Zombie Tombstone,
+5035,Mana Drain Idol,
+5036,Tire (Up),
+5037,Tire (Up),
+5038,Tire (Up) (Random Direction),
+5039,Cactus,Cactus.png
+5041,Tall Static Cactus,
+5042,2x2 Static Cactus,
+5043,Mini Nuke,
+5044,Small Candle,
+5045,Big Candle,
+5046,Neutron Star,Neutron Star Portrait.png
+5047,Black Hole,Black Hole Portrait.png
+5048,Hell Hand,
+5049,Cloning Vat,Cloning Vat Portrait.png
+5050,Support Pillar,
+5051,Cave Man Spear,
+5052,Spewer Pill (normal),
+5053,Spewer Pill (lava),
+5054,Spewer Pill (tar),
+5055,Spewer Pill Tube,
+5056,Spewer Pill Tube,
+5057,Mini Volcano,
+5058,Slot Machine,Slot Machine Portrait.png
+5059,Coven Candle,Coven Candle.png
+5060,Scrap,
+5061,Catnip,
+5062,Blessing,
+5063,Poison Food,
+1200,Bepis,Bepis.png
+
+TILES
+ID,Name,Direct Sprite
+0,Empty,
+1,Water,1.png
+2,Grass,2.png
+3,Tall Grass,3.png
+4,Fire,4.png
+5,Ice,
+6,Lava,6.png
+7,Metal,7.png
+8,Rock,8.png
+9,Creep,9.png
+10,Oil,10.png
+11,Toxic Sludge,11.png
+12,Shadow,12.png
+13,Glass Shards,13.png
+14,Snow,14.png
+15,Water with current,15.png
+16,Water with current,16.png
+17,Water with current,17.png
+18,Water with current,18.png
+19,Dirt,19.png
+20,Stalagmites,20.png
+21,Road Tile,
+22,Brambles,22.png
+23,Flowers,23.png
+24,Tall Flower Tile,24.png
+25,Supercooled Water Tile,
+26,Glitch Tile,
+
+STATIC OBJECTS
+ID,Name,Direct Sprite,alley,boneyard,bunker,caves,core,crater,desert,finalboss,future,house,iceage,junkyard,jurassic,lab,meatworld,moon,sewers,theend,theinfinite,therift,tutorial
+5003,Static Tall A (Power Pole),Power Pole.png,PowerPole.png,MISSING: TallGraveRocks1.png,MISSING: BunkerTall1.png,MISSING: TallCaveRock1.png,MISSING: CoreTall1.png,MISSING: CraterTall1.png,DesertTall.png,MISSING: infinitetall1.png,MISSING: futuretall1.png,PowerPole.png,MISSING: Iceagetall1.png,Tree.png,MISSING: dinolandtall1.png,MISSING: Labtall1.png,Meatt.png,MISSING: MoonTall1.png,TallPipe.png,MISSING: endtall1.png,MISSING: infinitetall1.png,MISSING: rifttall1.png,PowerPole.png
+5004,Static 2x2 A (Dumpster),Dumpster.png,Dumpster.png,MISSING: BigGraveRocks1.png,Bunker2x2.png,BigCaveRock1.png,Core2x2.png,Crater2x2.png,Desert2x2.png,Infinite2x2.png,future2x2.png,Dumpster.png,Iceage2x2.png,StaticJunkCube.png,dino2x2.png,Lab2x2.png,Meat2x2.png,Moon2x2.png,BigPipes.png,End2x2.png,Infinite2x2.png,Rift2x2.png,thepath2x2.png
+5016,Static 1x1 A (Rubble),Rubble.png,Rubble.png,MISSING: GraveRocks1.png,MISSING: BunkerObjects1.png,MISSING: CaveRock1.png,MISSING: CoreObjects1.png,MISSING: CraterObjects1.png,DesertRocks.png,Infiniteobjects.png,Futureobjects.png,Rubble.png,MISSING: Iceageobjects1.png,StaticJunkSmall.png,Dinoobjects.png,MISSING: LabObjects1.png,Meatobjects.png,MISSING: MoonObjects1.png,SmallPipes.png,Endobjects.png,Infiniteobjects.png,Riftobjects.png,Pathrubble.png
+5017,Static 1x1 B (Bricks),Bricks.png,Bricks.png,GraveRocks2.png,BunkerObjects2.png,CaveRock2.png,CoreObjects2.png,CraterObjects2.png,DesertCactus.png,Infiniteobjects2.png,Futureobjects2.png,Bricks.png,IceageObjects2.png,Stump.png,Dinoobjects.png,Labobjects2.png,Meatobjects2.png,MoonObjects2.png,Bricks3.png,Endobjects.png,Infiniteobjects2.png,Riftobjects.png,Bricks.png
+5019,Static Tall B (Phone Booth),Phone Booth.png,PhoneBooth.png,MISSING: TallGraveRocks1.png,BunkerTall2.png,TallCaveRock2.png,CoreTall2.png,CraterTall2.png,DesertTall2.png,MISSING: infinitetall1.png,futuretall.png,PhoneBooth.png,Iceagetall2.png,StaticTires.png,dinolandtall0.png,Labtall2.png,MISSING: meattall1.png,MoonTall2.png,PhoneBooth.png,Endt.png,MISSING: infinitetall1.png,Riftt.png,PhoneBooth.png
+5022,Static 1x1 C (Gravel),,Bricks.png,GraveRocks2.png,SmallGravelPile.png,CaveRock3.png,CoreObjects3.png,MISSING: CraterObjects1.png,DesertRocks.png,Infiniteobjects.png,Futureobjects.png,Bricks.png,MISSING: Iceageobjects1.png,SmallGravelPile.png,Dinoobjects.png,MISSING: LabObjects1.png,Meatobjects.png,MoonObjects2.png,Sludge.png,Endobjects.png,Infiniteobjects.png,Riftobjects.png,Bricks.png
+5023,Static 2x2 B (Gravel Pile),,Dumpster.png,MISSING: BigGraveRocks1.png,BigGravelPile.png,BigCaveRock1.png,Desert2x2.png,Desert2x2.png,Desert2x2.png,Dumpster.png,Dumpster.png,Dumpster.png,Dumpster.png,BigGravelPile.png,Dumpster.png,Moon2x22.png,Dumpster.png,Moon2x22.png,Dumpster.png,Dumpster.png,Dumpster.png,Dumpster.png,Dumpster.png
+5040,Static Cactus,,,,,,,,,,,,,,,,,,,,,,

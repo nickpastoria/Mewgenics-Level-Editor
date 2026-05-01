@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 public class ItemBrowser : MonoBehaviour
 {
     public GameObject buttonPrefab;
@@ -32,8 +33,7 @@ public class ItemBrowser : MonoBehaviour
     public void Create()
     {
         SpawnItemList = new List<GameObject>();
-        Dictionary<int, string> loadtype;
-        loadtype = null;
+        Dictionary<int, string> loadtype = null;
         if (LoaderType == ItemBrowser.Type.Tile) loadtype = ED.tiles;
         if (LoaderType == ItemBrowser.Type.Spawn) loadtype = ED.spawns;
         foreach(KeyValuePair<int, string> entry in loadtype)
@@ -45,6 +45,41 @@ public class ItemBrowser : MonoBehaviour
         }
     }
 
+    // Written by Claude
+    // Destroys all existing toolbox buttons and recreates them.
+    public void Rebuild()
+    {
+        foreach (GameObject button in SpawnItemList)
+            Destroy(button);
+        Create();
+    }
+
+    // Written by Claude
+    // Updates only static item sprites in-place — no destroy/recreate.
+    // Much faster than Rebuild() when only the tileset has changed.
+    public void RefreshStaticSprites()
+    {
+        foreach (GameObject button in SpawnItemList)
+        {
+            if (button == null) continue;
+            button.GetComponent<InventoryObject>()?.RefreshSprite();
+        }
+    }
+
+    // Written by Claude
+    // Same as RefreshStaticSprites() but spread across frames (batchSize items per frame)
+    // so the UI stays responsive during large tileset switches.
+    public IEnumerator RefreshStaticSpritesCoroutine(int batchSize = 20)
+    {
+        int count = 0;
+        foreach (GameObject button in SpawnItemList)
+        {
+            if (button == null) continue;
+            button.GetComponent<InventoryObject>()?.RefreshSprite();
+            if (++count % batchSize == 0) yield return null;
+        }
+    }
+
     private void SelectItem(ItemBrowser.Type type, int UID)
     {
         Debug.Log("Selected Item: " + UID);
@@ -52,12 +87,27 @@ public class ItemBrowser : MonoBehaviour
         if (EditorManager.Instance.type == Type.Select)
         {
             EditorManager.Instance.selectedSpawn.uid = UID;
-            inspectorScript.UpdateDisplay();
+            // Written by Claude
+            // Clear the row highlight in the inspector once the selection is confirmed
+            inspectorScript.ClearActiveSelection();
         } else
         {
             EditorManager.Instance.type = type;
-            if(type == ItemBrowser.Type.Spawn) PreviewImage.sprite = SPL.findSpawnByID(UID);
-            if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);   
+            if (type == ItemBrowser.Type.Spawn)
+            {
+                // Written by Claude
+                // Use the tileset-appropriate sprite for static objects if available,
+                // otherwise fall back to the standard ID-based lookup.
+                Sprite preview = null;
+                if (TilesetLibrary.Instance != null && TilesetLibrary.Instance.IsStaticObject(UID))
+                {
+                    string assetName = TilesetLibrary.Instance.GetStaticAssetName(UID);
+                    if (!string.IsNullOrEmpty(assetName))
+                        preview = SPL.FindSpawnByName(assetName);
+                }
+                PreviewImage.sprite = preview ?? SPL.findSpawnByID(UID);
+            }
+            if(type == ItemBrowser.Type.Tile) PreviewImage.sprite = SPL.findTileByID(UID);
         }
     }
 

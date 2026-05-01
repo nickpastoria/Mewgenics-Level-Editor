@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using System.Linq;
 
 // Code Referenced From https://www.youtube.com/watch?v=8bMzz-nSIwg
 public class EditorManager : MonoBehaviour
@@ -18,12 +19,22 @@ public class EditorManager : MonoBehaviour
 
     public bool mouseEnabled = true;
 
+    // Written by Claude
+    // The currently selected biome/tileset — set by the tileset dropdown UI.
+    // Other systems (e.g. SpriteLibrary) read this to pick biome-appropriate assets.
+    public string CurrentTileset = "";
+
     public GameObject TilesBrowser;
 
     public GameObject SpawnsBrowser;
     public bool EntitiesLoaded = false;
 
     public bool ImagesLoaded = false;
+
+    // Written by Claude
+    // Set to true once both EntitiesLoaded and ImagesLoaded are true.
+    // Use this as the single "everything is ready" signal rather than checking both flags separately.
+    public bool AssetsLoaded = false;
     public TMP_Text ProjectLabel;
     public TMP_Text LevelLabel;
     public ErrorHandler errorHandler;
@@ -46,9 +57,27 @@ public class EditorManager : MonoBehaviour
     {
         if (EntitiesLoaded && ImagesLoaded)
         {
+            AssetsLoaded = true;
             SpawnsBrowser.GetComponent<ItemBrowser>().Create();
             TilesBrowser.GetComponent<ItemBrowser>().Create();
         }
+    }
+
+    // Written by Claude
+    // Starts coroutines to refresh static toolbox sprites across multiple frames,
+    // keeping the editor responsive during tileset switches.
+    public void ReloadToolbox()
+    {
+        StartCoroutine(ReloadToolboxCoroutine());
+    }
+
+    private IEnumerator ReloadToolboxCoroutine()
+    {
+        // Start both browser refreshes simultaneously so they interleave across frames
+        Coroutine spawnRefresh = StartCoroutine(SpawnsBrowser.GetComponent<ItemBrowser>().RefreshStaticSpritesCoroutine());
+        Coroutine tileRefresh  = StartCoroutine(TilesBrowser.GetComponent<ItemBrowser>().RefreshStaticSpritesCoroutine());
+        yield return spawnRefresh;
+        yield return tileRefresh;
     }
     public void UpdateProjectLabel()
     {

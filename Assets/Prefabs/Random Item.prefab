@@ -330,7 +330,7 @@ GameObject:
   - component: {fileID: 6781858419369780565}
   m_Layer: 5
   m_Name: Random Item Background
-  m_TagString: Untagged
+  m_TagString: SelectHighlight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
