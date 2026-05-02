@@ -4,7 +4,7 @@ ID,Name,Direct Sprite
 11,Rat,Rat.png
 12,Fly,Fly.png
 13,Worm,Worm.png
-14,MadLad,
+14,MadLad,Mad Lad.png
 15,Gasser,Gasser.png
 16,Kitten,Kitten Portrait.png
 17,Mangy,Mangy Portrait.png
@@ -47,7 +47,7 @@ ID,Name,Direct Sprite
 54,Fetus Gusher,Fetus Gusher.png
 55,Ten Tickles,Ten Tickles.png
 56,Korbee,
-57,Albino TomTom,
+57,Albino TomTom,Albino Tom Tom Portrait.png
 58,Toadie,Toadie Portrait.png
 59,Toadie (hidden),
 60,Spider Cat,Spider Cat Portrait.png
@@ -67,7 +67,7 @@ ID,Name,Direct Sprite
 74,Reaper,Reaper.png
 75,Tall Robes,Tall Robes Portrait.png
 76,Shambler,Shambler.png
-77,GraveWorm,
+77,GraveWorm,Grave Worm.png
 78,Butt Zombie,Butt Zombie Portrait.png
 79,Tiny Spider,
 80,Wisp,Wisp.png
@@ -78,10 +78,10 @@ ID,Name,Direct Sprite
 85,Bone Worm,
 86,Carcus,Carcus.png
 87,Peashy,Peashy.png
-88,BabyDeathWorm,
+88,BabyDeathWorm,BabyDeathWorm.png
 89,Death Worm,Death Worm.png
 90,Scorpion Cat,Scorpion Cat Portrait.png
-91,Mangy 2,
+91,Mangy 2,Mangy 2Portrait.png
 92,Gun Cat,Gun Cat Portrait.png
 93,Horny Cat,Horny Cat Portrait.png
 94,Atomic Kitten,Atomic Kitten Portrait.png
@@ -94,7 +94,7 @@ ID,Name,Direct Sprite
 101,Bishop Hat,Bishop Hat.png
 102,Love Bot,Love Bot.png
 103,Security Bot,Security Bot.png
-104,Killdozer,
+104,Killdozer,Kill Dozer.png
 105,Carnibulb,Carnibulb.png
 106,Geo Lad,Geo Lad.png
 107,Bramble Baby,Bramble Baby.png
@@ -104,9 +104,9 @@ ID,Name,Direct Sprite
 111,Amoeba,Amoeba.png
 112,Tremblo,Tremblo.png
 113,Infested,Infested Portrait.png
-114,RockHead,
-115,NoHead,
-116,CraterCreeper,
+114,RockHead,Rock Head Portrait.png
+115,NoHead,No Head Portrait.png
+116,CraterCreeper,Crater Creeper Portrait.png
 117,Core Freak,Core Freak.png
 118,Poker Demon,Poker Demon.png
 119,Whisperer,Whisperer.png
@@ -138,10 +138,10 @@ ID,Name,Direct Sprite
 145,Dr. Ditto,
 146,Mega Mutant,Mega Mutant Portrait.png
 147,Dr. Cat,
-148,Mangy 3,
+148,Mangy 3,Mangy 3Portrait.png
 149,Needlecat,Needlecat Portrait.png
 150,Stacy 2.0,
-151,Yeti Cat,
+151,Yeti Cat,Yeticat Portrait.png
 152,Sabertooth Cat,Sabertooth Cat Portrait.png
 153,Sabertooth Cub,Sabertooth Cub Portrait.png
 154,Mammoth Baby,Mammoth Baby Portrait.png
@@ -170,11 +170,11 @@ ID,Name,Direct Sprite
 177,Uber Cat,
 178,Katze Bot,
 179,Spider bot,
-180,Soldier bot,
-181,Hanger bot,
-182,Doctor bot,
-183,Tall bot,
-184,TV Bot,
+180,Soldier bot,Soldier Bot Portrait.png
+181,Hanger bot,Hanger Bot Portrait.png
+182,Doctor bot,Doctor Bot Portrait.png
+183,Tall bot,Tall Bot Portrait.png
+184,TV Bot,TVBot Portrait.png
 185,Jar Head,Jar Head Portrait.png
 186,Fetus (Jar),
 187,Fetus (No Jar),
@@ -211,181 +211,181 @@ ID,Name,Direct Sprite
 218,Gatekeeper,Gatekeeper Portrait.png
 219,Angelic Kitten,Angelic Kitten Portrait.png
 220,Angelic Cat,Angelic Cat Portrait.png
-1011,Elite Rat,
-1012,Elite Fly,
-1016,Elite Kitten,
-1017,Elite Mangy,
-1018,Elite Tom Tom,
+1011,Elite Rat,Elite Rat Portrait.png
+1012,Elite Fly,Elite Fly Portrait.png
+1016,Elite Kitten,Elite Kitten Portrait.png
+1017,Elite Mangy,Elite Mangy Portrait.png
+1018,Elite Tom Tom,Elite Tom Tom Portrait.png
 1020,Leaper,Leaper.png
-1021,Elite Lumpy,
-1022,Elite Cat Caller,
-1023,Elite Pinky,
-1024,Elite Maggot,
-1025,Elite Flea,
-1026,Elite Pooter,
-1030,Elite Glass Spitter,
-1031,Elite Siren,
+1021,Elite Lumpy,Elite Lumpy Portrait.png
+1022,Elite Cat Caller,Elite Cat Caller Portrait.png
+1023,Elite Pinky,Elite Pinky Portrait.png
+1024,Elite Maggot,Elite Maggot Portrait.png
+1025,Elite Flea,Elite Flea Portrait.png
+1026,Elite Pooter,Elite Pooter Portrait.png
+1030,Elite Glass Spitter,Elite Glass Spitter Portrait.png
+1031,Elite Siren,Elite Siren Portrait.png
 1032,Elite Jekyll & Hyde,
 1033,Elite Spiky Cat,
-1034,Elite Popeye Cat,
-1043,Elite Chum Bag,
-1044,Elite Chummy,
-1045,Elite Host,
-1046,Elite Pile,
-1047,Elite Floater,
-1048,Elite Water Leech,
-1050,Elite Dip,
-1051,Elite Daddy Shark,
-1052,Elite Baby Shark,
-1053,Elite Fetus,
-1054,Elite Fetus Gusher,
-1035,Elite Gassy Cat,
+1034,Elite Popeye Cat,Elite Popeye Cat Portrait.png
+1043,Elite Chum Bag,Elite Chum Bag Portrait.png
+1044,Elite Chummy,Elite Chummy Portrait.png
+1045,Elite Host,Elite Host Portrait.png
+1046,Elite Pile,Elite Pile Portrait.png
+1047,Elite Floater,Elite Floater Portrait.png
+1048,Elite Water Leech,Elite Water Leech Portrait.png
+1050,Elite Dip,Elite Dip Portrait.png
+1051,Elite Daddy Shark,Elite Daddy Shark Portrait.png
+1052,Elite Baby Shark,Elite Baby Shark Portrait.png
+1053,Elite Fetus,Elite Fetus Portrait.png
+1054,Elite Fetus Gusher,Elite Fetus Gusher Portrait.png
+1035,Elite Gassy Cat,Elite Gassy Cat Portrait.png
 1036,Elite Sharky,
 1037,Elite Boomer,
-1038,Elite Water Kitten,
-1055,Elite Ten Tickles,
+1038,Elite Water Kitten,Elite Water Kitten Portrait.png
+1055,Elite Ten Tickles,Elite Ten Tickles Portrait.png
 1056,Elite Korbee,
-1057,Elite Albino TomTom,
-1058,Elite Toadie,
+1057,Elite Albino TomTom,Elite Albino Tom Tom Portrait.png
+1058,Elite Toadie,Elite Toadie Portrait.png
 1059,Elite Toadie (hidden),
-1060,Elite Spider Cat,
-1061,Elite Tall Spider Cat,
-1062,Elite Bat,
+1060,Elite Spider Cat,Elite Spider Cat Portrait.png
+1061,Elite Tall Spider Cat,Elite Tall Spider Cat Portrait.png
+1062,Elite Bat,Elite Bat Portrait.png
 1063,Elite Brain Drain,
-1064,Elite Skull Ooze,
-1065,Elite Mega Fetus,
-1066,Elite Zombie Cat,
-1067,Elite Skeleton Cat,
-1068,Elite Tall Skeleton Cat,
-1069,Elite Wolf Cat,
-1071,Elite Tatters,
-1072,Elite Spookie,
-1073,Elite Scary,
-1074,Elite Reaper,
-1075,Elite Tall Robes,
-1076,Elite Shambler,
-1077,Elite GraveWorm,
-1078,Elite Butt Zombie,
+1064,Elite Skull Ooze,Elite Skull Ooze Portrait.png
+1065,Elite Mega Fetus,Elite Mega Fetus Portrait.png
+1066,Elite Zombie Cat,Elite Zombie Cat Portrait.png
+1067,Elite Skeleton Cat,Elite Skeleton Cat Portrait.png
+1068,Elite Tall Skeleton Cat,Elite Tall Skeleton Cat Portrait.png
+1069,Elite Wolf Cat,Elite Wolf Cat Portrait.png
+1071,Elite Tatters,Elite Tatters Portrait.png
+1072,Elite Spookie,Elite Spookie Portrait.png
+1073,Elite Scary,Elite Scary Portrait.png
+1074,Elite Reaper,Elite Reaper Portrait.png
+1075,Elite Tall Robes,Elite Tall Robes Portrait.png
+1076,Elite Shambler,Elite Shambler Portrait.png
+1077,Elite GraveWorm,Elite Grave Worm Portrait.png
+1078,Elite Butt Zombie,Elite Butt Zombie Portrait.png
 1079,Elite Tiny Spider,
-1080,Elite Wisp,
+1080,Elite Wisp,Elite Wisp Portrait.png
 1081,Elite Rattlesnek,
-1082,Elite Skeleton Shambler,
-1083,Elite Thump,
-1084,Elite Fly Swarm,
+1082,Elite Skeleton Shambler,Elite Skeleton Shambler Portrait.png
+1083,Elite Thump,Elite Thump Portrait.png
+1084,Elite Fly Swarm,Elite Fly Swarm Portrait.png
 1085,Elite Bone Worm,
-1086,Elite Carcus,
-1087,Elite Peashy,
-1088,Elite BabyDeathWorm,
-1089,Elite Death Worm,
-1090,Elite Scorpion Cat,
-1091,Elite Mangy 2,
-1092,Elite Gun Cat,
-1093,Elite Horny Cat,
-1094,Elite Atomic Kitten,
-1095,Elite Robo Tom,
-1096,Elite Cat Cultist,
+1086,Elite Carcus,Elite Carcus Portrait.png
+1087,Elite Peashy,Elite Peashy Portrait.png
+1088,Elite BabyDeathWorm,Elite Baby Death Worm Portrait.png
+1089,Elite Death Worm,Elite Death Worm Portrait.png
+1090,Elite Scorpion Cat,Elite Scorpion Cat Portrait.png
+1091,Elite Mangy 2,Elite Mangy 2 Portrait.png
+1092,Elite Gun Cat,Elite Gun Cat Portrait.png
+1093,Elite Horny Cat,Elite Horny Cat Portrait.png
+1094,Elite Atomic Kitten,Elite Atomic Kitten Portrait.png
+1095,Elite Robo Tom,Elite Robo Tom Portrait.png
+1096,Elite Cat Cultist,Elite Cat Cultist Portrait.png
 1097,Elite Cultist,
 1098,Elite Zealot,
 1099,Elite Mutant,
 1100,Elite Bishop,
 1101,Elite Bishop Hat,
-1102,Elite Love Bot,
-1103,Elite Security Bot,
-1104,Elite Killdozer,
-1105,Elite Carnibulb,
-1106,Elite Geo Lad,
-1107,Elite Bramble Baby,
-1108,Elite Hemlock,
-1109,Elite Nettle,
-1110,Elite Birthwort,
-1111,Elite Amoeba,
-1112,Elite Tremblo,
-1113,Elite Infested,
-1114,Elite RockHead,
-1116,Elite CraterCreeper,
-1117,Elite Core Freak,
-1118,Elite Poker Demon,
-1119,Elite Whisperer,
-1120,Elite Cloaked Demon,
-1121,Elite Big Demon,
-1122,Elite Mega Tumor,
-1123,Elite Head Tumor,
-1124,Elite Tall Tumor,
-1125,Elite Demon Hooker,
-1126,Elite Belcher,
-1127,Elite Tumor Cat,
-1128,Elite Big Asteroid,
-1129,Elite Small Asteroid,
-1130,Elite Small UFO,
-1131,Elite Big UFO,
-1132,Elite Yellow Blaster,
-1133,Elite Grey Alien,
-1134,Elite Green Prober,
-1135,Elite Waggle,
-1136,Elite Moon Worm,
-1137,Elite Rover,
-1138,Elite Astro,
-1139,Elite Rat Cat,
-1140,Elite Gamete,
-1141,Elite Nubs Cat,
-1142,Elite Cat Human,
-1143,Elite Human Cat,
-1144,Elite Cop Bot,
+1102,Elite Love Bot,Elite Love Bot Portrait.png
+1103,Elite Security Bot,Elite Security Bot Portrait.png
+1104,Elite Killdozer,Elite Kill Dozer Portrait.png
+1105,Elite Carnibulb,Elite Carnibulb Portrait.png
+1106,Elite Geo Lad,Elite Geo Lad Portrait.png
+1107,Elite Bramble Baby,Elite Bramble Baby Portrait.png
+1108,Elite Hemlock,Elite Hemlock Portrait.png
+1109,Elite Nettle,Elite Nettle Portrait.png
+1110,Elite Birthwort,Elite Birthwort Portrait.png
+1111,Elite Amoeba,Elite Amoeba Portrait.png
+1112,Elite Tremblo,Elite Tremblo Portrait.png
+1113,Elite Infested,Elite Infested Portrait.png
+1114,Elite RockHead,Elite Rock Head Portrait.png
+1116,Elite CraterCreeper,Elite Crater Creeper Portrait.png
+1117,Elite Core Freak,Elite Core Freak Portrait.png
+1118,Elite Poker Demon,Elite Poker Demon Portrait.png
+1119,Elite Whisperer,Elite Whisperer Portrait.png
+1120,Elite Cloaked Demon,Elite Cloaked Demon Portrait.png
+1121,Elite Big Demon,Elite Big Demon Portrait.png
+1122,Elite Mega Tumor,Elite Mega Tumor Portrait.png
+1123,Elite Head Tumor,Elite Head Tumor Portrait.png
+1124,Elite Tall Tumor,Elite Tall Tumor Portrait.png
+1125,Elite Demon Hooker,Elite Demon Hooker Portrait.png
+1126,Elite Belcher,Elite Belcher Portrait.png
+1127,Elite Tumor Cat,Elite Tumor Cat Portrait.png
+1128,Elite Big Asteroid,Elite Big Asteroid Portrait.png
+1129,Elite Small Asteroid,Elite Small Asteroid Portrait.png
+1130,Elite Small UFO,Elite Small UFO Portrait.png
+1131,Elite Big UFO,Elite Big UFO Portrait.png
+1132,Elite Yellow Blaster,Elite Yellow Blaster Portrait.png
+1133,Elite Grey Alien,Elite Grey Alien Portrait.png
+1134,Elite Green Prober,Elite Green Prober Portrait.png
+1135,Elite Waggle,Elite Waggle Portrait.png
+1136,Elite Moon Worm,Elite Moon Worm Portrait.png
+1137,Elite Rover,Elite Rover Portrait.png
+1138,Elite Astro,Elite Astro Portrait.png
+1139,Elite Rat Cat,Elite Rat Cat Portrait.png
+1140,Elite Gamete,Elite Gamete Portrait.png
+1141,Elite Nubs Cat,Elite Nubs Cat Portrait.png
+1142,Elite Cat Human,Elite Cat Human Portrait.png
+1143,Elite Human Cat,Elite Human Cat Portrait.png
+1144,Elite Cop Bot,Elite Cop Bot Portrait.png
 1145,Elite Dr. Ditto,
-1146,Elite Mega Mutant,
+1146,Elite Mega Mutant,Elite Mega Mutant Portrait.png
 1147,Elite Dr. Cat,
-1148,Elite Mangy 3,
-1149,Elite Needlecat,
+1148,Elite Mangy 3,Elite Mangy 3 Portrait.png
+1149,Elite Needlecat,Elite Needlecat Portrait.png
 1150,Elite Stacy 2.0,
-1151,Elite Yeti Cat,
-1152,Elite Sabertooth Cat,
-1153,Elite Sabertooth Cub,
-1154,Elite Mammoth Baby,
+1151,Elite Yeti Cat,Elite Yeticat Portrait.png
+1152,Elite Sabertooth Cat,Elite Sabertooth Cat Portrait.png
+1153,Elite Sabertooth Cub,Elite Sabertooth Cub Portrait.png
+1154,Elite Mammoth Baby,Elite Mammoth Baby Portrait.png
 1155,Elite Cave Baby,
 1156,Elite Cave Man,
 1157,Elite Cave Man (No Spear),
 1158,Elite Cave Woman,
 1159,Elite Were-Man,
-1160,Elite Cave Chief,
-1161,Elite Yeti,
-1162,Elite Fuzzer,
-1163,Elite Mammoth,
-1164,Elite Prehistoric Pooter,
-1165,Elite Pterodactyl,
-1166,Elite Raptor,
-1167,Elite Raptor Baby,
-1168,Elite Ankylosaurus,
-1169,Elite Parasaurolophus,
-1170,Elite Maelestes,
+1160,Elite Cave Chief,Elite Cave Chief Portrait.png
+1161,Elite Yeti,Elite Yeti Portrait.png
+1162,Elite Fuzzer,Elite Fuzzer Portrait.png
+1163,Elite Mammoth,Elite Mammoth Portrait.png
+1164,Elite Prehistoric Pooter,Elite Prehistoric Pooter Portrait.png
+1165,Elite Pterodactyl,Elite Pterodactyl Portrait.png
+1166,Elite Raptor,Elite Raptor Portrait.png
+1167,Elite Raptor Baby,Elite Raptor Baby Portrait.png
+1168,Elite Ankylosaurus,Elite Ankylosaurus Portrait.png
+1169,Elite Parasaurolophus,Elite Parasaurolophus Portrait.png
+1170,Elite Maelestes,Elite Maelestes Portrait.png
 1171,Elite T-Rex,
-1172,Elite Stegosaurus,
-1173,Elite Triceratops,
+1172,Elite Stegosaurus,Elite Stegosaurus Portrait.png
+1173,Elite Triceratops,Elite Triceratops Portrait.png
 1174,Elite Dino Nest,
 1175,Elite Uber Man,
 1176,Elite Uber Woman,
 1177,Elite Uber Cat,
 1178,Elite Katze Bot,
 1179,Elite Spider bot,
-1180,Elite Soldier bot,
-1181,Elite Hanger bot,
-1182,Elite Doctor bot,
-1183,Elite Tall bot,
-1184,Elite TV Bot,
-1185,Elite Jar Head,
+1180,Elite Soldier bot,Elite Soldier Bot Portrait.png
+1181,Elite Hanger bot,Elite Hanger Bot Portrait.png
+1182,Elite Doctor bot,Elite Doctor Bot Portrait.png
+1183,Elite Tall bot,Elite Tall Bot Portrait.png
+1184,Elite TV Bot,Elite TVBot Portrait.png
+1185,Elite Jar Head,Elite Jar Head Portrait.png
 1186,Elite Fetus (Jar),
 1187,Fetus (No Jar),
 1188,Elite Shade (male),
 1189,Elite Shade (female),
-1190,Elite Gasper,
-1191,Elite Floast,
-1192,Elite Tumor Barrier,
-1193,Elite Husk,
-1194,Elite Conjoined Husk,
-1195,Elite Cancer Cat,
-1196,Elite Collective Cat,
-1197,Elite Shade Cat,
-1198,Elite Slag,
-1199,Elite Gorger,
+1190,Elite Gasper,Elite Gasper Portrait.png
+1191,Elite Floast,Elite Floast Portrait.png
+1192,Elite Tumor Barrier,Elite Tumor Barrier Portrait.png
+1193,Elite Husk,Elite Husk Portrait.png
+1194,Elite Conjoined Husk,Elite Conjoined Husk Portrait.png
+1195,Elite Cancer Cat,Elite Cancer Cat Portrait.png
+1196,Elite Collective Cat,Elite Collective Cat Portrait.png
+1197,Elite Shade Cat,Elite Shade Cat Portrait.png
+1198,Elite Slag,Elite Slag Portrait.png
+1199,Elite Gorger,Elite Gorger Portrait.png
 2001,Bomber Rat,Bomber Rat Portrait.png
 2002,Fatso,Fatso Portrait.png
 2003,Rat Pile,
@@ -432,7 +432,7 @@ ID,Name,Direct Sprite
 2044,Moon Hand,Moon Hand.png
 2045,Colorless Cat (Tutorial),
 2046,Lord Bunga,Lord Bunga Portrait.png
-2047,Bunga Warrior 1,
+2047,Bunga Warrior 1,Bunga Warrior 1Portrait.png
 2048,Spewer,Spewer Portrait.png
 2049,Ice Elemental,Ice Elemental Portrait.png
 2050,Queen Hippo,Queen Hippo Portrait.png
@@ -449,13 +449,13 @@ ID,Name,Direct Sprite
 2061,Psychic Cat,Psychic Cat Portrait.png
 2062,Monk Cat,Monk Cat Portrait.png
 2063,Jester Cat,Jester Cat Portrait.png
-2064,Terminator 1,
-2065,Terminator 2,
+2064,Terminator 1,Terminator 1Portrait.png
+2065,Terminator 2,Terminator 2Portrait.png
 2066,Pyrophina (Solo),
 2067,Zaratana (Solo),
 2068,Chupacabra,Chupacabra Portrait.png
 2069,Throbbing King,Throbbing King Portrait.png
-2070,Bunga Warrior 2,
+2070,Bunga Warrior 2,Bunga Warrior 2Portrait.png
 2071,Steven Slime,
 2072,Organ Zodiac,Organ Zodiac Portrait.png
 2073,Mega Dino (Head),
@@ -476,7 +476,7 @@ ID,Name,Direct Sprite
 2088,Hellspawn,Hellspawn Portrait.png
 2089,Chaos,Chaos Portrait.png
 2090,Chaos (mirrored position marker),
-2091,T3 Hitler,
+2091,T3 Hitler,T 3Hitler Portrait.png
 2092,T3 Hitler Mini Spawn Positions,
 2093,FinalBoss,
 2094,Final Boss Clone Spawn Positions,
@@ -498,15 +498,15 @@ ID,Name,Direct Sprite
 5012,Crate,Crate.png
 5013,Gas Can,Gas Can.png
 5014,Poop,Poop.png
-5015,Fire Hydrant,
+5015,Fire Hydrant,Fire Hydrant.png
 5018,Tire,Tire.png
 5020,Phylactery,
 5021,Random Chapter Enemy Corpse,
 5024,TNTCrate,TNTCrate.png
-5025,Harpoon Trap,5025.png
-5026,Harpoon Trap,5026.png
-5027,Harpoon Trap,5027.png
-5028,Harpoon Trap,5028.png
+5025,Harpoon Trap,Harpoon Trap.png
+5026,Harpoon Trap,Harpoon Trap.png
+5027,Harpoon Trap,Harpoon Trap.png
+5028,Harpoon Trap,Harpoon Trap.png
 5029,Water Kitten Trap,
 5030,Spiky Rock,Spiky Rock.png
 5031,Boulder,Boulder.png
@@ -518,8 +518,8 @@ ID,Name,Direct Sprite
 5037,Tire (Up),
 5038,Tire (Up) (Random Direction),
 5039,Cactus,Cactus.png
-5041,Tall Static Cactus,
-5042,2x2 Static Cactus,
+5041,Tall Static Cactus,Tall Static Cactus.png
+5042,2x2 Static Cactus,2x2 Static Cactus.png
 5043,Mini Nuke,
 5044,Small Candle,
 5045,Big Candle,
@@ -537,8 +537,8 @@ ID,Name,Direct Sprite
 5057,Mini Volcano,
 5058,Slot Machine,Slot Machine Portrait.png
 5059,Coven Candle,Coven Candle.png
-5060,Scrap,
-5061,Catnip,
+5060,Scrap,Scrap.png
+5061,Catnip,Catnip.png
 5062,Blessing,
 5063,Poison Food,
 1200,Bepis,Bepis.png

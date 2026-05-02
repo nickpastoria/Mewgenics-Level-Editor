@@ -135,11 +135,16 @@ public class SpriteLibrary : MonoBehaviour
 
     public Sprite findSpawnByID(int ID)
     {
+        string spawnName = ED.spawns[ID];
+        string normalSpawnName = spawnName.Replace(" ", "").ToLower();
         foreach (Sprite spawn in spawnLibrary)
         {
             // Check for ID'd images first so we can separate items like harpoons that all have the same name
             if (spawn.name == $"{ID}") return spawn;
-            else if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
+            string normalSpriteName = spawn.name.Replace(" ", "").ToLower();
+            if (normalSpriteName == normalSpawnName ||
+                normalSpawnName.Contains($"({normalSpriteName})") ||
+                normalSpriteName == normalSpawnName + "portrait")
             {
                 return spawn;
             }
@@ -173,11 +178,16 @@ public class SpriteLibrary : MonoBehaviour
 
     public bool spawnImgExists(int ID)
     {
+        string spawnName = ED.spawns[ID];
+        string normalSpawnName = spawnName.Replace(" ", "").ToLower();
         foreach (Sprite spawn in spawnLibrary)
         {
             // Check for ID'd images first so we can separate items like harpoons that all have the same name
-            if (spawn.name == $"{ID}") return spawn;
-            else if (spawn.name == $"{ED.spawns[ID]}" || ED.spawns[ID].Contains($"({spawn.name})") || spawn.name == $"{ED.spawns[ID]} Portrait")
+            if (spawn.name == $"{ID}") return true;
+            string normalSpriteName = spawn.name.Replace(" ", "").ToLower();
+            if (normalSpriteName == normalSpawnName ||
+                normalSpawnName.Contains($"({normalSpriteName})") ||
+                normalSpriteName == normalSpawnName + "portrait")
             {
                 return true;
             }
